@@ -1,0 +1,39 @@
+[
+  {
+    "id": "coding",
+    "name": "Coding",
+    "color": "#0b6b63",
+    "topics": [
+      {
+        "id": "java",
+        "name": "Java",
+        "color": "#e76f00",
+        "tagline": "Learn Java, from Hello World to OOP"
+      },
+      {
+        "id": "python",
+        "name": "Python",
+        "color": "#3776ab",
+        "tagline": "Learn Python, from your first program to loops"
+      }
+    ]
+  },
+  {
+    "id": "math",
+    "name": "Math",
+    "color": "#c2410c",
+    "topics": []
+  },
+  {
+    "id": "physics",
+    "name": "Physics",
+    "color": "#4f46e5",
+    "topics": []
+  },
+  {
+    "id": "news",
+    "name": "News",
+    "color": "#be185d",
+    "topics": []
+  }
+]

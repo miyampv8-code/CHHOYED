@@ -1,0 +1,54 @@
+[
+  {
+    "id": "sokha-chan",
+    "name": "Sokha Chan",
+    "photo": "",
+    "title": "Programming teacher",
+    "bio": "Teaches Python and web development to beginners. Likes turning big ideas into small, working programs.",
+    "skills": [
+      "Python",
+      "JavaScript",
+      "Problem solving"
+    ],
+    "links": {
+      "github": "https://github.com/example"
+    }
+  },
+  {
+    "id": "dara-vann",
+    "name": "Dara Vann",
+    "photo": "",
+    "title": "Math teacher",
+    "bio": "Has taught high school algebra and geometry for eight years. Believes every formula should come with a picture.",
+    "skills": [
+      "Algebra",
+      "Geometry",
+      "Exam preparation"
+    ],
+    "links": {
+      "telegram": "https://t.me/example"
+    }
+  },
+  {
+    "id": "srey-mom-lim",
+    "name": "Srey Mom Lim",
+    "photo": "",
+    "title": "Physics teacher",
+    "bio": "Explains physics with everyday examples, from bicycles to boiling water.",
+    "skills": [
+      "Mechanics",
+      "Lab experiments",
+      "Science communication"
+    ],
+    "links": {}
+  },
+  {
+    "id": "chhoyed-team",
+    "name": "CHHOYED Team",
+    "photo": "",
+    "title": "Site admin",
+    "bio": "Announcements and general information from the CHHOYED team.",
+    "skills": [],
+    "links": {}
+  }
+]

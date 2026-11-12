@@ -1,0 +1,201 @@
+[
+  {
+    "id": "intro-to-python",
+    "title": "Introduction to Python",
+    "summary": "Write your first program and learn what a variable is.",
+    "subject": "coding",
+    "teacherId": "sokha-chan",
+    "date": "2026-11-10",
+    "contentFile": "content/intro-to-python.md",
+    "topic": "python",
+    "order": 1
+  },
+  {
+    "id": "python-loops",
+    "title": "Repeat things with loops",
+    "summary": "Use for and while loops so you never copy and paste code again.",
+    "subject": "coding",
+    "teacherId": "sokha-chan",
+    "date": "2026-11-12",
+    "contentFile": "content/python-loops.md",
+    "topic": "python",
+    "order": 2
+  },
+  {
+    "id": "quadratic-equations",
+    "title": "Solving quadratic equations",
+    "summary": "Use the quadratic formula step by step with a worked example.",
+    "subject": "math",
+    "teacherId": "dara-vann",
+    "date": "2026-11-08",
+    "contentFile": "content/quadratic-equations.md"
+  },
+  {
+    "id": "pythagorean-theorem",
+    "title": "The Pythagorean theorem",
+    "summary": "Find the missing side of any right triangle.",
+    "subject": "math",
+    "teacherId": "dara-vann",
+    "date": "2026-11-11",
+    "contentFile": "content/pythagorean-theorem.md"
+  },
+  {
+    "id": "newton-laws",
+    "title": "Newton's three laws of motion",
+    "summary": "Why things move, stop and push back, explained with simple examples.",
+    "subject": "physics",
+    "teacherId": "srey-mom-lim",
+    "date": "2026-11-09",
+    "contentFile": "content/newton-laws.md"
+  },
+  {
+    "id": "speed-velocity-acceleration",
+    "title": "Speed, velocity and acceleration",
+    "summary": "Learn how these three ideas differ and how to calculate each one.",
+    "subject": "physics",
+    "teacherId": "srey-mom-lim",
+    "date": "2026-11-12",
+    "contentFile": "content/speed-velocity-acceleration.md"
+  },
+  {
+    "id": "welcome-to-chhoyed",
+    "title": "Welcome to CHHOYED",
+    "summary": "What this site is, who writes the lessons, and how to follow new ones.",
+    "subject": "news",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "contentFile": "content/welcome-to-chhoyed.md"
+  },
+  {
+    "id": "java-hello-world",
+    "title": "Hello, World!",
+    "summary": "Write, run and understand your first Java program.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 1,
+    "part": "Java basics",
+    "contentFile": "content/java-hello-world.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-variables",
+    "title": "Variables and data types",
+    "summary": "Store numbers, text and true/false values.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 2,
+    "part": "Java basics",
+    "contentFile": "content/java-variables.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-operators-input",
+    "title": "Operators and user input",
+    "summary": "Do math, compare values and read from the keyboard.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 3,
+    "part": "Java basics",
+    "contentFile": "content/java-operators-input.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-conditions",
+    "title": "Making decisions",
+    "summary": "Use if, else and switch to choose what runs.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 4,
+    "part": "Java basics",
+    "contentFile": "content/java-conditions.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-loops",
+    "title": "Repeat with loops",
+    "summary": "Use for and while loops to repeat work.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 5,
+    "part": "Java basics",
+    "contentFile": "content/java-loops.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-arrays",
+    "title": "Arrays",
+    "summary": "Keep many values in one variable.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 6,
+    "part": "Java basics",
+    "contentFile": "content/java-arrays.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-methods",
+    "title": "Methods",
+    "summary": "Reuse code with parameters and return values.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 7,
+    "part": "Java basics",
+    "contentFile": "content/java-methods.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-classes-objects",
+    "title": "Classes and objects",
+    "summary": "Build blueprints and create objects with constructors.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 8,
+    "part": "Object-oriented programming",
+    "contentFile": "content/java-classes-objects.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-encapsulation",
+    "title": "Encapsulation",
+    "summary": "Protect your data with private fields and getters.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 9,
+    "part": "Object-oriented programming",
+    "contentFile": "content/java-encapsulation.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-inheritance",
+    "title": "Inheritance",
+    "summary": "Reuse and extend classes with extends.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 10,
+    "part": "Object-oriented programming",
+    "contentFile": "content/java-inheritance.md",
+    "topic": "java"
+  },
+  {
+    "id": "java-polymorphism",
+    "title": "Polymorphism and abstraction",
+    "summary": "One call, many behaviours, plus abstract classes and interfaces.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-12",
+    "order": 11,
+    "part": "Object-oriented programming",
+    "contentFile": "content/java-polymorphism.md",
+    "topic": "java"
+  }
+]
