@@ -24,7 +24,7 @@ async function init() {
     if (p.pages && (!p.book || p.pages.length !== 2)) console.error(`Post "${p.id}" needs "book" and "pages": [first, last]`);
   });
   D = { teachers, subjects, posts, T, S };
-  nav.innerHTML = '<a href="#/">All</a>' + subjects.map(s => `<a href="#/subject/${esc(s.id)}">${esc(s.name)}</a>`).join('');
+  nav.innerHTML = '<a href="#/">All</a>' + subjects.map(s => `<a href="#/subject/${esc(s.id)}">${esc(s.name)}</a>`).join('') + '<a href="#/contact">Contact</a>';
 }
 
 const tOf = p => D.T[p.teacherId] || { id: '', name: 'Unknown teacher', title: '' };
@@ -125,20 +125,57 @@ const post = async id => {
     `<aside class="credit">${avatar(t, 'md')}<div><h3>${esc(t.name)}</h3><p>${esc(t.title)}</p><p>${esc(t.bio)}</p><p><a href="#/teacher/${esc(t.id)}">See all lessons by ${esc(t.name)}</a></p></div></aside>`;
 };
 
+const CONTACT_URL = 'https://chhoyed-contact.miyampv8.workers.dev'; // set this after deploying worker/contact-worker.js
+const hasLink = t => {
+  const n = String(t).normalize('NFKC').replace(/[\u200B-\u200D\u2060\uFEFF]/g, '');
+  return [
+    /\b(?:https?|ftp):\/\//i, /\bwww\./i, /\b(?:t|telegram)\.me\b/i, /\bhxxps?\b/i, /\bdot\s*(?:com|net|org)\b/i,
+    /\b[a-z0-9-]+\.(?:com|net|org|io|me|co|app|dev|xyz|info|biz|link|click|top|site|online|store|kh|gl|ly)\b/i,
+    /(?:^|\s)@\w{3,}/
+  ].some(r => r.test(n));
+};
+const contact = () => `<h1>Contact us</h1><p class="blurb">Send us a message and we will reply to your email.</p>` +
+  `<form id="cf" class="cform" novalidate>` +
+  `<label>Your name<input name="name" maxlength="80" required autocomplete="name"></label>` +
+  `<label>Your email<input name="email" type="email" maxlength="120" required autocomplete="email"></label>` +
+  `<label>Message<textarea name="message" rows="6" maxlength="1000" required></textarea></label>` +
+  `<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">` +
+  `<p class="hint">Please do not include links. Your email is only used to reply to you.</p>` +
+  `<button class="btn" type="submit">Send message</button><p id="cmsg" role="status"></p></form>`;
+
+async function sendContact(e) {
+  e.preventDefault();
+  const f = e.target, m = document.getElementById('cmsg'), b = f.querySelector('button');
+  const d = Object.fromEntries(new FormData(f));
+  const say = (t, ok) => { m.textContent = t; m.className = ok ? 'ok' : 'bad'; };
+  if (!d.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim()) || d.message.trim().length < 10) return say('Please enter your name, a valid email and a message of at least 10 characters.');
+  if (hasLink(d.name + ' ' + d.message)) return say('Links are not allowed in the message. Please remove them and try again.');
+  if (CONTACT_URL.includes('YOUR-SUBDOMAIN')) return say('The contact form is not set up yet.');
+  b.disabled = true; say('Sending…', true);
+  try {
+    const r = await fetch(CONTACT_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || 'Could not send. Please try again.');
+    f.reset(); say('Thank you! Your message was sent. We will reply to your email.', true);
+  } catch (err) { say(err.message || 'Could not send. Please try again.'); }
+  b.disabled = false;
+}
+
 async function route() {
   const [, page, raw, raw2] = location.hash.split('/');
   const id = decodeURIComponent(raw || ''), sub = decodeURIComponent(raw2 || '');
   try {
     if (!D) await init();
-    const view = { post, teacher, subject }[page];
+    const view = { post, teacher, subject, contact }[page];
     app.innerHTML = view ? await view(id, sub) : home();
   } catch (e) {
     app.innerHTML = `<p class="err">${esc(e.message)}<br>If you opened index.html straight from your computer, start a local server instead (see README.md).</p>`;
   }
   if (window.hljs) app.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
+  const cf = document.getElementById('cf'); if (cf) cf.addEventListener('submit', sendContact);
   const h = app.querySelector('h1');
   document.title = page && h ? `${h.textContent} - CHHOYED` : 'CHHOYED';
-  const active = page === 'subject' ? `#/subject/${id}` : (!page ? '#/' : null);
+  const active = page === 'subject' ? `#/subject/${id}` : page === 'contact' ? '#/contact' : (!page ? '#/' : null);
   nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === active));
   window.scrollTo(0, 0);
 }
