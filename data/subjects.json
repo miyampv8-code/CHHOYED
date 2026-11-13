@@ -14,7 +14,13 @@
         "id": "python",
         "name": "Python",
         "color": "#3776ab",
-        "tagline": "Learn Python, from your first program to loops"
+        "tagline": "Learn Python, from Hello World to OOP"
+      },
+      {
+        "id": "cpp",
+        "name": "C++",
+        "color": "#00599c",
+        "tagline": "Learn C++, from Hello World to OOP"
       }
     ]
   },
@@ -22,18 +28,35 @@
     "id": "math",
     "name": "Math",
     "color": "#c2410c",
-    "topics": []
+    "topics": [
+      {
+        "id": "general",
+        "name": "General math",
+        "color": "#c2410c",
+        "tagline": "Algebra, geometry and more"
+      },
+      {
+        "id": "integral",
+        "name": "Integral calculus",
+        "color": "#d97706",
+        "tagline": "Integral Book: 500 exercises with answers"
+      },
+      {
+        "id": "limit",
+        "name": "Limits",
+        "color": "#b45309",
+        "tagline": "Limits: exercises with full solutions"
+      }
+    ]
   },
   {
     "id": "physics",
     "name": "Physics",
-    "color": "#4f46e5",
-    "topics": []
+    "color": "#4f46e5"
   },
   {
     "id": "news",
     "name": "News",
-    "color": "#be185d",
-    "topics": []
+    "color": "#be185d"
   }
 ]

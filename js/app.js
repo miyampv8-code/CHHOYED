@@ -1,8 +1,8 @@
 const app = document.getElementById('app'), nav = document.getElementById('nav');
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const url = u => /^https?:\/\//i.test(u || '') ? esc(u) : '';
 const col = c => /^#[0-9a-f]{3,8}$/i.test(c || '') ? c : '#888';
-const fmt = d => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
+const fmt = d => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 const ini = n => String(n).split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
 let D;
 
@@ -21,22 +21,23 @@ async function init() {
     if (!T[p.teacherId]) console.error(`Post "${p.id}" has unknown teacherId "${p.teacherId}"`);
     if (!S[p.subject]) console.error(`Post "${p.id}" has unknown subject "${p.subject}"`);
     else if (S[p.subject].topics && !S[p.subject].topics.some(t => t.id === p.topic)) console.error(`Post "${p.id}" needs a topic from subject "${p.subject}" (got "${p.topic}")`);
+    if (p.pages && (!p.book || p.pages.length !== 2)) console.error(`Post "${p.id}" needs "book" and "pages": [first, last]`);
   });
-  D = {teachers, subjects, posts, T, S};
+  D = { teachers, subjects, posts, T, S };
   nav.innerHTML = '<a href="#/">All</a>' + subjects.map(s => `<a href="#/subject/${esc(s.id)}">${esc(s.name)}</a>`).join('');
 }
 
-const tOf = p => D.T[p.teacherId] || {id: '', name: 'Unknown teacher', title: ''};
+const tOf = p => D.T[p.teacherId] || { id: '', name: 'Unknown teacher', title: '' };
 const topicOf = (s, id) => (s.topics || []).find(t => t.id === id);
 const sOf = p => {
-  const s = D.S[p.subject]; if (!s) return {name: p.subject || 'Other', color: '#888'};
+  const s = D.S[p.subject]; if (!s) return { name: p.subject || 'Other', color: '#888' };
   const t = topicOf(s, p.topic);
-  return t ? {...t, name: `${s.name} · ${t.name}`} : s;
+  return t ? { ...t, name: `${s.name} · ${t.name}` } : s;
 };
 const sameTrack = (a, b) => a.subject === b.subject && (a.topic || '') === (b.topic || '');
 const trackUrl = p => `#/subject/${esc(p.subject)}${p.topic ? '/' + esc(p.topic) : ''}`;
 const avatar = (t, size) => `<span class="av ${size}">${t.photo ? `<img src="${esc(t.photo)}" alt="" onerror="this.remove()">` : ''}${esc(ini(t.name))}</span>`;
-const tag = s => `<span class="tag"><i style="background:${col(s.color)}"></i>${esc(s.name)}</span>`;
+const tag = s => `<span class="tag" style="--c:${col(s.color)}"><i></i>${esc(s.name)}</span>`;
 const nf = () => '<p class="err">Page not found. <a href="#/">Back to lessons</a></p>';
 
 const card = p => {
@@ -44,7 +45,10 @@ const card = p => {
   return `<a class="card" style="--c:${col(s.color)}" href="#/post/${esc(p.id)}">${tag(s)}<h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>` +
     `<span class="by">${avatar(t, 'sm')}<span>${esc(t.name)}</span><time>${fmt(p.date)}</time></span></a>`;
 };
-const tcard = t => `<a class="card tc" href="#/teacher/${esc(t.id)}">${avatar(t, 'md')}<h3>${esc(t.name)}</h3><p>${esc(t.title)}</p><p class="sk">${esc((t.skills || []).join(', '))}</p></a>`;
+const tcard = t => {
+  const n = D.posts.filter(p => p.teacherId === t.id).length;
+  return `<a class="card tc" href="#/teacher/${esc(t.id)}">${avatar(t, 'md')}<h3>${esc(t.name)}</h3><p>${esc(t.title)}</p><p class="sk">${esc((t.skills || []).join(', '))}</p><span class="pill" style="margin:0">${n} lesson${n === 1 ? '' : 's'}</span></a>`;
+};
 const links = t => {
   const l = Object.entries(t.links || {}).filter(([, u]) => url(u));
   return l.length ? `<p class="links">${l.map(([k, u]) => `<a href="${url(u)}" target="_blank" rel="noopener">${esc(k)}</a>`).join('')}</p>` : '';
@@ -57,19 +61,20 @@ const path = ps => `<div class="path">${seq(ps).map((p, i, a) => (p.part && p.pa
 const HELLO = 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, CHHOYED!");\n    }\n}';
 
 const home = () => {
-  const tracks = D.subjects.flatMap(s => (s.topics || [s]).map(t => ({t, ps: seq(D.posts.filter(p => p.subject === s.id && (s.topics ? p.topic === t.id : true)))}))).filter(x => x.ps.length);
+  const tracks = D.subjects.flatMap(s => (s.topics || [s]).map(t => ({ s, t, ps: seq(D.posts.filter(p => p.subject === s.id && (s.topics ? p.topic === t.id : true))) }))).filter(x => x.ps.length);
   const first = tracks[0]?.ps[0];
-  const paths = tracks.map(x => `<h2>${esc(x.t.tagline || x.t.name)}</h2>${path(x.ps)}`).join('');
+  const paths = tracks.length ? `<h2>Learning paths</h2><div class="grid">${tracks.map(x => topicCard(x.s, x.t)).join('')}</div>` : '';
   const more = D.posts.filter(p => !p.order);
-  return `<section class="hero"><div><h1>Learn by doing, one lesson at a time.</h1><p>Free lessons in coding, math and physics, written by teachers you can get to know.</p>` +
+  const stats = `<div class="stats">${[[D.posts.length, 'lessons'], [tracks.length, 'learning paths'], [D.subjects.length, 'categories'], [D.teachers.length, 'authors']].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('')}</div>`;
+  return `<section class="hero"><div><h1 lang="km">រៀនឱ្យចេះ <span class="hl">ហាត់ឱ្យពូកែ។</span></h1><p lang="km">មេរៀនឥតគិតថ្លៃ ផ្នែកកូដ គណិតវិទ្យា និងរូបវិទ្យា ពីមូលដ្ឋានដល់កម្រិតខ្ពស់។</p>` +
     (first ? `<div class="btns"><a class="btn" href="#/post/${esc(first.id)}">Start: ${esc(first.title)}</a><a class="btn alt" href="${trackUrl(first)}">See all lessons</a></div>` : '') +
     `</div><div class="win" aria-hidden="true"><div class="top"><i></i><i></i><i></i><span>Main.java</span></div><pre><code class="language-java">${esc(HELLO)}</code></pre><div class="out">Hello, CHHOYED!</div></div></section>` +
-    `${paths}<h2>More lessons</h2>${grid(more)}<h2>Our teachers</h2><div class="grid">${D.teachers.map(tcard).join('')}</div>`;
+    `${stats}${paths}<h2>More lessons</h2>${grid(more)}<h2>Our teachers</h2><div class="grid">${D.teachers.map(tcard).join('')}</div>`;
 };
 
 const topicCard = (s, t) => {
-  const n = D.posts.filter(p => p.subject === s.id && p.topic === t.id).length;
-  return `<a class="card" style="--c:${col(t.color)}" href="#/subject/${esc(s.id)}/${esc(t.id)}">${tag(t)}<h3>${esc(t.tagline || t.name)}</h3><p>${n} lesson${n === 1 ? '' : 's'}</p></a>`;
+  const n = D.posts.filter(p => p.subject === s.id && (s.topics ? p.topic === t.id : true)).length;
+  return `<a class="card" style="--c:${col(t.color)}" href="#/subject/${esc(s.id)}${s.topics ? '/' + esc(t.id) : ''}">${tag(t)}<h3>${esc(t.tagline || t.name)}</h3><p>${n} lesson${n === 1 ? '' : 's'}</p></a>`;
 };
 
 const subject = (id, tid) => {
@@ -91,20 +96,31 @@ const teacher = id => {
     `<h2>Lessons by ${esc(t.name)}</h2>${grid(D.posts.filter(p => p.teacherId === id))}`;
 };
 
+const bookPages = p => {
+  const [a, b] = p.pages;
+  let h = '';
+  for (let i = a; i <= b; i++) h += `<img class="bookpage" loading="lazy" decoding="async" src="images/books/${esc(p.book)}/${String(i).padStart(4, '0')}.webp" alt="${esc(p.title)}, page ${i}">`;
+  return h;
+};
+
 const post = async id => {
   const p = D.posts.find(x => x.id === id); if (!p) return nf();
   const t = tOf(p), s = sOf(p);
   const track = seq(D.posts.filter(x => sameTrack(x, p))), k = track.findIndex(x => x.id === id);
   const prog = k < 0 ? '' : `<span class="pill">Lesson ${k + 1} of ${track.length}</span>`;
   const pn = k < 0 ? '' : `<div class="pn">${[track[k - 1], track[k + 1]].map((x, n) => x ? `<a href="#/post/${esc(x.id)}" class="${n ? 'nx' : ''}"><small>${n ? 'Next lesson' : 'Previous lesson'}</small>${esc(x.title)}</a>` : '').join('')}</div>`;
-  let body;
+  let body = '';
   try {
-    const r = await fetch(p.contentFile);
-    if (!r.ok) throw new Error();
-    body = DOMPurify.sanitize(marked.parse(await r.text()));
+    if (p.contentFile) {
+      const r = await fetch(p.contentFile);
+      if (!r.ok) throw new Error();
+      body = DOMPurify.sanitize(marked.parse(await r.text())).replace(/<img /g, '<img loading="lazy" decoding="async" ');
+    } else if (!p.pages) throw new Error();
   } catch { body = '<p class="err">This lesson could not be loaded. Check the contentFile path in data/posts.json.</p>'; }
+  if (p.pages && p.book) body += (p.contentFile ? '' : `<p>${esc(p.summary)} On a phone, pinch to zoom in on a page.</p>`) + bookPages(p);
   return `<a class="back" href="#/">Back to lessons</a><article>${tag(s)}${prog}<h1>${esc(p.title)}</h1>` +
     `<a class="byline" href="#/teacher/${esc(t.id)}">${avatar(t, 'sm')}<span>${esc(t.name)}</span><time>${fmt(p.date)}</time></a>` +
+    (p.file ? `<div class="btns fileb"><a class="btn" href="${esc(p.file)}" target="_blank" rel="noopener">Open the PDF</a><a class="btn alt" href="${esc(p.file)}" download>Download</a></div>` : '') +
     `<div class="lesson">${body}</div></article>${pn}` +
     `<aside class="credit">${avatar(t, 'md')}<div><h3>${esc(t.name)}</h3><p>${esc(t.title)}</p><p>${esc(t.bio)}</p><p><a href="#/teacher/${esc(t.id)}">See all lessons by ${esc(t.name)}</a></p></div></aside>`;
 };
@@ -114,7 +130,7 @@ async function route() {
   const id = decodeURIComponent(raw || ''), sub = decodeURIComponent(raw2 || '');
   try {
     if (!D) await init();
-    const view = {post, teacher, subject}[page];
+    const view = { post, teacher, subject }[page];
     app.innerHTML = view ? await view(id, sub) : home();
   } catch (e) {
     app.innerHTML = `<p class="err">${esc(e.message)}<br>If you opened index.html straight from your computer, start a local server instead (see README.md).</p>`;

@@ -1,50 +1,30 @@
 [
   {
-    "id": "intro-to-python",
-    "title": "Introduction to Python",
-    "summary": "Write your first program and learn what a variable is.",
-    "subject": "coding",
-    "teacherId": "sokha-chan",
-    "date": "2026-11-10",
-    "contentFile": "content/intro-to-python.md",
-    "topic": "python",
-    "order": 1
-  },
-  {
-    "id": "python-loops",
-    "title": "Repeat things with loops",
-    "summary": "Use for and while loops so you never copy and paste code again.",
-    "subject": "coding",
-    "teacherId": "sokha-chan",
-    "date": "2026-11-12",
-    "contentFile": "content/python-loops.md",
-    "topic": "python",
-    "order": 2
-  },
-  {
     "id": "quadratic-equations",
     "title": "Solving quadratic equations",
     "summary": "Use the quadratic formula step by step with a worked example.",
     "subject": "math",
-    "teacherId": "dara-vann",
+    "teacherId": "chhoyed-team",
     "date": "2026-11-08",
-    "contentFile": "content/quadratic-equations.md"
+    "contentFile": "content/quadratic-equations.md",
+    "topic": "general"
   },
   {
     "id": "pythagorean-theorem",
     "title": "The Pythagorean theorem",
     "summary": "Find the missing side of any right triangle.",
     "subject": "math",
-    "teacherId": "dara-vann",
+    "teacherId": "chhoyed-team",
     "date": "2026-11-11",
-    "contentFile": "content/pythagorean-theorem.md"
+    "contentFile": "content/pythagorean-theorem.md",
+    "topic": "general"
   },
   {
     "id": "newton-laws",
     "title": "Newton's three laws of motion",
     "summary": "Why things move, stop and push back, explained with simple examples.",
     "subject": "physics",
-    "teacherId": "srey-mom-lim",
+    "teacherId": "chhoyed-team",
     "date": "2026-11-09",
     "contentFile": "content/newton-laws.md"
   },
@@ -53,7 +33,7 @@
     "title": "Speed, velocity and acceleration",
     "summary": "Learn how these three ideas differ and how to calculate each one.",
     "subject": "physics",
-    "teacherId": "srey-mom-lim",
+    "teacherId": "chhoyed-team",
     "date": "2026-11-12",
     "contentFile": "content/speed-velocity-acceleration.md"
   },
@@ -197,5 +177,509 @@
     "part": "Object-oriented programming",
     "contentFile": "content/java-polymorphism.md",
     "topic": "java"
+  },
+  {
+    "id": "python-hello-world",
+    "title": "Hello, World!",
+    "summary": "Write, run and understand your first Python program.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 1,
+    "part": "Python basics",
+    "contentFile": "content/python-hello-world.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-variables",
+    "title": "Variables and data types",
+    "summary": "Store numbers, text and True/False values.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 2,
+    "part": "Python basics",
+    "contentFile": "content/python-variables.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-operators-input",
+    "title": "Operators and user input",
+    "summary": "Do math, compare values and read from the keyboard.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 3,
+    "part": "Python basics",
+    "contentFile": "content/python-operators-input.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-conditions",
+    "title": "Making decisions",
+    "summary": "Use if, elif, else and match to choose what runs.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 4,
+    "part": "Python basics",
+    "contentFile": "content/python-conditions.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-loops",
+    "title": "Repeat with loops",
+    "summary": "Use for and while loops to repeat work.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 5,
+    "part": "Python basics",
+    "contentFile": "content/python-loops.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-lists",
+    "title": "Lists and dictionaries",
+    "summary": "Keep many values in one variable.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 6,
+    "part": "Python basics",
+    "contentFile": "content/python-lists.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-functions",
+    "title": "Functions",
+    "summary": "Reuse code with parameters and return values.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 7,
+    "part": "Python basics",
+    "contentFile": "content/python-functions.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-classes-objects",
+    "title": "Classes and objects",
+    "summary": "Build blueprints and create objects with __init__.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 8,
+    "part": "Object-oriented programming",
+    "contentFile": "content/python-classes-objects.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-encapsulation",
+    "title": "Encapsulation",
+    "summary": "Protect your data with private fields and properties.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 9,
+    "part": "Object-oriented programming",
+    "contentFile": "content/python-encapsulation.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-inheritance",
+    "title": "Inheritance",
+    "summary": "Reuse and extend classes with a parent class.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 10,
+    "part": "Object-oriented programming",
+    "contentFile": "content/python-inheritance.md",
+    "topic": "python"
+  },
+  {
+    "id": "python-polymorphism",
+    "title": "Polymorphism and abstraction",
+    "summary": "One call, many behaviours, plus abstract classes.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 11,
+    "part": "Object-oriented programming",
+    "contentFile": "content/python-polymorphism.md",
+    "topic": "python"
+  },
+  {
+    "id": "cpp-hello-world",
+    "title": "Hello, World!",
+    "summary": "Write, compile and understand your first C++ program.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 1,
+    "part": "C++ basics",
+    "contentFile": "content/cpp-hello-world.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-variables",
+    "title": "Variables and data types",
+    "summary": "Store numbers, text and true/false values.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 2,
+    "part": "C++ basics",
+    "contentFile": "content/cpp-variables.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-operators-input",
+    "title": "Operators and user input",
+    "summary": "Do math, compare values and read from the keyboard.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 3,
+    "part": "C++ basics",
+    "contentFile": "content/cpp-operators-input.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-conditions",
+    "title": "Making decisions",
+    "summary": "Use if, else and switch to choose what runs.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 4,
+    "part": "C++ basics",
+    "contentFile": "content/cpp-conditions.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-loops",
+    "title": "Repeat with loops",
+    "summary": "Use for, while and do-while loops to repeat work.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 5,
+    "part": "C++ basics",
+    "contentFile": "content/cpp-loops.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-arrays",
+    "title": "Arrays and vectors",
+    "summary": "Keep many values in one variable.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 6,
+    "part": "C++ basics",
+    "contentFile": "content/cpp-arrays.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-functions",
+    "title": "Functions",
+    "summary": "Reuse code with parameters, return values and references.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 7,
+    "part": "C++ basics",
+    "contentFile": "content/cpp-functions.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-classes-objects",
+    "title": "Classes and objects",
+    "summary": "Build blueprints and create objects with constructors.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 8,
+    "part": "Object-oriented programming",
+    "contentFile": "content/cpp-classes-objects.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-encapsulation",
+    "title": "Encapsulation",
+    "summary": "Protect your data with private fields and getters.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 9,
+    "part": "Object-oriented programming",
+    "contentFile": "content/cpp-encapsulation.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-inheritance",
+    "title": "Inheritance",
+    "summary": "Reuse and extend classes with public inheritance.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 10,
+    "part": "Object-oriented programming",
+    "contentFile": "content/cpp-inheritance.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "cpp-polymorphism",
+    "title": "Polymorphism and abstraction",
+    "summary": "One call, many behaviours, plus abstract classes.",
+    "subject": "coding",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-13",
+    "order": 11,
+    "part": "Object-oriented programming",
+    "contentFile": "content/cpp-polymorphism.md",
+    "topic": "cpp"
+  },
+  {
+    "id": "integral-intro",
+    "title": "Foreword, history and formulas",
+    "summary": "How the book works, a short history of integral calculus and the formulas you will use.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 1,
+    "part": "Introduction",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      2,
+      7
+    ]
+  },
+  {
+    "id": "integral-001-050",
+    "title": "Exercises 001–050",
+    "summary": "Integral exercises 001 to 050 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 2,
+    "part": "Exercises 001–250",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      8,
+      45
+    ]
+  },
+  {
+    "id": "integral-051-100",
+    "title": "Exercises 051–100",
+    "summary": "Integral exercises 051 to 100 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 3,
+    "part": "Exercises 001–250",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      45,
+      81
+    ]
+  },
+  {
+    "id": "integral-101-150",
+    "title": "Exercises 101–150",
+    "summary": "Integral exercises 101 to 150 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 4,
+    "part": "Exercises 001–250",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      82,
+      120
+    ]
+  },
+  {
+    "id": "integral-151-200",
+    "title": "Exercises 151–200",
+    "summary": "Integral exercises 151 to 200 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 5,
+    "part": "Exercises 001–250",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      120,
+      155
+    ]
+  },
+  {
+    "id": "integral-201-250",
+    "title": "Exercises 201–250",
+    "summary": "Integral exercises 201 to 250 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 6,
+    "part": "Exercises 001–250",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      156,
+      194
+    ]
+  },
+  {
+    "id": "integral-251-300",
+    "title": "Exercises 251–300",
+    "summary": "Integral exercises 251 to 300 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 7,
+    "part": "Exercises 251–500",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      194,
+      226
+    ]
+  },
+  {
+    "id": "integral-301-350",
+    "title": "Exercises 301–350",
+    "summary": "Integral exercises 301 to 350 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 8,
+    "part": "Exercises 251–500",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      227,
+      270
+    ]
+  },
+  {
+    "id": "integral-351-400",
+    "title": "Exercises 351–400",
+    "summary": "Integral exercises 351 to 400 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 9,
+    "part": "Exercises 251–500",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      270,
+      308
+    ]
+  },
+  {
+    "id": "integral-401-450",
+    "title": "Exercises 401–450",
+    "summary": "Integral exercises 401 to 450 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 10,
+    "part": "Exercises 251–500",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      308,
+      346
+    ]
+  },
+  {
+    "id": "integral-451-500",
+    "title": "Exercises 451–500",
+    "summary": "Integral exercises 451 to 500 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 11,
+    "part": "Exercises 251–500",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      347,
+      384
+    ]
+  },
+  {
+    "id": "integral-extra",
+    "title": "Extra research exercises",
+    "summary": "More integrals for students who want extra practice, with answers.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 12,
+    "part": "Extra practice",
+    "topic": "integral",
+    "book": "integral",
+    "pages": [
+      385,
+      394
+    ]
+  },
+  {
+    "id": "limit-series-formulas",
+    "title": "Series and formulas",
+    "summary": "The series and sums you will use in the limit exercises.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 1,
+    "part": "Formulas",
+    "topic": "limit",
+    "book": "limit",
+    "pages": [
+      2,
+      3
+    ]
+  },
+  {
+    "id": "limit-001-025",
+    "title": "Exercises 001–025",
+    "summary": "Limit exercises 001 to 025 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 2,
+    "part": "Exercises",
+    "topic": "limit",
+    "book": "limit",
+    "pages": [
+      4,
+      17
+    ]
+  },
+  {
+    "id": "limit-026-050",
+    "title": "Exercises 026–050",
+    "summary": "Limit exercises 026 to 050 with full step-by-step solutions.",
+    "subject": "math",
+    "teacherId": "phat-pharin",
+    "date": "2026-11-13",
+    "order": 3,
+    "part": "Exercises",
+    "topic": "limit",
+    "book": "limit",
+    "pages": [
+      18,
+      34
+    ]
   }
 ]
