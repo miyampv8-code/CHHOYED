@@ -162,7 +162,7 @@ async function sendContact(e) {
 }
 
 // Visitor statistics (GoatCounter). Put your GoatCounter site code between the quotes, e.g. 'chhoyed'. Leave '' to turn it off.
-const GC_CODE = '';
+const GC_CODE = 'chhoyed';
 window.goatcounter = { no_onload: true };
 if (GC_CODE) {
   const s = document.createElement('script');
