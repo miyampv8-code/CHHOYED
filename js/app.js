@@ -94,9 +94,9 @@ const subject = async (id, tid) => {
 let PDATA = null;
 const withPractice = (html, t, id, tid, pr, ps) => !pr ? html : html.replace(/<\/div>$/,
   `<h3 class="part">Practice</h3><a class="step practice" style="--c:${col(t.color)}" href="#/practice/${esc(id)}/${esc(tid)}"><b>${seq(ps).length + 1}</b><div><h3>Practice: ${pr.items.length} exercises</h3><p>Test yourself and check your answers.</p></div></a></div>`);
-const KIND = { output: 'What does it print?', blank: 'Fill in the blank', code: 'Write the code' };
+const KIND = { choice: 'Choose the answer', output: 'What does it print?', blank: 'Fill in the blank', code: 'Write the code' };
 const exItem = (e, i, lang) => {
-  const input = e.type === 'output'
+  const input = e.options
     ? `<div class="opts">${e.options.map((o, k) => `<label><input type="radio" name="q${i}" value="${k}"><span>${esc(o)}</span></label>`).join('')}</div>`
     : e.type === 'blank' ? '<input class="blank" type="text" autocomplete="off" spellcheck="false" placeholder="Type your answer">' : '';
   return `<section class="ex" data-i="${i}"><div class="exh"><b>${i + 1}</b><span class="pill">${esc(e.topic)}</span><span class="pill">${KIND[e.type] || ''}</span></div>` +
@@ -133,11 +133,11 @@ function bindPractice() {
     const b = ev.target.closest('button[data-a]'); if (!b) return;
     const sec = b.closest('.ex'), e = items[+sec.dataset.i], res = sec.querySelector('.res'), a = b.dataset.a;
     const say = (cls, head, extra = '') => { res.className = 'res ' + cls; res.innerHTML = `<b>${esc(head)}</b>${extra}`; hl(res); };
-    const reveal = () => (e.type === 'code' ? `<pre><code class="language-${esc(P.lang || 'text')}">${esc(e.solution)}</code></pre>` : `<p>Answer: <code>${esc(e.type === 'output' ? e.options[e.answer] : e.answers[0])}</code></p>`) + `<p>${esc(e.explanation)}</p>`;
+    const reveal = () => (e.type === 'code' ? `<pre><code class="language-${esc(P.lang || 'text')}">${esc(e.solution)}</code></pre>` : `<p>Answer: <code>${esc(e.options ? e.options[e.answer] : e.answers[0])}</code></p>`) + `<p>${esc(e.explanation)}</p>`;
     if (a === 'hint') return say('info', 'Hint: ' + e.hint);
     if (a === 'show' || e.type === 'code') return say('info', e.type === 'code' ? 'Model answer' : 'Answer', reveal());
     let ok;
-    if (e.type === 'output') {
+    if (e.options) {
       const c = sec.querySelector('input:checked'); if (!c) return say('bad', 'Pick an answer first.');
       ok = +c.value === e.answer;
     } else {

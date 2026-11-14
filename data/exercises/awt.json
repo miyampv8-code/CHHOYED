@@ -1,0 +1,137 @@
+{
+  "lang": "java",
+  "title": "Java AWT practice",
+  "items": [
+    {
+      "id": "a01",
+      "topic": "Window",
+      "type": "choice",
+      "question": "Which class creates a window with a title bar in AWT?",
+      "options": [
+        "Frame",
+        "Panel",
+        "Canvas",
+        "Label"
+      ],
+      "answer": 0,
+      "explanation": "Frame is a window. A Panel is a box inside a window, a Canvas is a drawing area, and a Label is text.",
+      "hint": "The lesson is called \"Your first window\"."
+    },
+    {
+      "id": "a02",
+      "topic": "Window",
+      "type": "blank",
+      "question": "Complete the code so the window appears on screen. Type the method name.",
+      "code": "Frame f = new Frame(\"Hello\");\nf.setSize(300, 200);\nf.___(true);",
+      "answers": [
+        "setVisible"
+      ],
+      "explanation": "A Frame is hidden until you call setVisible(true).",
+      "hint": "The method name starts with set."
+    },
+    {
+      "id": "a03",
+      "topic": "Window",
+      "type": "choice",
+      "question": "A student clicks the X of a Frame, but nothing happens. Why?",
+      "options": [
+        "An AWT window does not close by itself. You must add a window listener",
+        "The window is too small",
+        "setSize was not called",
+        "Java cannot close windows"
+      ],
+      "answer": 0,
+      "explanation": "You must handle the windowClosing event, for example with a WindowAdapter that calls System.exit(0).",
+      "hint": "Think about what the first lesson added to close the window."
+    },
+    {
+      "id": "a04",
+      "topic": "Components",
+      "type": "blank",
+      "question": "Which component shows one line of text that the user can edit? Type the class name.",
+      "answers": [
+        "TextField"
+      ],
+      "explanation": "TextField is one line of input. TextArea is for several lines, and Label cannot be edited.",
+      "hint": "The name says it: a field for text."
+    },
+    {
+      "id": "a05",
+      "topic": "Components",
+      "type": "blank",
+      "question": "Complete the code to read what the user typed in the field. Type the method name.",
+      "code": "String s = field.___();",
+      "answers": [
+        "getText"
+      ],
+      "explanation": "getText() returns the text in the field. setText(...) changes it.",
+      "hint": "get + the thing you want."
+    },
+    {
+      "id": "a06",
+      "topic": "Layouts",
+      "type": "choice",
+      "question": "Which layout has five areas: NORTH, SOUTH, EAST, WEST and CENTER?",
+      "options": [
+        "FlowLayout",
+        "BorderLayout",
+        "GridLayout",
+        "Panel"
+      ],
+      "answer": 1,
+      "explanation": "BorderLayout has those five areas, and it is the default layout of a Frame.",
+      "hint": "The areas are on the border and in the centre."
+    },
+    {
+      "id": "a07",
+      "topic": "Layouts",
+      "type": "choice",
+      "question": "How many equal cells does new GridLayout(2, 3) make?",
+      "options": [
+        "5",
+        "2",
+        "6",
+        "3"
+      ],
+      "answer": 2,
+      "explanation": "2 rows times 3 columns is 6 cells.",
+      "hint": "Multiply rows by columns."
+    },
+    {
+      "id": "a08",
+      "topic": "Events",
+      "type": "blank",
+      "question": "Complete the code so the message prints when the button is clicked. Type the method name.",
+      "code": "button.___(e -> {\n    System.out.println(\"Clicked\");\n});",
+      "answers": [
+        "addActionListener"
+      ],
+      "explanation": "addActionListener tells the button which code to run when it is clicked.",
+      "hint": "It adds a listener for actions."
+    },
+    {
+      "id": "a09",
+      "topic": "Graphics",
+      "type": "choice",
+      "question": "Where is the point (0, 0) when you draw with Graphics?",
+      "options": [
+        "The centre",
+        "Bottom-left corner",
+        "Top-left corner",
+        "Top-right corner"
+      ],
+      "answer": 2,
+      "explanation": "(0, 0) is the top-left corner. x grows to the right and y grows downward.",
+      "hint": "y grows downward."
+    },
+    {
+      "id": "a10",
+      "topic": "Graphics",
+      "type": "code",
+      "question": "Write the paint method that draws a filled red circle at x = 50, y = 50 with a diameter of 80.",
+      "solution": "public void paint(Graphics g) {\n    g.setColor(Color.RED);\n    g.fillOval(50, 50, 80, 80);\n}",
+      "explanation": "setColor chooses the colour. fillOval(x, y, width, height) draws a filled oval, and a circle is an oval with equal width and height.",
+      "hint": "Use setColor first, then fillOval."
+    }
+  ]
+}

@@ -15,19 +15,22 @@
         "id": "awt",
         "name": "Java AWT",
         "color": "#0d9488",
-        "tagline": "Build windows and buttons with Java AWT"
+        "tagline": "Build windows and buttons with Java AWT",
+        "exercises": "data/exercises/awt.json"
       },
       {
         "id": "python",
         "name": "Python",
         "color": "#3776ab",
-        "tagline": "Learn Python, from Hello World to OOP"
+        "tagline": "Learn Python, from Hello World to OOP",
+        "exercises": "data/exercises/python.json"
       },
       {
         "id": "cpp",
         "name": "C++",
         "color": "#00599c",
-        "tagline": "Learn C++, from Hello World to OOP"
+        "tagline": "Learn C++, from Hello World to OOP",
+        "exercises": "data/exercises/cpp.json"
       }
     ]
   },

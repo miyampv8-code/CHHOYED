@@ -1,0 +1,148 @@
+{
+  "lang": "cpp",
+  "title": "C++ practice",
+  "items": [
+    {
+      "id": "c01",
+      "topic": "Variables",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int a = 7;\nint b = 2;\nstd::cout << a / b;",
+      "options": [
+        "3.5",
+        "3",
+        "4",
+        "2"
+      ],
+      "answer": 1,
+      "explanation": "Both numbers are ints, so C++ does integer division and drops the decimals: 7 / 2 is 3.",
+      "hint": "Look at the types. Are there any decimals?"
+    },
+    {
+      "id": "c02",
+      "topic": "Variables",
+      "type": "blank",
+      "question": "Complete the line so it stores a decimal number. Type the usual type for decimals.",
+      "code": "___ price = 2.5;",
+      "answers": [
+        "double",
+        "float"
+      ],
+      "explanation": "double is the usual type for decimal numbers. float also works, but it is less precise.",
+      "hint": "It starts with the letter d."
+    },
+    {
+      "id": "c03",
+      "topic": "Operators",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "std::cout << 17 % 5;",
+      "options": [
+        "12",
+        "3",
+        "2",
+        "0"
+      ],
+      "answer": 2,
+      "explanation": "% gives the remainder. 17 divided by 5 is 3 with 2 left over.",
+      "hint": "% is not division."
+    },
+    {
+      "id": "c04",
+      "topic": "Conditions",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int score = 72;\nif (score >= 80) {\n    std::cout << \"Great\";\n} else if (score >= 50) {\n    std::cout << \"Pass\";\n} else {\n    std::cout << \"Try again\";\n}",
+      "options": [
+        "Great",
+        "Try again",
+        "Pass",
+        "Nothing"
+      ],
+      "answer": 2,
+      "explanation": "72 is not at least 80, but it is at least 50, so the second branch runs.",
+      "hint": "The first true condition wins."
+    },
+    {
+      "id": "c05",
+      "topic": "Loops",
+      "type": "blank",
+      "question": "How many times does this loop print Hi? Type the number.",
+      "code": "for (int i = 0; i < 3; i++) {\n    std::cout << \"Hi\\n\";\n}",
+      "answers": [
+        "3"
+      ],
+      "explanation": "i is 0, 1 and 2. When i becomes 3 the test i < 3 is false.",
+      "hint": "Write down the value of i each round."
+    },
+    {
+      "id": "c06",
+      "topic": "Loops",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int sum = 0;\nint i = 1;\nwhile (i <= 4) {\n    sum += i;\n    i++;\n}\nstd::cout << sum;",
+      "options": [
+        "4",
+        "10",
+        "15",
+        "6"
+      ],
+      "answer": 1,
+      "explanation": "sum becomes 1, 3, 6 and then 10: 1 + 2 + 3 + 4.",
+      "hint": "Add the numbers 1 to 4."
+    },
+    {
+      "id": "c07",
+      "topic": "Arrays",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int n[] = {4, 8, 15};\nstd::cout << n[1] << \" \" << n[2];",
+      "options": [
+        "4 8",
+        "8 15",
+        "8 4",
+        "15 8"
+      ],
+      "answer": 1,
+      "explanation": "Counting starts at 0, so n[1] is 8 and n[2] is 15.",
+      "hint": "Counting positions starts at 0."
+    },
+    {
+      "id": "c08",
+      "topic": "Functions",
+      "type": "code",
+      "question": "Write a function isEven that takes an int and returns true if it is even, otherwise false.",
+      "solution": "bool isEven(int n) {\n    return n % 2 == 0;\n}",
+      "explanation": "A number is even when the remainder after dividing by 2 is 0. The comparison already gives a bool.",
+      "hint": "The return type is bool."
+    },
+    {
+      "id": "c09",
+      "topic": "Classes",
+      "type": "blank",
+      "question": "Complete the code so the member age can be used from outside the class. Type the missing keyword.",
+      "code": "class Student {\n___:\n    int age;\n};",
+      "answers": [
+        "public"
+      ],
+      "explanation": "Members after public: can be used from outside the class. Members after private: cannot.",
+      "hint": "It is the opposite of private."
+    },
+    {
+      "id": "c10",
+      "topic": "Polymorphism",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "class Animal {\npublic:\n    virtual void speak() { std::cout << \"...\"; }\n};\n\nclass Dog : public Animal {\npublic:\n    void speak() override { std::cout << \"Woof\"; }\n};\n\nint main() {\n    Dog d;\n    Animal* a = &d;\n    a->speak();\n}",
+      "options": [
+        "Error",
+        "...",
+        "Animal",
+        "Woof"
+      ],
+      "answer": 3,
+      "explanation": "speak() is virtual, so C++ runs the version of the real object, Dog, even through an Animal pointer.",
+      "hint": "virtual lets the child's version win."
+    }
+  ]
+}

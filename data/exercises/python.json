@@ -1,0 +1,147 @@
+{
+  "lang": "python",
+  "title": "Python practice",
+  "items": [
+    {
+      "id": "p01",
+      "topic": "Variables",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "a = 7\nb = 2\nprint(a // b)",
+      "options": [
+        "3.5",
+        "3",
+        "4",
+        "2"
+      ],
+      "answer": 1,
+      "explanation": "The // operator divides and drops the decimals, so 7 // 2 is 3.",
+      "hint": "// is not the same as /."
+    },
+    {
+      "id": "p02",
+      "topic": "Variables",
+      "type": "blank",
+      "question": "Complete the line so it turns the text \"5\" into a whole number. Type the missing function.",
+      "code": "n = ___(\"5\")",
+      "answers": [
+        "int"
+      ],
+      "explanation": "int() converts text or a decimal into a whole number.",
+      "hint": "The function has the same name as the type."
+    },
+    {
+      "id": "p03",
+      "topic": "Operators",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "print(2 ** 3)",
+      "options": [
+        "6",
+        "9",
+        "23",
+        "8"
+      ],
+      "answer": 3,
+      "explanation": "** means \"to the power of\". 2 ** 3 is 2 x 2 x 2 = 8.",
+      "hint": "** is not multiplication."
+    },
+    {
+      "id": "p04",
+      "topic": "Conditions",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "age = 15\nif age >= 18:\n    print(\"Adult\")\nelif age >= 13:\n    print(\"Teen\")\nelse:\n    print(\"Child\")",
+      "options": [
+        "Adult",
+        "Child",
+        "Teen",
+        "Nothing"
+      ],
+      "answer": 2,
+      "explanation": "15 is not at least 18, but it is at least 13, so the elif branch runs.",
+      "hint": "Python checks from top to bottom and runs the first true branch."
+    },
+    {
+      "id": "p05",
+      "topic": "Loops",
+      "type": "blank",
+      "question": "How many times does this loop print Hi? Type the number.",
+      "code": "for i in range(4):\n    print(\"Hi\")",
+      "answers": [
+        "4"
+      ],
+      "explanation": "range(4) gives 0, 1, 2 and 3: four rounds.",
+      "hint": "range(4) starts at 0 and stops before 4."
+    },
+    {
+      "id": "p06",
+      "topic": "Loops",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "total = 0\nfor i in range(1, 5):\n    total += i\nprint(total)",
+      "options": [
+        "10",
+        "15",
+        "4",
+        "5"
+      ],
+      "answer": 0,
+      "explanation": "range(1, 5) gives 1, 2, 3 and 4. Their sum is 10.",
+      "hint": "range stops before the last number."
+    },
+    {
+      "id": "p07",
+      "topic": "Lists",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "nums = [4, 8, 15]\nnums.append(16)\nprint(len(nums), nums[1])",
+      "options": [
+        "3 8",
+        "4 8",
+        "4 15",
+        "4 16"
+      ],
+      "answer": 1,
+      "explanation": "After append the list has 4 items. nums[1] is the second item, 8, because counting starts at 0.",
+      "hint": "append adds one item at the end."
+    },
+    {
+      "id": "p08",
+      "topic": "Functions",
+      "type": "code",
+      "question": "Write a function is_even that takes a number and returns True if it is even, otherwise False.",
+      "solution": "def is_even(n):\n    return n % 2 == 0",
+      "explanation": "A number is even when the remainder after dividing by 2 is 0. The comparison already gives True or False.",
+      "hint": "Use the % operator."
+    },
+    {
+      "id": "p09",
+      "topic": "Classes",
+      "type": "blank",
+      "question": "Complete the method header. Every method in a class starts with the same first parameter. Type it.",
+      "code": "class Student:\n    def introduce(___):\n        print(\"Hi!\")",
+      "answers": [
+        "self"
+      ],
+      "explanation": "self is the object the method is called on. Python passes it automatically.",
+      "hint": "It is a word that means \"this object\"."
+    },
+    {
+      "id": "p10",
+      "topic": "Inheritance",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "class Animal:\n    def speak(self):\n        print(\"...\")\n\nclass Dog(Animal):\n    def speak(self):\n        print(\"Woof\")\n\na = Dog()\na.speak()",
+      "options": [
+        "Error",
+        "Woof",
+        "...",
+        "Animal"
+      ],
+      "answer": 1,
+      "explanation": "Dog defines its own speak(), which replaces the one from Animal.",
+      "hint": "Look at which class the object was made from."
+    }
+  ]
+}
