@@ -1,0 +1,147 @@
+{
+  "lang": "java",
+  "title": "Java practice",
+  "items": [
+    {
+      "id": "j01",
+      "topic": "Variables",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int a = 5;\nint b = 2;\nSystem.out.println(a / b);",
+      "options": [
+        "2.5",
+        "2",
+        "3",
+        "2.0"
+      ],
+      "answer": 1,
+      "explanation": "Both numbers are ints, so Java does integer division and drops the decimals: 5 / 2 is 2.",
+      "hint": "Look at the types. Are there any decimals?"
+    },
+    {
+      "id": "j02",
+      "topic": "Variables",
+      "type": "blank",
+      "question": "Complete the line so it stores the text \"Dara\". Type the missing word.",
+      "code": "___ name = \"Dara\";",
+      "answers": [
+        "String"
+      ],
+      "explanation": "Text has the type String, with a capital S.",
+      "hint": "It starts with a capital letter."
+    },
+    {
+      "id": "j03",
+      "topic": "Operators",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int x = 17 % 5;\nSystem.out.println(x);",
+      "options": [
+        "12",
+        "3",
+        "2",
+        "0"
+      ],
+      "answer": 2,
+      "explanation": "% gives the remainder. 17 divided by 5 is 3, and 2 is left over.",
+      "hint": "% is not division. It gives what is left over."
+    },
+    {
+      "id": "j04",
+      "topic": "Conditions",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int score = 72;\nif (score >= 80) {\n    System.out.println(\"Great\");\n} else if (score >= 50) {\n    System.out.println(\"Pass\");\n} else {\n    System.out.println(\"Try again\");\n}",
+      "options": [
+        "Great",
+        "Try again",
+        "Pass",
+        "Nothing"
+      ],
+      "answer": 2,
+      "explanation": "72 is not at least 80, but it is at least 50, so the second branch runs.",
+      "hint": "Java checks the conditions from top to bottom and runs the first one that is true."
+    },
+    {
+      "id": "j05",
+      "topic": "Loops",
+      "type": "blank",
+      "question": "How many times does this loop print Hi? Type the number.",
+      "code": "for (int i = 0; i < 3; i++) {\n    System.out.println(\"Hi\");\n}",
+      "answers": [
+        "3"
+      ],
+      "explanation": "i takes the values 0, 1 and 2. When i becomes 3 the test i < 3 is false, so the loop stops.",
+      "hint": "Write down the value of i each round."
+    },
+    {
+      "id": "j06",
+      "topic": "Loops",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int sum = 0;\nfor (int i = 1; i <= 4; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+      "options": [
+        "10",
+        "4",
+        "15",
+        "6"
+      ],
+      "answer": 0,
+      "explanation": "sum becomes 1, then 3, then 6, then 10: 1 + 2 + 3 + 4.",
+      "hint": "Add the numbers 1 to 4."
+    },
+    {
+      "id": "j07",
+      "topic": "Arrays",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "int[] n = {4, 8, 15};\nSystem.out.println(n.length + \" \" + n[1]);",
+      "options": [
+        "2 8",
+        "3 15",
+        "3 8",
+        "3 4"
+      ],
+      "answer": 2,
+      "explanation": "The array has 3 items, so n.length is 3. Counting starts at 0, so n[1] is the second item, 8.",
+      "hint": "Counting positions starts at 0."
+    },
+    {
+      "id": "j08",
+      "topic": "Methods",
+      "type": "code",
+      "question": "Write a method isEven that takes an int and returns true if the number is even, otherwise false.",
+      "solution": "static boolean isEven(int n) {\n    return n % 2 == 0;\n}",
+      "explanation": "A number is even when the remainder after dividing by 2 is 0. The comparison already gives a boolean, so you can return it directly.",
+      "hint": "Use the % operator."
+    },
+    {
+      "id": "j09",
+      "topic": "Classes",
+      "type": "blank",
+      "question": "Complete the line so it creates a Student object. Type the missing word.",
+      "code": "Student s = ___ Student(\"Dara\", 16);",
+      "answers": [
+        "new"
+      ],
+      "explanation": "The keyword new creates the object and runs the constructor.",
+      "hint": "It is the keyword that creates objects."
+    },
+    {
+      "id": "j10",
+      "topic": "Inheritance",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "class Animal {\n    void speak() { System.out.println(\"...\"); }\n}\n\nclass Dog extends Animal {\n    void speak() { System.out.println(\"Woof\"); }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Animal a = new Dog();\n        a.speak();\n    }\n}",
+      "options": [
+        "Error",
+        "...",
+        "Animal",
+        "Woof"
+      ],
+      "answer": 3,
+      "explanation": "The variable has the type Animal, but the object is a Dog, so Java runs Dog's version of speak(). This is polymorphism.",
+      "hint": "Look at which object was created with new."
+    }
+  ]
+}

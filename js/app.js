@@ -7,7 +7,7 @@ const ini = n => String(n).split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUp
 let D;
 
 async function getJSON(p) {
-  const r = await fetch(p);
+  const r = await fetch(p, { cache: 'no-cache' });
   if (!r.ok) throw new Error(`Could not load ${p} (${r.status}).`);
   return r.json();
 }
@@ -77,7 +77,7 @@ const topicCard = (s, t) => {
   return `<a class="card" style="--c:${col(t.color)}" href="#/subject/${esc(s.id)}${s.topics ? '/' + esc(t.id) : ''}">${tag(t)}<h3>${esc(t.tagline || t.name)}</h3><p>${n} lesson${n === 1 ? '' : 's'}</p></a>`;
 };
 
-const subject = (id, tid) => {
+const subject = async (id, tid) => {
   const s = D.S[id]; if (!s) return nf();
   if (s.topics && !tid) {
     const loose = D.posts.filter(p => p.subject === id && !topicOf(s, p.topic));
@@ -85,9 +85,71 @@ const subject = (id, tid) => {
   }
   const t = tid ? topicOf(s, tid) : s; if (!t) return nf();
   const ps = D.posts.filter(p => p.subject === id && (tid ? p.topic === tid : true));
+  const pr = t.exercises ? await getJSON(t.exercises).catch(() => null) : null;
   const back = tid ? `<a class="back" href="#/subject/${esc(id)}">Back to ${esc(s.name)}</a>` : '';
-  return `${back}<h1>${esc(t.name)}</h1>${t.tagline ? `<p class="empty" style="border-style:solid">${esc(t.tagline)}. Follow the lessons in order.</p><br>` : ''}${ps.some(p => p.order) ? path(ps) : grid(ps)}`;
+  return `${back}<h1>${esc(t.name)}</h1>${t.tagline ? `<p class="empty" style="border-style:solid">${esc(t.tagline)}. Follow the lessons in order.</p><br>` : ''}${ps.some(p => p.order) ? withPractice(path(ps), t, id, tid, pr, ps) : grid(ps)}`;
 };
+
+// ---- Practice exercises
+let PDATA = null;
+const withPractice = (html, t, id, tid, pr, ps) => !pr ? html : html.replace(/<\/div>$/,
+  `<h3 class="part">Practice</h3><a class="step practice" style="--c:${col(t.color)}" href="#/practice/${esc(id)}/${esc(tid)}"><b>${seq(ps).length + 1}</b><div><h3>Practice: ${pr.items.length} exercises</h3><p>Test yourself and check your answers.</p></div></a></div>`);
+const KIND = { output: 'What does it print?', blank: 'Fill in the blank', code: 'Write the code' };
+const exItem = (e, i, lang) => {
+  const input = e.type === 'output'
+    ? `<div class="opts">${e.options.map((o, k) => `<label><input type="radio" name="q${i}" value="${k}"><span>${esc(o)}</span></label>`).join('')}</div>`
+    : e.type === 'blank' ? '<input class="blank" type="text" autocomplete="off" spellcheck="false" placeholder="Type your answer">' : '';
+  return `<section class="ex" data-i="${i}"><div class="exh"><b>${i + 1}</b><span class="pill">${esc(e.topic)}</span><span class="pill">${KIND[e.type] || ''}</span></div>` +
+    `<p>${esc(e.question)}</p>${e.code ? `<pre><code class="language-${esc(lang)}">${esc(e.code)}</code></pre>` : ''}${input}` +
+    `<div class="btns"><button class="btn" data-a="check">${e.type === 'code' ? 'Show model answer' : 'Check answer'}</button>` +
+    (e.hint ? '<button class="btn alt" data-a="hint">Hint</button>' : '') + (e.type === 'code' ? '' : '<button class="btn alt" data-a="show">Show answer</button>') +
+    `</div><div class="res" role="status"></div></section>`;
+};
+const practice = async (id, tid) => {
+  const s = D.S[id], t = s && topicOf(s, tid); if (!t || !t.exercises) return nf();
+  const P = await getJSON(t.exercises);
+  PDATA = { key: `${id}-${tid}`, ...P };
+  const auto = P.items.filter(e => e.type !== 'code').length;
+  return `<a class="back" href="#/subject/${esc(id)}/${esc(tid)}">Back to ${esc(t.name)}</a><h1>${esc(P.title || t.name + ' practice')}</h1>` +
+    `<div class="score" id="prc"><span><b id="sc">0</b> of ${auto} solved</span><span class="bar"><i id="bar"></i></span></div>` +
+    `<p class="hint">Check answer, Hint and Show answer are there to help you. Write-the-code exercises are not scored: try them on your own computer first.</p>` +
+    P.items.map((e, i) => exItem(e, i, P.lang || 'text')).join('');
+};
+function bindPractice() {
+  const P = PDATA, key = 'chhoyed-practice-' + P.key, items = P.items;
+  const auto = items.filter(e => e.type !== 'code');
+  let done = new Set();
+  try { done = new Set(JSON.parse(localStorage.getItem(key) || '[]')); } catch { }
+  const norm = s => String(s).trim().replace(/\s+/g, ' ');
+  const hl = el => { if (window.hljs) el.querySelectorAll('pre code').forEach(c => hljs.highlightElement(c)); };
+  const update = () => {
+    const n = auto.filter(e => done.has(e.id)).length;
+    document.getElementById('sc').textContent = n;
+    document.getElementById('bar').style.width = (auto.length ? 100 * n / auto.length : 0) + '%';
+  };
+  document.querySelectorAll('.ex').forEach(sec => { if (done.has(items[+sec.dataset.i].id)) sec.classList.add('solved'); });
+  update();
+  document.querySelector('main').onclick = ev => {
+    const b = ev.target.closest('button[data-a]'); if (!b) return;
+    const sec = b.closest('.ex'), e = items[+sec.dataset.i], res = sec.querySelector('.res'), a = b.dataset.a;
+    const say = (cls, head, extra = '') => { res.className = 'res ' + cls; res.innerHTML = `<b>${esc(head)}</b>${extra}`; hl(res); };
+    const reveal = () => (e.type === 'code' ? `<pre><code class="language-${esc(P.lang || 'text')}">${esc(e.solution)}</code></pre>` : `<p>Answer: <code>${esc(e.type === 'output' ? e.options[e.answer] : e.answers[0])}</code></p>`) + `<p>${esc(e.explanation)}</p>`;
+    if (a === 'hint') return say('info', 'Hint: ' + e.hint);
+    if (a === 'show' || e.type === 'code') return say('info', e.type === 'code' ? 'Model answer' : 'Answer', reveal());
+    let ok;
+    if (e.type === 'output') {
+      const c = sec.querySelector('input:checked'); if (!c) return say('bad', 'Pick an answer first.');
+      ok = +c.value === e.answer;
+    } else {
+      const v = norm(sec.querySelector('.blank').value); if (!v) return say('bad', 'Type your answer first.');
+      ok = e.answers.some(x => norm(x) === v);
+    }
+    if (ok) {
+      done.add(e.id); try { localStorage.setItem(key, JSON.stringify([...done])); } catch { }
+      sec.classList.add('solved'); update(); say('ok', 'Correct!', `<p>${esc(e.explanation)}</p>`);
+    } else say('bad', 'Not quite. Try again, use the hint, or show the answer.');
+  };
+}
 
 const teacher = id => {
   const t = D.T[id]; if (!t) return nf();
@@ -112,7 +174,7 @@ const post = async id => {
   let body = '';
   try {
     if (p.contentFile) {
-      const r = await fetch(p.contentFile);
+      const r = await fetch(p.contentFile, { cache: 'no-cache' });
       if (!r.ok) throw new Error();
       body = DOMPurify.sanitize(marked.parse(await r.text())).replace(/<img /g, '<img loading="lazy" decoding="async" ');
     } else if (!p.pages) throw new Error();
@@ -184,12 +246,13 @@ async function route() {
   const id = decodeURIComponent(raw || ''), sub = decodeURIComponent(raw2 || '');
   try {
     if (!D) await init();
-    const view = { post, teacher, subject, contact }[page];
+    const view = { post, teacher, subject, contact, practice }[page];
     app.innerHTML = view ? await view(id, sub) : home();
   } catch (e) {
     app.innerHTML = `<p class="err">${esc(e.message)}<br>If you opened index.html straight from your computer, start a local server instead (see README.md).</p>`;
   }
   if (window.hljs) app.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
+  if (document.getElementById('prc')) bindPractice();
   const cf = document.getElementById('cf'); if (cf) cf.addEventListener('submit', sendContact);
   const h = app.querySelector('h1');
   document.title = page && h ? `${h.textContent} - CHHOYED` : 'CHHOYED';

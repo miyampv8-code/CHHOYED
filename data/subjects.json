@@ -8,7 +8,8 @@
         "id": "java",
         "name": "Java",
         "color": "#e76f00",
-        "tagline": "Learn Java, from Hello World to OOP"
+        "tagline": "Learn Java, from Hello World to OOP",
+        "exercises": "data/exercises/java.json"
       },
       {
         "id": "awt",

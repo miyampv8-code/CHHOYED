@@ -984,3 +984,177 @@ footer p {
         color: #f87171
     }
 }
+
+/* practice */
+.step.practice {
+    border-style: dashed
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 6px 0 10px;
+    font-weight: 600
+}
+
+.bar {
+    flex: 1 1 160px;
+    max-width: 320px;
+    height: 10px;
+    border-radius: 99px;
+    background: var(--line);
+    overflow: hidden
+}
+
+.bar i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--acc);
+    transition: width .3s
+}
+
+.ex {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 20px 22px;
+    margin: 0 0 16px;
+    box-shadow: var(--sh)
+}
+
+.ex.solved {
+    border-color: #16a34a
+}
+
+.exh {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 6px
+}
+
+.exh b {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--acc);
+    color: #fff;
+    font-size: .95rem
+}
+
+.ex p {
+    margin: .4em 0 .8em
+}
+
+.ex pre {
+    background: #0f1b26;
+    color: #e6edf3;
+    border-radius: 12px;
+    padding: 14px;
+    overflow-x: auto;
+    line-height: 1.5;
+    margin: 0 0 14px
+}
+
+.ex code {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: .92em
+}
+
+.opts {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 14px
+}
+
+.opts label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    cursor: pointer
+}
+
+.opts label:has(input:checked) {
+    border-color: var(--acc);
+    background: color-mix(in srgb, var(--acc) 10%, transparent)
+}
+
+.opts span {
+    font-family: ui-monospace, Menlo, Consolas, monospace
+}
+
+.blank {
+    font: inherit;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 14px;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 14px
+}
+
+.blank:focus {
+    outline: none;
+    border-color: var(--acc)
+}
+
+.ex .btns {
+    margin-top: 0
+}
+
+.ex button.btn {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    padding: 9px 18px
+}
+
+.ex button.btn.alt {
+    border: 1.5px solid var(--line)
+}
+
+.res:empty {
+    display: none
+}
+
+.res {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--line)
+}
+
+.res.ok {
+    background: color-mix(in srgb, #16a34a 12%, transparent);
+    border-color: #16a34a
+}
+
+.res.bad {
+    background: color-mix(in srgb, #dc2626 10%, transparent);
+    border-color: #dc2626
+}
+
+.res.info {
+    background: color-mix(in srgb, var(--acc) 8%, transparent)
+}
+
+.res p {
+    margin: .5em 0 0
+}
+
+.res pre {
+    margin: .6em 0 0
+}
