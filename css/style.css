@@ -1186,3 +1186,11 @@ footer p {
 .lesson tr:nth-child(even) td {
     background: var(--card)
 }
+
+/* Caption under a figure in a lesson */
+.lesson p:has(> img)+p {
+    text-align: center;
+    color: var(--mute);
+    font-size: .92rem;
+    margin-top: -4px
+}

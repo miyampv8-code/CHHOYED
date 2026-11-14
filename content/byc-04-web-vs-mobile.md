@@ -24,13 +24,9 @@ Developers build for two main environments: the web (opened in a browser) and mo
 | CSS | Style: colors, fonts, layout, animations | Paint and decoration |
 | JavaScript | Behavior and logic (clicks, forms, data) | Electricity and plumbing |
 
-**Figure 4.1: A web page is built from three layers** (example page: https://myschool.edu.kh, with a title "My School", a photo and a Register button)
+![A web page is built from three layers: HTML for structure, CSS for style, JavaScript for behavior](images/byc/fig-4-1.webp)
 
-| Layer | What it does |
-|---|---|
-| HTML | structure: headings, text, images |
-| CSS | style: colors, fonts, layout |
-| JavaScript | behavior: clicks, forms, data |
+*Figure 4.1: HTML, CSS and JavaScript in a browser*
 
 ## 4.3 PWA: a bridge between web and mobile
 

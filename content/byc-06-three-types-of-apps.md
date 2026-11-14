@@ -25,12 +25,9 @@ A hybrid app is a web app wrapped inside a native shell and installed like a nor
 - **Advantages:** web developers can start quickly; one codebase.
 - **Disadvantages:** usually slower and less smooth than native or cross-platform.
 
-**Figure 6.1: Three ways to build a mobile app**
+![Three ways to build a mobile app: Native (Kotlin code and Swift code, 2 codebases, best speed), Cross-platform (ONE code with Flutter or React Native, 1 codebase, great value), Hybrid (a web wrapper around HTML, CSS and JS, easy start)](images/byc/fig-6-1.webp)
 
-| Native | Cross-platform | Hybrid |
-|---|---|---|
-| Kotlin code → Android; Swift code → iOS | ONE code (Flutter / RN) → Android and iOS | Web wrapper around HTML, CSS + JS |
-| 2 codebases, best speed | 1 codebase, great value | Web inside an app, easy start |
+*Figure 6.1: Native, cross-platform and hybrid apps*
 
 ## 6.4 Side-by-side comparison
 

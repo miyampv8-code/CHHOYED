@@ -38,15 +38,9 @@ Here is the whole journey in one place. Follow the shared foundation first, then
 4. API and Firebase
 5. Publish to Play Store and App Store
 
-**Figure 11.1: Your learning roadmap at a glance**
+![Your learning roadmap: Foundation, then Web (HTML, CSS, JS, React or Vue, Node or Laravel), Android (Kotlin, Compose, Android Studio) or Flutter (Dart, Widgets, API and Firebase), then Projects, Portfolio, Publish, Job or Freelance](images/byc/fig-11-1.webp)
 
-| Stage | What it covers |
-|---|---|
-| FOUNDATION | computer, OS, web vs mobile, API, programming basics, Git |
-| WEB | HTML, CSS, JS, then React / Vue, then Node / Laravel |
-| ANDROID | Kotlin, then Compose, then Android Studio |
-| FLUTTER | Dart, then Widgets, then API + Firebase |
-| FINISH | PROJECTS → PORTFOLIO → PUBLISH → JOB / FREELANCE |
+*Figure 11.1: The roadmap at a glance*
 
 ## 11.3 Which path is right for me?
 

@@ -18,13 +18,9 @@ The operating system (OS) is the manager of the computer. It controls the hardwa
 | Linux | Open source community (Ubuntu, Fedora, Debian) | Free, customizable, stable; runs most of the world's servers | Favorite for backend work and servers |
 | ChromeOS | Google | Light, fast, browser-based | Limited; best for web use |
 
-**Figure 2.1: The operating system is the manager between apps and hardware**
+![The operating system is the manager between apps (Browser, Music, Game, Editor) and hardware (CPU, RAM, Storage, Screen). It handles files, memory, processes, drivers, security and the user interface](images/byc/fig-2-1.webp)
 
-| Layer | What is in it |
-|---|---|
-| Apps | Browser, Music, Game, Editor |
-| OPERATING SYSTEM | files, memory, processes, drivers, security, user interface |
-| Hardware | CPU, RAM, Storage, Screen |
+*Figure 2.1: The OS manages hardware for every app*
 
 ## 2.3 Why platforms matter
 

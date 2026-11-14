@@ -24,16 +24,9 @@ Phones also need an operating system. Two systems dominate the world, and knowin
 
 Phones have sensors that make mobile apps powerful: camera, GPS, accelerometer, fingerprint and face scanner, microphone, Bluetooth, NFC, and push notifications. Websites can use some of these, but mobile apps have the fullest access.
 
-**Figure 3.1: A phone is a small computer full of sensors.** Sensors and features a phone gives to apps:
+![Sensors and features a phone gives to apps: Camera, GPS, Touch screen, Microphone, Fingerprint / Face, Notifications](images/byc/fig-3-1.webp)
 
-| Feature | Used for |
-|---|---|
-| Camera | photos, QR scan |
-| GPS | maps, delivery |
-| Touch screen | tap, swipe |
-| Microphone | voice, calls |
-| Fingerprint / Face | secure login |
-| Notifications | alerts and messages |
+*Figure 3.1: A phone is a small computer full of sensors*
 
 > **Remember**
 > Always ask who your users are. If your customers mostly use Android phones, start with Android or a cross-platform tool.

@@ -9,14 +9,9 @@ This chapter follows the historical and practical path of Android development, f
 - **Gradle:** the build system that compiles and packages the app.
 - **APK / AAB:** the app file installed on phones; AAB is used for Google Play.
 
-**Figure 9.1: From code to a running Android app**
+![From code to a running Android app: Kotlin or Java source code, Gradle build system, APK or AAB app package, then the phone or emulator runs it](images/byc/fig-9-1.webp)
 
-| Step | What happens |
-|---|---|
-| Kotlin / Java | source code |
-| Gradle | build system |
-| APK / AAB | app package |
-| Phone or Emulator | app runs |
+*Figure 9.1: The Android build process*
 
 Android Studio is the tool that does all of these steps for you.
 
@@ -104,18 +99,9 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-**Figure 9.2: Flutter, everything is a widget (a widget tree)**
+![Flutter widget tree: MaterialApp, Scaffold, then AppBar with Text Home and Body Center with Text Hello](images/byc/fig-9-2.webp)
 
-```
-MaterialApp
-└── Scaffold
-    ├── AppBar
-    │   └── Text 'Home'
-    └── Body: Center
-        └── Text 'Hello'
-```
-
-The screen shows the word **Hello**.
+*Figure 9.2: A Flutter widget tree*
 
 ## 9.7 Compare the options
 

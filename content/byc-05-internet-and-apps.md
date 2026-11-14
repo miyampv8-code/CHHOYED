@@ -11,7 +11,11 @@ Almost every modern web or mobile app follows the same basic pattern. Learn it o
 | Database | Permanent storage of data | MySQL, PostgreSQL, MongoDB, Firebase |
 | API | The messenger between frontend and backend | REST API sending JSON over HTTP |
 
-**Figure 5.1: How a mobile app gets its data**
+![How a mobile app gets its data: the Frontend (client) sends a request to the API, the Backend (server logic) uses the Database, and the response comes back as JSON](images/byc/fig-5-1.webp)
+
+*Figure 5.1: Frontend, API, backend and database*
+
+The steps in the picture:
 
 1. The **Frontend (client)** sends a **request** to the **API**.
 2. The API passes it to the **Backend (server logic)**.

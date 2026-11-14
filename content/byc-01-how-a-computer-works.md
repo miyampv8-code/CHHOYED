@@ -13,15 +13,9 @@ Hardware means the physical parts you can touch.
 | Output devices | Screen, speakers, printer | Mouth and eyes |
 | Network card | Connects to Wi-Fi or cables | The telephone line |
 
-**Figure 1.1: Main hardware parts of a computer**
+![Main hardware parts of a computer: CPU (the brain), RAM (work desk), Storage (filing cabinet), Screen (output), Keyboard (input)](images/byc/fig-1-1.webp)
 
-| Part | Comparison |
-|---|---|
-| CPU | the brain |
-| RAM | work desk |
-| Storage (SSD) | filing cabinet |
-| Keyboard | input |
-| Screen | output |
+*Figure 1.1: Main hardware parts*
 
 ## 1.2 Software
 
@@ -32,14 +26,9 @@ Software is the set of instructions that tells hardware what to do. There are tw
 | System software | Manages the hardware and runs other programs | Windows, macOS, Linux, Android, iOS |
 | Application software | Helps the user do a task | Chrome, Word, Telegram, Facebook, games |
 
-**Figure 1.2: Where software sits.** Read from top to bottom:
+![Where software sits, from top to bottom: User, Application software (Chrome, Word, Telegram, Games), System software or OS (Windows, macOS, Linux, Android, iOS), Hardware (CPU, RAM, Storage, Screen, Network)](images/byc/fig-1-2.webp)
 
-| Layer | What is in it |
-|---|---|
-| USER | You use apps by touching, clicking, typing |
-| APPLICATION SOFTWARE | Chrome, Word, Telegram, Games |
-| SYSTEM SOFTWARE (OS) | Windows, macOS, Linux, Android, iOS |
-| HARDWARE | CPU, RAM, Storage, Screen, Network |
+*Figure 1.2: Hardware, operating system, applications and the user*
 
 ## 1.3 How code becomes a running program
 
