@@ -5,6 +5,12 @@
     "color": "#0b6b63",
     "topics": [
       {
+        "id": "before-you-code",
+        "name": "Before You Code",
+        "color": "#7c3aed",
+        "tagline": "The foundation guide for future web and mobile app developers"
+      },
+      {
         "id": "java",
         "name": "Java",
         "color": "#e76f00",

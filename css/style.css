@@ -1158,3 +1158,31 @@ footer p {
 .res pre {
     margin: .6em 0 0
 }
+
+/* Tables inside lessons (used by the "Before You Code" course) */
+.lesson table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font: .95rem/1.5 "Source Serif 4", "Noto Serif Khmer", Georgia, serif
+}
+
+.lesson th,
+.lesson td {
+    padding: 9px 14px;
+    border: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top
+}
+
+.lesson th {
+    background: var(--card);
+    font-family: "Bricolage Grotesque", sans-serif;
+    white-space: nowrap
+}
+
+.lesson tr:nth-child(even) td {
+    background: var(--card)
+}
