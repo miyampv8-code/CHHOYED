@@ -1194,3 +1194,20 @@ footer p {
     font-size: .92rem;
     margin-top: -4px
 }
+
+/* Fix: the .wrap class was overriding the spacing of <main> and <footer> */
+main.wrap {
+    padding-bottom: 70px
+}
+
+footer.wrap {
+    padding-top: 28px;
+    padding-bottom: 40px;
+    margin-top: 20px
+}
+
+@media(max-width:760px) {
+    main.wrap {
+        padding-bottom: 50px
+    }
+}
