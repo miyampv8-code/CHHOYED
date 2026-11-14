@@ -8,55 +8,64 @@
         "id": "before-you-code",
         "name": "Before You Code",
         "color": "#7c3aed",
-        "tagline": "The foundation guide for future web and mobile app developers"
+        "tagline": "The foundation guide for future web and mobile app developers",
+        "icon": "BYC"
       },
       {
         "id": "html",
         "name": "HTML",
         "color": "#e34f26",
-        "tagline": "Learn HTML, build the structure of web pages"
+        "tagline": "Learn HTML, build the structure of web pages",
+        "icon": "</>"
       },
       {
         "id": "css",
         "name": "CSS",
         "color": "#2965f1",
-        "tagline": "Learn CSS, make your pages beautiful and responsive"
+        "tagline": "Learn CSS, make your pages beautiful and responsive",
+        "icon": "{ }"
       },
       {
         "id": "javascript",
         "name": "JavaScript",
         "color": "#a16207",
-        "tagline": "Learn JavaScript, make your pages interactive"
+        "tagline": "Learn JavaScript, make your pages interactive",
+        "icon": "JS"
       },
       {
         "id": "java",
         "name": "Java",
         "color": "#e76f00",
         "tagline": "Learn Java, from Hello World to OOP",
-        "exercises": "data/exercises/java.json"
+        "exercises": "data/exercises/java.json",
+        "icon": "Java"
       },
       {
         "id": "awt",
         "name": "Java AWT",
         "color": "#0d9488",
         "tagline": "Build windows and buttons with Java AWT",
-        "exercises": "data/exercises/awt.json"
+        "exercises": "data/exercises/awt.json",
+        "icon": "AWT"
       },
       {
         "id": "python",
         "name": "Python",
         "color": "#3776ab",
         "tagline": "Learn Python, from Hello World to OOP",
-        "exercises": "data/exercises/python.json"
+        "exercises": "data/exercises/python.json",
+        "icon": "Py"
       },
       {
         "id": "cpp",
         "name": "C++",
         "color": "#00599c",
         "tagline": "Learn C++, from Hello World to OOP",
-        "exercises": "data/exercises/cpp.json"
+        "exercises": "data/exercises/cpp.json",
+        "icon": "C++"
       }
-    ]
+    ],
+    "icon": "</>"
   },
   {
     "id": "math",
@@ -67,30 +76,36 @@
         "id": "general",
         "name": "General math",
         "color": "#c2410c",
-        "tagline": "Algebra, geometry and more"
+        "tagline": "Algebra, geometry and more",
+        "icon": "x²"
       },
       {
         "id": "integral",
         "name": "Integral calculus",
         "color": "#d97706",
-        "tagline": "Integral Book: 500 exercises with answers"
+        "tagline": "Integral Book: 500 exercises with answers",
+        "icon": "∫"
       },
       {
         "id": "limit",
         "name": "Limits",
         "color": "#b45309",
-        "tagline": "Limits: exercises with full solutions"
+        "tagline": "Limits: exercises with full solutions",
+        "icon": "lim"
       }
-    ]
+    ],
+    "icon": "∑"
   },
   {
     "id": "physics",
     "name": "Physics",
-    "color": "#4f46e5"
+    "color": "#4f46e5",
+    "icon": "F=ma"
   },
   {
     "id": "news",
     "name": "News",
-    "color": "#be185d"
+    "color": "#be185d",
+    "icon": "NEW"
   }
 ]

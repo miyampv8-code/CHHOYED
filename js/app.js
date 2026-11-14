@@ -40,6 +40,14 @@ const avatar = (t, size) => `<span class="av ${size}">${t.photo ? `<img src="${e
 const tag = s => `<span class="tag" style="--c:${col(s.color)}"><i></i>${esc(s.name)}</span>`;
 const nf = () => '<p class="err">Page not found. <a href="#/">Back to lessons</a></p>';
 
+// ---- Language icons and progress (progress is saved in this browser only)
+const ico = (x, big) => x && x.icon ? `<span class="ico${big ? ' big' : ''} n${Math.min([...String(x.icon)].length, 4)}" style="--c:${col(x.color)}" aria-hidden="true">${esc(x.icon)}</span>` : '';
+const bar = (n, total, cls = '') => `<span class="pbar ${cls}"><i style="width:${total ? Math.round(100 * n / total) : 0}%"></i></span>`;
+const PK = 'chhoyed-progress';
+const getP = () => { try { const p = JSON.parse(localStorage.getItem(PK) || '{}'); return { done: Array.isArray(p.done) ? p.done : [], last: typeof p.last === 'string' ? p.last : '' }; } catch { return { done: [], last: '' }; } };
+const setP = p => { try { localStorage.setItem(PK, JSON.stringify(p)); } catch { } };
+const doneBtn = (id, on) => `<button type="button" class="btn donebtn${on ? ' on' : ''}" data-done="${esc(id)}" aria-pressed="${on}">${on ? '✓ Done' : 'Mark as done'}</button>`;
+
 const card = p => {
   const t = tOf(p), s = sOf(p);
   return `<a class="card" style="--c:${col(s.color)}" href="#/post/${esc(p.id)}">${tag(s)}<h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>` +
@@ -56,9 +64,18 @@ const links = t => {
 const grid = ps => ps.length ? `<div class="grid">${ps.map(card).join('')}</div>` : '<p class="empty">No lessons here yet.</p>';
 
 const seq = ps => ps.filter(p => p.order).sort((a, b) => a.order - b.order);
-const step = p => `<a class="step" style="--c:${col(sOf(p).color)}" href="#/post/${esc(p.id)}"><b>${p.order}</b><div><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p></div></a>`;
-const path = ps => `<div class="path">${seq(ps).map((p, i, a) => (p.part && p.part !== a[i - 1]?.part ? `<h3 class="part">${esc(p.part)}</h3>` : '') + step(p)).join('')}</div>`;
+const step = (p, dn) => `<a class="step${dn.has(p.id) ? ' done' : ''}" style="--c:${col(sOf(p).color)}" href="#/post/${esc(p.id)}"><b>${dn.has(p.id) ? '✓' : p.order}</b><div><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p></div></a>`;
+const path = ps => { const dn = new Set(getP().done); return `<div class="path">${seq(ps).map((p, i, a) => (p.part && p.part !== a[i - 1]?.part ? `<h3 class="part">${esc(p.part)}</h3>` : '') + step(p, dn)).join('')}</div>`; };
 const HELLO = 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, CHHOYED!");\n    }\n}';
+
+const resume = () => {
+  const P = getP(), lp = D.posts.find(p => p.id === P.last); if (!lp || !lp.order) return '';
+  const tr = seq(D.posts.filter(x => sameTrack(x, lp))), dn = new Set(P.done), d = tr.filter(x => dn.has(x.id)).length, s = sOf(lp);
+  const nx = dn.has(lp.id) ? (tr.find(x => x.order > lp.order && !dn.has(x.id)) || tr.find(x => !dn.has(x.id))) : lp;
+  const reset = '<p class="rs"><button type="button" class="lnk" data-reset>Reset my progress</button></p>';
+  if (!nx) return `<div class="resume" style="--c:${col(s.color)}"><div><small>Course complete</small><h3>You finished ${esc(s.name)}. Well done!</h3>${bar(d, tr.length)}</div></div>${reset}`;
+  return `<a class="resume" style="--c:${col(s.color)}" href="#/post/${esc(nx.id)}"><div><small>Continue where you left off</small><h3>${esc(nx.title)}</h3><p>${esc(s.name)} · lesson ${tr.indexOf(nx) + 1} of ${tr.length}</p>${bar(d, tr.length)}</div><span class="btn">Continue</span></a>${reset}`;
+};
 
 const home = () => {
   const tracks = D.subjects.flatMap(s => (s.topics || [s]).map(t => ({ s, t, ps: seq(D.posts.filter(p => p.subject === s.id && (s.topics ? p.topic === t.id : true))) }))).filter(x => x.ps.length);
@@ -69,12 +86,14 @@ const home = () => {
   return `<section class="hero"><div><h1 lang="km">រៀនឱ្យចេះ <span class="hl">ហាត់ឱ្យពូកែ។</span></h1><p lang="km">មេរៀនឥតគិតថ្លៃ ផ្នែកកូដ គណិតវិទ្យា និងរូបវិទ្យា ពីមូលដ្ឋានដល់កម្រិតខ្ពស់។</p>` +
     (first ? `<div class="btns"><a class="btn" href="#/post/${esc(first.id)}">Start: ${esc(first.title)}</a><a class="btn alt" href="${trackUrl(first)}">See all lessons</a></div>` : '') +
     `</div><div class="win" aria-hidden="true"><div class="top"><i></i><i></i><i></i><span>Main.java</span></div><pre><code class="language-java">${esc(HELLO)}</code></pre><div class="out">Hello, CHHOYED!</div></div></section>` +
-    `${stats}${paths}<h2>More lessons</h2>${grid(more)}<h2>Our teachers</h2><div class="grid">${D.teachers.map(tcard).join('')}</div>`;
+    `${stats}${resume()}${paths}<h2>More lessons</h2>${grid(more)}<h2>Our teachers</h2><div class="grid">${D.teachers.map(tcard).join('')}</div>`;
 };
 
 const topicCard = (s, t) => {
-  const n = D.posts.filter(p => p.subject === s.id && (s.topics ? p.topic === t.id : true)).length;
-  return `<a class="card" style="--c:${col(t.color)}" href="#/subject/${esc(s.id)}${s.topics ? '/' + esc(t.id) : ''}">${tag(t)}<h3>${esc(t.tagline || t.name)}</h3><p>${n} lesson${n === 1 ? '' : 's'}</p></a>`;
+  const ps = D.posts.filter(p => p.subject === s.id && (s.topics ? p.topic === t.id : true)), n = ps.length;
+  const ord = seq(ps), dn = new Set(getP().done), d = ord.filter(p => dn.has(p.id)).length;
+  return `<a class="card" style="--c:${col(t.color)}" href="#/subject/${esc(s.id)}${s.topics ? '/' + esc(t.id) : ''}"><div class="ct">${ico(t)}${tag(t)}</div><h3>${esc(t.tagline || t.name)}</h3>` +
+    `<p>${n} lesson${n === 1 ? '' : 's'}${d ? ` · ${d} of ${ord.length} done` : ''}</p>${d ? bar(d, ord.length, 'sm') : ''}</a>`;
 };
 
 const subject = async (id, tid) => {
@@ -87,7 +106,9 @@ const subject = async (id, tid) => {
   const ps = D.posts.filter(p => p.subject === id && (tid ? p.topic === tid : true));
   const pr = t.exercises ? await getJSON(t.exercises).catch(() => null) : null;
   const back = tid ? `<a class="back" href="#/subject/${esc(id)}">Back to ${esc(s.name)}</a>` : '';
-  return `${back}<h1>${esc(t.name)}</h1>${t.tagline ? `<p class="empty" style="border-style:solid">${esc(t.tagline)}. Follow the lessons in order.</p><br>` : ''}${ps.some(p => p.order) ? withPractice(path(ps), t, id, tid, pr, ps) : grid(ps)}`;
+  const ord = seq(ps), dn = new Set(getP().done), nd = ord.filter(p => dn.has(p.id)).length;
+  const meter = ord.length ? `<div class="score" style="--c:${col(t.color)}"><span><b>${nd}</b> of ${ord.length} lessons done</span>${bar(nd, ord.length)}</div>` : '';
+  return `${back}<div class="th1">${ico(t, true)}<h1>${esc(t.name)}</h1></div>${meter}${t.tagline ? `<p class="empty" style="border-style:solid">${esc(t.tagline)}. Follow the lessons in order.</p><br>` : ''}${ps.some(p => p.order) ? withPractice(path(ps), t, id, tid, pr, ps) : grid(ps)}`;
 };
 
 // ---- Practice exercises
@@ -183,7 +204,7 @@ const post = async id => {
   return `<a class="back" href="#/">Back to lessons</a><article>${tag(s)}${prog}<h1>${esc(p.title)}</h1>` +
     `<a class="byline" href="#/teacher/${esc(t.id)}">${avatar(t, 'sm')}<span>${esc(t.name)}</span><time>${fmt(p.date)}</time></a>` +
     (p.file ? `<div class="btns fileb"><a class="btn" href="${esc(p.file)}" target="_blank" rel="noopener">Open the PDF</a><a class="btn alt" href="${esc(p.file)}" download>Download</a></div>` : '') +
-    `<div class="lesson">${body}</div></article>${pn}` +
+    `<div class="lesson">${body}</div>${k < 0 ? '' : `<div class="donebar"><span>Finished this lesson?</span>${doneBtn(id, getP().done.includes(id))}</div>`}</article>${pn}` +
     `<aside class="credit">${avatar(t, 'md')}<div><h3>${esc(t.name)}</h3><p>${esc(t.title)}</p><p>${esc(t.bio)}</p><p><a href="#/teacher/${esc(t.id)}">See all lessons by ${esc(t.name)}</a></p></div></aside>`;
 };
 
@@ -251,6 +272,7 @@ async function route() {
   } catch (e) {
     app.innerHTML = `<p class="err">${esc(e.message)}<br>If you opened index.html straight from your computer, start a local server instead (see README.md).</p>`;
   }
+  if (page === 'post') { const lp = D && D.posts.find(p => p.id === id); if (lp && lp.order) { const P = getP(); if (P.last !== id) { P.last = id; setP(P); } } }
   if (window.hljs) app.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
   if (document.getElementById('prc')) bindPractice();
   const cf = document.getElementById('cf'); if (cf) cf.addEventListener('submit', sendContact);
@@ -262,4 +284,16 @@ async function route() {
   track();
 }
 addEventListener('hashchange', route);
+app.addEventListener('click', e => {
+  const b = e.target.closest('[data-done]');
+  if (b) {
+    const P = getP(), id = b.dataset.done, i = P.done.indexOf(id);
+    if (i < 0) P.done.push(id); else P.done.splice(i, 1);
+    setP(P);
+    const on = i < 0;
+    b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); b.textContent = on ? '✓ Done' : 'Mark as done';
+    return;
+  }
+  if (e.target.closest('[data-reset]') && confirm('Clear your lesson progress on this device?')) { setP({ done: [], last: '' }); route(); }
+});
 route();

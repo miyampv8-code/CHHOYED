@@ -1211,3 +1211,171 @@ footer.wrap {
         padding-bottom: 50px
     }
 }
+
+/* ---- Course icons ---- */
+.ct {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 4px
+}
+
+.ico {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 68%, #000));
+    color: #fff;
+    font: 800 1.15rem/1 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    letter-spacing: -.02em;
+    box-shadow: 0 8px 16px -8px var(--c), inset 0 1px 0 rgba(255, 255, 255, .28)
+}
+
+.ico.n3 {
+    font-size: .95rem
+}
+
+.ico.n4 {
+    font-size: .76rem
+}
+
+.ico.big {
+    width: 66px;
+    height: 66px;
+    border-radius: 19px;
+    font-size: 1.45rem
+}
+
+.ico.big.n3 {
+    font-size: 1.15rem
+}
+
+.ico.big.n4 {
+    font-size: .95rem
+}
+
+.th1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 10px 0 8px
+}
+
+.th1 h1 {
+    margin: 0
+}
+
+/* ---- Progress ---- */
+:root {
+    --ok: #16a34a
+}
+
+.pbar.sm {
+    display: block;
+    max-width: none;
+    height: 6px;
+    margin-top: 12px
+}
+
+.card .pbar i,
+.resume .pbar i {
+    background: var(--c)
+}
+
+.step.done {
+    border-color: color-mix(in srgb, var(--ok) 45%, var(--line))
+}
+
+.step.done b {
+    background: var(--ok);
+    box-shadow: 0 6px 14px -6px var(--ok)
+}
+
+.donebar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 30px 0 4px;
+    padding: 16px 20px;
+    border: 1px dashed var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    font-weight: 600
+}
+
+.btn.donebtn {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600
+}
+
+.btn.donebtn.on {
+    background: var(--ok);
+    color: #fff;
+    box-shadow: 0 10px 24px -10px var(--ok)
+}
+
+.resume {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 6px 0 4px;
+    padding: 20px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    background: linear-gradient(120deg, color-mix(in srgb, var(--c) 14%, var(--card)), var(--card));
+    border: 1px solid color-mix(in srgb, var(--c) 40%, var(--line));
+    box-shadow: var(--sh)
+}
+
+.resume small {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: var(--c)
+}
+
+.resume h3 {
+    margin: .25em 0 .15em;
+    font-size: 1.25rem
+}
+
+.resume p {
+    margin: 0;
+    color: var(--mute)
+}
+
+.resume .pbar {
+    display: block;
+    max-width: 280px;
+    margin-top: 12px
+}
+
+.rs {
+    margin: 6px 0 22px;
+    text-align: right
+}
+
+.lnk {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--mute);
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+    font-size: .88rem
+}
+
+.score .pbar i {
+    background: var(--c, var(--acc))
+}
