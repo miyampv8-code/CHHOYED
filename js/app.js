@@ -111,7 +111,7 @@ const practice = async (id, tid) => {
   PDATA = { key: `${id}-${tid}`, ...P };
   const auto = P.items.filter(e => e.type !== 'code').length;
   return `<a class="back" href="#/subject/${esc(id)}/${esc(tid)}">Back to ${esc(t.name)}</a><h1>${esc(P.title || t.name + ' practice')}</h1>` +
-    `<div class="score" id="prc"><span><b id="sc">0</b> of ${auto} solved</span><span class="bar"><i id="bar"></i></span></div>` +
+    `<div class="score" id="prc"><span><b id="sc">0</b> of ${auto} solved</span><span class="pbar"><i id="bar"></i></span></div>` +
     `<p class="hint">Check answer, Hint and Show answer are there to help you. Write-the-code exercises are not scored: try them on your own computer first.</p>` +
     P.items.map((e, i) => exItem(e, i, P.lang || 'text')).join('');
 };

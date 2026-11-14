@@ -999,7 +999,7 @@ footer p {
     font-weight: 600
 }
 
-.bar {
+.pbar {
     flex: 1 1 160px;
     max-width: 320px;
     height: 10px;
@@ -1008,7 +1008,7 @@ footer p {
     overflow: hidden
 }
 
-.bar i {
+.pbar i {
     display: block;
     height: 100%;
     width: 0;
