@@ -687,11 +687,10 @@
     "title": "Your first window",
     "summary": "Create a window with Frame, set its size and close it properly.",
     "subject": "coding",
-    "topic": "java",
+    "topic": "awt",
     "teacherId": "chhoyed-team",
     "date": "2026-11-14",
-    "part": "Java AWT: windows and GUI",
-    "order": 12,
+    "order": 1,
     "contentFile": "content/java-awt-intro.md"
   },
   {
@@ -699,11 +698,10 @@
     "title": "Labels, buttons and text fields",
     "summary": "Put components in a window and read what the user types.",
     "subject": "coding",
-    "topic": "java",
+    "topic": "awt",
     "teacherId": "chhoyed-team",
     "date": "2026-11-14",
-    "part": "Java AWT: windows and GUI",
-    "order": 13,
+    "order": 2,
     "contentFile": "content/java-awt-components.md"
   },
   {
@@ -711,11 +709,10 @@
     "title": "Layouts and panels",
     "summary": "Arrange components with FlowLayout, BorderLayout and GridLayout.",
     "subject": "coding",
-    "topic": "java",
+    "topic": "awt",
     "teacherId": "chhoyed-team",
     "date": "2026-11-14",
-    "part": "Java AWT: windows and GUI",
-    "order": 14,
+    "order": 3,
     "contentFile": "content/java-awt-layouts.md"
   },
   {
@@ -723,11 +720,10 @@
     "title": "Events: reacting to clicks",
     "summary": "Make a button do something with an ActionListener.",
     "subject": "coding",
-    "topic": "java",
+    "topic": "awt",
     "teacherId": "chhoyed-team",
     "date": "2026-11-14",
-    "part": "Java AWT: windows and GUI",
-    "order": 15,
+    "order": 4,
     "contentFile": "content/java-awt-events.md"
   },
   {
@@ -738,8 +734,7 @@
     "topic": "awt",
     "teacherId": "chhoyed-team",
     "date": "2026-11-14",
-    "part": "Java AWT: windows and GUI",
-    "order": 16,
+    "order": 5,
     "contentFile": "content/java-awt-graphics.md"
   }
 ]
