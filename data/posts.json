@@ -735,7 +735,7 @@
     "title": "Drawing with Graphics",
     "summary": "Draw lines, rectangles, ovals and text on a Canvas.",
     "subject": "coding",
-    "topic": "java",
+    "topic": "awt",
     "teacherId": "chhoyed-team",
     "date": "2026-11-14",
     "part": "Java AWT: windows and GUI",

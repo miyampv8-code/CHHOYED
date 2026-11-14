@@ -11,6 +11,12 @@
         "tagline": "Learn Java, from Hello World to OOP"
       },
       {
+        "id": "awt",
+        "name": "Java AWT",
+        "color": "#0d9488",
+        "tagline": "Build windows and buttons with Java AWT"
+      },
+      {
         "id": "python",
         "name": "Python",
         "color": "#3776ab",
