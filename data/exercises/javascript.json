@@ -1,0 +1,203 @@
+{
+  "lang": "javascript",
+  "title": "JavaScript practice",
+  "items": [
+    {
+      "id": "j01",
+      "topic": "Operators",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "let a = 5;\nlet b = 2;\nconsole.log(a % b);",
+      "options": [
+        "2.5",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": 1,
+      "explanation": "The % operator gives the remainder. 5 divided by 2 is 2 with remainder 1.",
+      "hint": "% is not division."
+    },
+    {
+      "id": "j02",
+      "topic": "Data types",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "console.log(\"5\" + 3);",
+      "options": [
+        "8",
+        "53",
+        "5 3",
+        "an error"
+      ],
+      "answer": 1,
+      "explanation": "With a string, + joins text instead of adding. \"5\" + 3 becomes the text \"53\".",
+      "hint": "One of them is text."
+    },
+    {
+      "id": "j03",
+      "topic": "Data types",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "console.log(typeof \"42\");",
+      "options": [
+        "number",
+        "string",
+        "boolean",
+        "undefined"
+      ],
+      "answer": 1,
+      "explanation": "Anything inside quotes is a string, even if it looks like a number."
+    },
+    {
+      "id": "j04",
+      "topic": "Variables",
+      "type": "choice",
+      "question": "Which keyword declares a variable that can NOT be given a new value later?",
+      "options": [
+        "let",
+        "const",
+        "var",
+        "function"
+      ],
+      "answer": 1,
+      "explanation": "const creates a constant. Use const by default and let only when the value must change."
+    },
+    {
+      "id": "j05",
+      "topic": "Conditions",
+      "type": "blank",
+      "question": "Type the strict equality operator (three characters) that compares value and type.",
+      "code": "if (age ___ 18) {\n  console.log(\"Exactly 18\");\n}",
+      "answers": [
+        "==="
+      ],
+      "explanation": "=== compares value and type. Avoid ==, which converts types and gives surprising results.",
+      "hint": "Three equals signs."
+    },
+    {
+      "id": "j06",
+      "topic": "Loops",
+      "type": "output",
+      "question": "What does this code print (one number per line)?",
+      "code": "for (let i = 1; i <= 3; i++) {\n  console.log(i * 2);\n}",
+      "options": [
+        "2, 4, 6",
+        "1, 2, 3",
+        "2, 4, 6, 8",
+        "0, 2, 4"
+      ],
+      "answer": 0,
+      "explanation": "The loop runs for i = 1, 2 and 3. Each time it prints i * 2, so it prints 2, 4 and 6.",
+      "hint": "Count the rounds first."
+    },
+    {
+      "id": "j07",
+      "topic": "Functions",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "const double = n => n * 2;\nconsole.log(double(4));",
+      "options": [
+        "4",
+        "8",
+        "double",
+        "undefined"
+      ],
+      "answer": 1,
+      "explanation": "double is an arrow function that returns n * 2. double(4) returns 8."
+    },
+    {
+      "id": "j08",
+      "topic": "Arrays",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "const a = [10, 20, 30];\nconsole.log(a[1]);",
+      "options": [
+        "10",
+        "20",
+        "30",
+        "undefined"
+      ],
+      "answer": 1,
+      "explanation": "Array counting starts at 0, so index 1 is the second item, which is 20.",
+      "hint": "The first item is index 0."
+    },
+    {
+      "id": "j09",
+      "topic": "Arrays",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "console.log([1, 2, 3].map(n => n * 10));",
+      "options": [
+        "[10, 20, 30]",
+        "[1, 2, 3]",
+        "[10, 20]",
+        "30"
+      ],
+      "answer": 0,
+      "explanation": "map builds a new array by running the function on every item."
+    },
+    {
+      "id": "j10",
+      "topic": "Objects",
+      "type": "output",
+      "question": "What does this code print?",
+      "code": "const student = { name: \"Dara\", age: 18 };\nconsole.log(student.name);",
+      "options": [
+        "Dara",
+        "name",
+        "18",
+        "undefined"
+      ],
+      "answer": 0,
+      "explanation": "student.name reads the value stored under the key name."
+    },
+    {
+      "id": "j11",
+      "topic": "The DOM",
+      "type": "blank",
+      "question": "Type the method name that finds the first element matching a CSS selector.",
+      "code": "document.___(\"#title\").textContent = \"Hello\";",
+      "answers": [
+        "querySelector"
+      ],
+      "explanation": "querySelector uses the same selectors as CSS. querySelectorAll returns every match.",
+      "hint": "It starts with query."
+    },
+    {
+      "id": "j12",
+      "topic": "Events",
+      "type": "blank",
+      "question": "Type the method that makes the button run a function when it is clicked.",
+      "code": "btn.___(\"click\", () => {\n  console.log(\"Clicked!\");\n});",
+      "answers": [
+        "addEventListener"
+      ],
+      "explanation": "addEventListener takes the event name and the function to run.",
+      "hint": "It adds a listener."
+    },
+    {
+      "id": "j13",
+      "topic": "Events",
+      "type": "choice",
+      "question": "In a form's submit handler, which call stops the page from reloading?",
+      "options": [
+        "event.stop()",
+        "event.preventDefault()",
+        "event.cancel()",
+        "form.reset()"
+      ],
+      "answer": 1,
+      "explanation": "preventDefault() cancels the browser's default action, here sending the form and reloading the page."
+    },
+    {
+      "id": "j14",
+      "topic": "Functions",
+      "type": "code",
+      "question": "Write a function isEven that takes a number and returns true when it is even, otherwise false.",
+      "solution": "function isEven(n) {\n  return n % 2 === 0;\n}",
+      "explanation": "A number is even when the remainder after dividing by 2 is 0. The comparison already gives true or false.",
+      "hint": "Use the % operator."
+    }
+  ]
+}

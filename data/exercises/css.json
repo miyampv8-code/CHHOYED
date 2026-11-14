@@ -1,0 +1,167 @@
+{
+  "lang": "css",
+  "title": "CSS practice",
+  "items": [
+    {
+      "id": "c01",
+      "topic": "Selectors",
+      "type": "choice",
+      "question": "Which selector chooses every element with class=\"note\"?",
+      "options": [
+        "note",
+        "#note",
+        ".note",
+        "*note"
+      ],
+      "answer": 2,
+      "explanation": "A dot means class. A hash (#) means id. Classes can be reused on many elements.",
+      "hint": "Start with a dot."
+    },
+    {
+      "id": "c02",
+      "topic": "Selectors",
+      "type": "choice",
+      "question": "Which selector chooses the single element with id=\"title\"?",
+      "options": [
+        ".title",
+        "#title",
+        "title()",
+        "@title"
+      ],
+      "answer": 1,
+      "explanation": "The # symbol selects an id. An id must be unique on the page."
+    },
+    {
+      "id": "c03",
+      "topic": "Colors and text",
+      "type": "blank",
+      "question": "Type the property that changes the color of the text.",
+      "code": "p {\n  ___: blue;\n}",
+      "answers": [
+        "color"
+      ],
+      "explanation": "color sets the text color. background-color sets the background.",
+      "hint": "It is also the English word for it."
+    },
+    {
+      "id": "c04",
+      "topic": "Adding CSS",
+      "type": "choice",
+      "question": "What is the best way to style many pages with the same rules?",
+      "options": [
+        "An inline style attribute on every tag",
+        "A <style> tag in every page",
+        "One external .css file linked with <link>",
+        "A comment in the HTML"
+      ],
+      "answer": 2,
+      "explanation": "An external file lets one set of rules style every page, and you change the design in only one place."
+    },
+    {
+      "id": "c05",
+      "topic": "Specificity",
+      "type": "output",
+      "question": "What color is the text?",
+      "code": "<!-- <p class=\"note\">Hi</p> -->\np     { color: red; }\n.note { color: green; }",
+      "options": [
+        "red",
+        "green",
+        "blue",
+        "black"
+      ],
+      "answer": 1,
+      "explanation": "A class selector (.note) is more specific than an element selector (p), so green wins even though both rules match.",
+      "hint": "Which selector is more specific?"
+    },
+    {
+      "id": "c06",
+      "topic": "Box model",
+      "type": "blank",
+      "question": "Type the property that adds space INSIDE the box, between the content and the border.",
+      "code": ".card {\n  ___: 16px;\n}",
+      "answers": [
+        "padding"
+      ],
+      "explanation": "padding is inside the border. margin is outside it.",
+      "hint": "Not margin."
+    },
+    {
+      "id": "c07",
+      "topic": "Box model",
+      "type": "choice",
+      "question": "What does margin: 10px 20px; mean?",
+      "options": [
+        "10px on all sides",
+        "10px top and bottom, 20px left and right",
+        "10px left and right, 20px top and bottom",
+        "10px top, 20px everything else"
+      ],
+      "answer": 1,
+      "explanation": "With two values, the first is top and bottom, and the second is left and right.",
+      "hint": "Two values: vertical, then horizontal."
+    },
+    {
+      "id": "c08",
+      "topic": "Box model",
+      "type": "choice",
+      "question": "By default (content-box), what is the total width this box takes on screen?",
+      "code": ".box {\n  width: 300px;\n  padding: 20px;\n  border: 2px solid black;\n}",
+      "options": [
+        "300px",
+        "320px",
+        "344px",
+        "324px"
+      ],
+      "answer": 2,
+      "explanation": "The width only covers the content. Total = 300 + padding (20 + 20) + border (2 + 2) = 344px. The rule box-sizing: border-box makes width include them.",
+      "hint": "Add the padding and border to the width."
+    },
+    {
+      "id": "c09",
+      "topic": "Flexbox",
+      "type": "blank",
+      "question": "Type the value that turns a container into a flex container.",
+      "code": ".row {\n  display: ___;\n}",
+      "answers": [
+        "flex"
+      ],
+      "explanation": "display: flex lays the children out in a row and unlocks justify-content, align-items and gap."
+    },
+    {
+      "id": "c10",
+      "topic": "Flexbox",
+      "type": "choice",
+      "question": "Which property spaces flex items along the main direction (for example centers them in a row)?",
+      "options": [
+        "align-items",
+        "justify-content",
+        "flex-wrap",
+        "gap"
+      ],
+      "answer": 1,
+      "explanation": "justify-content works along the main axis. align-items works across it.",
+      "hint": "The name starts with justify."
+    },
+    {
+      "id": "c11",
+      "topic": "Grid",
+      "type": "blank",
+      "question": "Type the missing unit so the grid has three equal columns.",
+      "code": ".gallery {\n  display: grid;\n  grid-template-columns: repeat(3, ___);\n}",
+      "answers": [
+        "1fr"
+      ],
+      "explanation": "1fr means one share of the free space, so three 1fr columns are equal.",
+      "hint": "A number plus fr."
+    },
+    {
+      "id": "c12",
+      "topic": "Responsive design",
+      "type": "code",
+      "question": "Write a media query that makes h1 use font-size: 1.6rem when the screen is 600px wide or less.",
+      "solution": "@media (max-width: 600px) {\n  h1 {\n    font-size: 1.6rem;\n  }\n}",
+      "explanation": "A media query applies its rules only when the condition is true. max-width: 600px matches screens that are 600px wide or smaller.",
+      "hint": "Start with @media."
+    }
+  ]
+}

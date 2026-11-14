@@ -1,0 +1,164 @@
+{
+  "lang": "html",
+  "title": "HTML practice",
+  "items": [
+    {
+      "id": "h01",
+      "topic": "Page skeleton",
+      "type": "choice",
+      "question": "Which tag holds everything the visitor sees on the page?",
+      "options": [
+        "<head>",
+        "<body>",
+        "<title>",
+        "<meta>"
+      ],
+      "answer": 1,
+      "explanation": "The <body> element holds the visible content. The <head> holds information about the page, such as its title.",
+      "hint": "The visible part of the page."
+    },
+    {
+      "id": "h02",
+      "topic": "Text",
+      "type": "blank",
+      "question": "Type the missing tag name so this becomes the most important heading on the page.",
+      "code": "<___>Welcome to my school</___>",
+      "answers": [
+        "h1"
+      ],
+      "explanation": "<h1> is the top-level heading. Use only one per page.",
+      "hint": "Headings go from h1 to h6."
+    },
+    {
+      "id": "h03",
+      "topic": "Text",
+      "type": "choice",
+      "question": "Which tag marks text as very important (shown bold by default)?",
+      "options": [
+        "<em>",
+        "<strong>",
+        "<br>",
+        "<hr>"
+      ],
+      "answer": 1,
+      "explanation": "<strong> means very important. <em> means emphasized and is shown in italics."
+    },
+    {
+      "id": "h04",
+      "topic": "Links",
+      "type": "blank",
+      "question": "Type the attribute that holds the address of a link.",
+      "code": "<a ___=\"https://example.com\">Visit</a>",
+      "answers": [
+        "href"
+      ],
+      "explanation": "href stands for hypertext reference. It is the address the link goes to.",
+      "hint": "It is four letters."
+    },
+    {
+      "id": "h05",
+      "topic": "Images",
+      "type": "choice",
+      "question": "Which attribute gives an image a text description for screen readers?",
+      "options": [
+        "src",
+        "alt",
+        "width",
+        "title"
+      ],
+      "answer": 1,
+      "explanation": "alt is the alternative text. It is read aloud and is shown if the image cannot load.",
+      "hint": "It is short for alternative."
+    },
+    {
+      "id": "h06",
+      "topic": "Lists",
+      "type": "choice",
+      "question": "Which tag creates a numbered list?",
+      "options": [
+        "<ul>",
+        "<ol>",
+        "<li>",
+        "<dl>"
+      ],
+      "answer": 1,
+      "explanation": "<ol> is an ordered (numbered) list. <ul> is an unordered (bulleted) list. <li> is each item inside either."
+    },
+    {
+      "id": "h07",
+      "topic": "Tables",
+      "type": "blank",
+      "question": "Type the tag name that makes one row of a table.",
+      "code": "<table>\n  <___>\n    <td>Monday</td>\n    <td>Math</td>\n  </___>\n</table>",
+      "answers": [
+        "tr"
+      ],
+      "explanation": "<tr> means table row. Inside it, <td> makes data cells and <th> makes heading cells.",
+      "hint": "Two letters."
+    },
+    {
+      "id": "h08",
+      "topic": "Tables",
+      "type": "choice",
+      "question": "Which tag creates a heading cell inside a table?",
+      "options": [
+        "<td>",
+        "<th>",
+        "<tr>",
+        "<thead>"
+      ],
+      "answer": 1,
+      "explanation": "<th> is a table heading cell, bold and centered by default. <td> is a normal data cell."
+    },
+    {
+      "id": "h09",
+      "topic": "Forms",
+      "type": "blank",
+      "question": "Type the input type that hides the characters while the user types.",
+      "code": "<input type=\"___\" name=\"pass\">",
+      "answers": [
+        "password"
+      ],
+      "explanation": "type=\"password\" shows dots instead of the letters.",
+      "hint": "Used for login forms."
+    },
+    {
+      "id": "h10",
+      "topic": "Forms",
+      "type": "choice",
+      "question": "A label has for=\"email\". What must the matching input have?",
+      "options": [
+        "name=\"email\"",
+        "id=\"email\"",
+        "type=\"email\"",
+        "value=\"email\""
+      ],
+      "answer": 1,
+      "explanation": "The label's for attribute must match the input's id. Then clicking the label selects the field.",
+      "hint": "for matches an id."
+    },
+    {
+      "id": "h11",
+      "topic": "Semantic tags",
+      "type": "choice",
+      "question": "Which tag is best for the main group of navigation links?",
+      "options": [
+        "<div>",
+        "<nav>",
+        "<section>",
+        "<aside>"
+      ],
+      "answer": 1,
+      "explanation": "<nav> tells browsers and screen readers that this is a navigation area. <div> has no meaning."
+    },
+    {
+      "id": "h12",
+      "topic": "Lists",
+      "type": "code",
+      "question": "Write the HTML for a bulleted list with two items: Rice and Eggs.",
+      "solution": "<ul>\n  <li>Rice</li>\n  <li>Eggs</li>\n</ul>",
+      "explanation": "A bulleted list uses <ul>, and each item is wrapped in <li>.",
+      "hint": "Use ul and li."
+    }
+  ]
+}

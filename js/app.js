@@ -24,7 +24,7 @@ async function init() {
     if (p.pages && (!p.book || p.pages.length !== 2)) console.error(`Post "${p.id}" needs "book" and "pages": [first, last]`);
   });
   D = { teachers, subjects, posts, T, S };
-  nav.innerHTML = '<a href="#/">All</a>' + subjects.map(s => `<a href="#/subject/${esc(s.id)}">${esc(s.name)}</a>`).join('') + '<a href="#/contact">Contact</a>';
+  nav.innerHTML = '<a href="#/">All</a>' + subjects.map(s => `<a href="#/subject/${esc(s.id)}">${esc(s.name)}</a>`).join('') + '<a href="#/contact">Contact</a><a href="#/search">Search</a>';
 }
 
 const tOf = p => D.T[p.teacherId] || { id: '', name: 'Unknown teacher', title: '' };
@@ -84,7 +84,7 @@ const home = () => {
   const more = D.posts.filter(p => !p.order);
   const stats = `<div class="stats">${[[D.posts.length, 'lessons'], [tracks.length, 'learning paths'], [D.subjects.length, 'categories'], [D.teachers.length, 'authors']].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('')}</div>`;
   return `<section class="hero"><div><h1 lang="km">រៀនឱ្យចេះ <span class="hl">ហាត់ឱ្យពូកែ។</span></h1><p lang="km">មេរៀនឥតគិតថ្លៃ ផ្នែកកូដ គណិតវិទ្យា និងរូបវិទ្យា ពីមូលដ្ឋានដល់កម្រិតខ្ពស់។</p>` +
-    (first ? `<div class="btns"><a class="btn" href="#/post/${esc(first.id)}">Start: ${esc(first.title)}</a><a class="btn alt" href="${trackUrl(first)}">See all lessons</a></div>` : '') +
+    (first ? (() => { const a = D.posts.find(p => p.id === 'byc-01-how-a-computer-works') || first, b = D.posts.find(p => p.id === 'html-first-page'); return `<div class="btns"><a class="btn" href="#/post/${esc(a.id)}">Start learning</a>${b ? `<a class="btn alt" href="#/post/${esc(b.id)}">Build your first website</a>` : `<a class="btn alt" href="${trackUrl(first)}">See all lessons</a>`}</div>`; })() : '') +
     `</div><div class="win" aria-hidden="true"><div class="top"><i></i><i></i><i></i><span>Main.java</span></div><pre><code class="language-java">${esc(HELLO)}</code></pre><div class="out">Hello, CHHOYED!</div></div></section>` +
     `${stats}${resume()}${paths}<h2>More lessons</h2>${grid(more)}<h2>Our teachers</h2><div class="grid">${D.teachers.map(tcard).join('')}</div>`;
 };
@@ -170,6 +170,51 @@ function bindPractice() {
       sec.classList.add('solved'); update(); say('ok', 'Correct!', `<p>${esc(e.explanation)}</p>`);
     } else say('bad', 'Not quite. Try again, use the hint, or show the answer.');
   };
+}
+
+// ---- Search
+let TEXT = null;
+const plain = t => t.replace(/```[a-z]*/g, ' ').replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[`*>#|]/g, ' ').replace(/\s+/g, ' ').trim();
+const loadText = () => TEXT || (TEXT = Promise.all(D.posts.filter(p => p.contentFile).map(p => fetch(p.contentFile).then(r => r.ok ? r.text() : '').catch(() => '').then(t => [p.id, plain(t)]))).then(Object.fromEntries));
+const rx = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const runSearch = (q, text) => {
+  const w = q.toLowerCase().split(/\s+/).filter(Boolean); if (!w.length) return [];
+  return D.posts.map(p => {
+    const head = `${p.title} ${p.summary} ${p.part || ''} ${sOf(p).name}`.toLowerCase(), title = p.title.toLowerCase(), body = (text && text[p.id]) || '';
+    const low = body.toLowerCase(); let sc = 0;
+    for (const x of w) {
+      const inT = title.includes(x), inH = head.includes(x), inB = low.includes(x);
+      if (!inH && !inB) return null;
+      sc += inT ? (title.startsWith(x) ? 15 : 10) : inH ? 4 : 1;
+    }
+    return { p, sc, body, low, w };
+  }).filter(Boolean).sort((a, b) => b.sc - a.sc || (a.p.order || 999) - (b.p.order || 999)).slice(0, 30);
+};
+const mark = (t, w) => w.reduce((h, x) => h.replace(new RegExp('(' + rx(esc(x)) + ')', 'gi'), '<mark>$1</mark>'), esc(t));
+const resItem = r => {
+  const { p, body, low, w } = r, s = sOf(p);
+  let snip = p.summary;
+  const i = w.map(x => low.indexOf(x)).filter(k => k >= 0).sort((a, b) => a - b)[0];
+  const inHead = w.every(x => `${p.title} ${p.summary}`.toLowerCase().includes(x));
+  if (!inHead && i !== undefined) snip = (i > 50 ? '…' : '') + body.slice(Math.max(0, i - 50), i + 110) + '…';
+  return `<a class="sri" style="--c:${col(s.color)}" href="#/post/${esc(p.id)}">${tag(s)}<h3>${mark(p.title, w)}</h3><p>${mark(snip, w)}</p></a>`;
+};
+const search = q => `<h1>Search</h1><p class="blurb">Find a lesson by its title, its topic or any word inside it.</p>` +
+  `<div class="sbox"><input id="sq" type="search" placeholder="Try: flexbox, loops, API, JSON" value="${esc(q)}" autocomplete="off" spellcheck="false" aria-label="Search lessons"><p id="sst" class="hint" role="status"></p></div><div id="sr" class="sres"></div>`;
+function bindSearch() {
+  const inp = document.getElementById('sq'), out = document.getElementById('sr'), st = document.getElementById('sst');
+  let text = null;
+  const go = () => {
+    const q = inp.value.trim();
+    history.replaceState(null, '', q ? '#/search/' + encodeURIComponent(q) : '#/search');
+    if (!q) { out.innerHTML = ''; st.textContent = ''; return; }
+    const r = runSearch(q, text);
+    out.innerHTML = r.length ? r.map(resItem).join('') : '<p class="empty">No lessons found. Try a shorter or different word.</p>';
+    st.textContent = `${r.length} lesson${r.length === 1 ? '' : 's'} found` + (text ? '' : ' · searching inside lessons…');
+  };
+  inp.addEventListener('input', go);
+  loadText().then(t => { text = t; go(); });
+  go(); inp.focus();
 }
 
 const teacher = id => {
@@ -267,24 +312,30 @@ async function route() {
   const id = decodeURIComponent(raw || ''), sub = decodeURIComponent(raw2 || '');
   try {
     if (!D) await init();
-    const view = { post, teacher, subject, contact, practice }[page];
+    const view = { post, teacher, subject, contact, practice, search }[page];
     app.innerHTML = view ? await view(id, sub) : home();
   } catch (e) {
     app.innerHTML = `<p class="err">${esc(e.message)}<br>If you opened index.html straight from your computer, start a local server instead (see README.md).</p>`;
   }
   if (page === 'post') { const lp = D && D.posts.find(p => p.id === id); if (lp && lp.order) { const P = getP(); if (P.last !== id) { P.last = id; setP(P); } } }
   if (window.hljs) app.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
+  app.querySelectorAll('.lesson pre').forEach(pre => { if (pre.querySelector('.copy')) return; const b = document.createElement('button'); b.type = 'button'; b.className = 'copy'; b.textContent = 'Copy'; b.setAttribute('aria-label', 'Copy code'); pre.appendChild(b); });
+  app.querySelectorAll('.lesson blockquote').forEach(bq => { const f = bq.querySelector('strong')?.textContent || ''; bq.classList.add('co', /key idea/i.test(f) ? 'key' : /remember/i.test(f) ? 'rem' : 'note'); });
   if (document.getElementById('prc')) bindPractice();
+  if (document.getElementById('sq')) bindSearch();
   const cf = document.getElementById('cf'); if (cf) cf.addEventListener('submit', sendContact);
   const h = app.querySelector('h1');
   document.title = page && h ? `${h.textContent} - CHHOYED` : 'CHHOYED';
-  const active = page === 'subject' ? `#/subject/${id}` : page === 'contact' ? '#/contact' : (!page ? '#/' : null);
+  const active = page === 'subject' ? `#/subject/${id}` : page === 'contact' ? '#/contact' : page === 'search' ? '#/search' : (!page ? '#/' : null);
   nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === active));
   window.scrollTo(0, 0);
   track();
 }
 addEventListener('hashchange', route);
-app.addEventListener('click', e => {
+const copyText = async t => { try { await navigator.clipboard.writeText(t); return true; } catch { const a = document.createElement('textarea'); a.value = t; a.style.position = 'fixed'; a.style.opacity = '0'; document.body.appendChild(a); a.select(); let ok = false; try { ok = document.execCommand('copy'); } catch { } a.remove(); return ok; } };
+app.addEventListener('click', async e => {
+  const c = e.target.closest('.copy');
+  if (c) { const pre = c.parentElement, ok = await copyText((pre.querySelector('code') || pre).textContent); c.textContent = ok ? 'Copied!' : 'Press Ctrl+C'; c.classList.toggle('ok', ok); setTimeout(() => { c.textContent = 'Copy'; c.classList.remove('ok'); }, 1600); return; }
   const b = e.target.closest('[data-done]');
   if (b) {
     const P = getP(), id = b.dataset.done, i = P.done.indexOf(id);
@@ -297,3 +348,17 @@ app.addEventListener('click', e => {
   if (e.target.closest('[data-reset]') && confirm('Clear your lesson progress on this device?')) { setP({ done: [], last: '' }); route(); }
 });
 route();
+// ---- Theme toggle (light / dark) and the "/" shortcut for search
+const themeBtn = document.getElementById('theme');
+if (themeBtn) {
+  const SUN = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  const MOON = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+  const eff = () => document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const paint = () => { const d = eff() === 'dark'; themeBtn.innerHTML = d ? SUN : MOON; const l = d ? 'Switch to light mode' : 'Switch to dark mode'; themeBtn.title = l; themeBtn.setAttribute('aria-label', l); };
+  themeBtn.addEventListener('click', () => { const n = eff() === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = n; try { localStorage.setItem('chhoyed-theme', n); } catch { } paint(); });
+  paint();
+}
+addEventListener('keydown', e => {
+  if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || '')) return;
+  e.preventDefault(); if (location.hash.startsWith('#/search')) document.getElementById('sq')?.focus(); else location.hash = '#/search';
+});
