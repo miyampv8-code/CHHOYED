@@ -161,6 +161,24 @@ async function sendContact(e) {
   b.disabled = false;
 }
 
+// Visitor statistics (GoatCounter). Put your GoatCounter site code between the quotes, e.g. 'chhoyed'. Leave '' to turn it off.
+const GC_CODE = '';
+window.goatcounter = { no_onload: true };
+if (GC_CODE) {
+  const s = document.createElement('script');
+  s.async = true; s.src = 'https://gc.zgo.at/count.js';
+  s.dataset.goatcounter = `https://${GC_CODE}.goatcounter.com/count`;
+  document.head.appendChild(s);
+}
+const track = () => {
+  if (!GC_CODE) return;
+  let n = 0;
+  const t = setInterval(() => {
+    if (window.goatcounter && window.goatcounter.count) { clearInterval(t); window.goatcounter.count({ path: location.pathname + location.hash, title: document.title }); }
+    else if (++n > 50) clearInterval(t);
+  }, 100);
+};
+
 async function route() {
   const [, page, raw, raw2] = location.hash.split('/');
   const id = decodeURIComponent(raw || ''), sub = decodeURIComponent(raw2 || '');
@@ -178,6 +196,7 @@ async function route() {
   const active = page === 'subject' ? `#/subject/${id}` : page === 'contact' ? '#/contact' : (!page ? '#/' : null);
   nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === active));
   window.scrollTo(0, 0);
+  track();
 }
 addEventListener('hashchange', route);
 route();
