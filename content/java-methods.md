@@ -1,5 +1,18 @@
 A method is a named block of code you can reuse.
 
+## Syntax
+
+```java
+static returnType name(type param1, type param2) {
+    // ...
+    return value;
+}
+
+name(arg1, arg2);    // call it
+```
+
+Use `void` as the return type when nothing is returned.
+
 ## Define and call
 
 ```java

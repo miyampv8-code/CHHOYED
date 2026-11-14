@@ -1,5 +1,15 @@
 Operators do math and compare values. `input` reads from the keyboard.
 
+## Syntax
+
+```python
+result = a + b                # + - * / // % **
+text = input("Question: ")   # always gives text
+number = int(text)           # or float(text)
+```
+
+`//` divides and drops the decimals. `%` gives the remainder.
+
 ## Math
 
 ```python

@@ -1,5 +1,17 @@
 Inheritance lets one class reuse another. The child class gets everything the parent has.
 
+## Syntax
+
+```cpp
+class Child : public Parent {
+public:
+    Child(args) : Parent(args) { }   // call the parent constructor
+    // new members go here
+};
+```
+
+`: public Parent` means Child inherits from Parent. `protected:` members are visible to children but hidden from outside code.
+
 ## A parent and a child
 
 ```cpp

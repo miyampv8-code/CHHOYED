@@ -1,5 +1,14 @@
 A variable is a name that stores a value. In Python you do not write the type. Python works it out for you.
 
+## Syntax
+
+```python
+name = value
+int(x)   float(x)   str(x)    # convert between types
+```
+
+No type is written: Python sees it from the value. Use lowercase names with underscores, like `student_name`.
+
 ## Common types
 
 ```python

@@ -1,5 +1,16 @@
 Programs become useful when they calculate and listen to the user.
 
+## Syntax
+
+```java
+result = a + b;                       // + - * / %
+
+Scanner in = new Scanner(System.in);  // import java.util.Scanner;
+int n = in.nextInt();                 // also nextDouble(), nextLine()
+```
+
+`%` gives the remainder.
+
 ## Operators
 
 ```java

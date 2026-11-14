@@ -1,5 +1,15 @@
 **AWT** (Abstract Window Toolkit) is Java's built-in library for windows, buttons and drawing. It lives in the package `java.awt`. Until now your programs printed text. With AWT they can open a real window.
 
+## Syntax
+
+```java
+Frame f = new Frame("title");
+f.setSize(width, height);
+f.setVisible(true);
+```
+
+`import java.awt.*;` at the top. Call `setVisible(true)` last.
+
 ## Your first window
 
 ```java

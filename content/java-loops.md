@@ -1,5 +1,19 @@
 A loop repeats code so you don't write it many times.
 
+## Syntax
+
+```java
+for (start; test; step) {
+    // repeated code
+}
+
+while (test) {
+    // repeated code
+}
+```
+
+`break` leaves the loop. `continue` skips to the next round.
+
 ## The for loop
 
 ```java

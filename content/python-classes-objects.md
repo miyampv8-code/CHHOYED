@@ -1,5 +1,21 @@
 Object-oriented programming (OOP) models real-life things. A **class** is a blueprint. An **object** is one thing built from it.
 
+## Syntax
+
+```python
+class ClassName:
+    def __init__(self, param):     # constructor
+        self.field = param
+
+    def method(self):               # action
+        # ...
+
+obj = ClassName(arg)
+obj.method()
+```
+
+Every method has `self` as its first parameter.
+
 ## A class
 
 ```python

@@ -1,5 +1,14 @@
 Python is a beginner-friendly language used for websites, data, AI and automation. Its code is short and easy to read.
 
+## Syntax
+
+```python
+print(value)
+print("text", value)          # several values, separated by a space
+```
+
+No semicolons. Blocks of code are marked by indentation (4 spaces).
+
 ## Your first program
 
 ```python

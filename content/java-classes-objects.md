@@ -1,5 +1,24 @@
 Object-oriented programming (OOP) models real-life things. A **class** is a blueprint. An **object** is one thing built from it.
 
+## Syntax
+
+```java
+public class ClassName {
+    type field;                     // data
+
+    ClassName(type param) {         // constructor
+        this.field = param;
+    }
+
+    returnType method() {           // action
+        // ...
+    }
+}
+
+ClassName obj = new ClassName(args);
+obj.method();
+```
+
 ## A class
 
 ```java

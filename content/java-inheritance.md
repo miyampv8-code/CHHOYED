@@ -1,5 +1,18 @@
 A class can reuse another class with `extends`.
 
+## Syntax
+
+```java
+class Child extends Parent {
+    Child(args) {
+        super(args);                // call the parent constructor
+    }
+
+    @Override
+    returnType method() { /* ... */ }   // replaces the parent's version
+}
+```
+
 ## extends
 
 ```java

@@ -1,5 +1,16 @@
 Arrays and vectors keep many values in one variable.
 
+## Syntax
+
+```cpp
+type name[size] = {value1, value2, value3};
+name[index]                      // one item, counting starts at 0
+
+std::vector<type> name = {value1, value2};   // #include <vector>
+name.push_back(value);           // add to the end
+name.size()                      // how many items
+```
+
 ## Arrays
 
 ```cpp

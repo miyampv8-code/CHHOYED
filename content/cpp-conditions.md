@@ -1,5 +1,27 @@
 Conditions let your program choose what to run.
 
+## Syntax
+
+```cpp
+if (condition) {
+    // runs when the condition is true
+} else if (other condition) {
+    // runs when this one is true
+} else {
+    // runs when none are true
+}
+
+switch (value) {
+    case 1:
+        // ...
+        break;
+    default:
+        // ...
+}
+```
+
+Conditions go inside `( )` and use `==`, `!=`, `<`, `>`, `<=`, `>=`, `&&`, `||` and `!`.
+
 ## if, else if and else
 
 ```cpp

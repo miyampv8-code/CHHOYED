@@ -1,5 +1,14 @@
 A variable stores a value. In Java you must say its **type**.
 
+## Syntax
+
+```java
+type name = value;
+final type NAME = value;
+```
+
+`type` is `int`, `double`, `boolean`, `char` or `String`. `final` makes the value fixed.
+
 ## Common types
 
 ```java

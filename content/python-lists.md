@@ -1,5 +1,17 @@
 Lists and dictionaries keep many values in one variable.
 
+## Syntax
+
+```python
+name = [value1, value2, value3]
+name[index]            # one item, counting starts at 0
+name.append(value)     # add to the end
+len(name)              # how many items
+
+for item in name:
+    # runs once for every item
+```
+
 ## Lists
 
 ```python

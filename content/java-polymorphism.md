@@ -1,5 +1,24 @@
 The last two pillars of OOP finish the picture.
 
+## Syntax
+
+```java
+Parent x = new Child();    // a parent variable can hold a child object
+x.method();                // runs the Child version
+
+abstract class Name {
+    abstract returnType method();      // no body
+}
+
+interface Name {
+    returnType method();
+}
+
+class Impl implements Name {
+    public returnType method() { /* ... */ }
+}
+```
+
 ## Polymorphism
 
 One call, different behaviour:

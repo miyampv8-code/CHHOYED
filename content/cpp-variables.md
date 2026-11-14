@@ -1,5 +1,14 @@
 A variable stores a value. In C++ you must say its **type**.
 
+## Syntax
+
+```cpp
+type name = value;
+const type NAME = value;
+```
+
+`type` is `int`, `double`, `bool`, `char` or `std::string`. `const` makes the value fixed.
+
 ## Common types
 
 ```cpp

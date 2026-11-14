@@ -1,5 +1,18 @@
 A function is a named block of code that you can reuse.
 
+## Syntax
+
+```cpp
+returnType name(type param1, type param2) {
+    // ...
+    return value;
+}
+
+name(arg1, arg2);                // call it
+```
+
+Use `void` as the return type when nothing is returned. Write the function before the line that calls it.
+
 ## Define and call
 
 ```cpp

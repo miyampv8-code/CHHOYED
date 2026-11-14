@@ -1,5 +1,15 @@
 Operators do math and compare values. `std::cin` reads from the keyboard.
 
+## Syntax
+
+```cpp
+result = a + b;          // + - * / %
+std::cin >> variable;    // read input
+std::cout << variable;   // print
+```
+
+`%` gives the remainder. The arrows show where the data goes: `cin >>` into the variable, `cout <<` out to the screen.
+
 ## Math
 
 ```cpp

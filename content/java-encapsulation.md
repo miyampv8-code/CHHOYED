@@ -1,5 +1,16 @@
 Encapsulation means hiding data and allowing only controlled access to it.
 
+## Syntax
+
+```java
+private type field;
+
+public type getField() { return field; }
+public void setField(type value) { this.field = value; }
+```
+
+`private` hides the field from other classes. They must use the public methods.
+
 ## Private fields
 
 ```java

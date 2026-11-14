@@ -1,5 +1,16 @@
 Inheritance lets one class reuse another. The child class gets everything the parent has.
 
+## Syntax
+
+```python
+class Child(Parent):
+    def __init__(self, args):
+        super().__init__(args)   # run the parent's constructor
+
+    def method(self):            # same name as the parent's: replaces it
+        # ...
+```
+
 ## A parent and a child
 
 ```python

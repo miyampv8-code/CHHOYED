@@ -1,5 +1,25 @@
 Object-oriented programming (OOP) models real-life things. A **class** is a blueprint. An **object** is one thing built from it.
 
+## Syntax
+
+```cpp
+class ClassName {
+public:
+    type field;                   // data
+
+    ClassName(type param) {       // constructor
+        field = param;
+    }
+
+    returnType method() {         // action
+        // ...
+    }
+};                                // a class ends with };
+
+ClassName obj(args);              // make an object
+obj.method();
+```
+
 ## A class
 
 ```cpp

@@ -1,5 +1,23 @@
 A loop repeats code so you don't have to write it many times.
 
+## Syntax
+
+```cpp
+for (start; test; step) {
+    // repeated code
+}
+
+while (test) {
+    // repeated code
+}
+
+do {
+    // runs at least once
+} while (test);
+```
+
+`break` leaves the loop. `continue` skips to the next round.
+
 ## The for loop
 
 Use `for` when you know how many times to repeat.

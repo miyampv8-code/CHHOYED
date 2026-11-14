@@ -24,6 +24,19 @@ public class Main {
 }
 ```
 
+## Syntax
+
+```java
+new Label("text")
+new TextField(columns)
+new Button("text")
+new Checkbox("text")
+new TextArea("text", rows, columns)
+
+frame.add(component);
+field.getText();   field.setText("...");
+```
+
 ## Common components
 
 - `Label`: text that the user cannot edit

@@ -1,5 +1,18 @@
 Encapsulation means hiding data and allowing only controlled access to it.
 
+## Syntax
+
+```cpp
+class ClassName {
+private:
+    type field;                   // hidden from outside code
+
+public:
+    type getField() const { return field; }
+    void setField(type value) { field = value; }
+};
+```
+
 ## Private fields
 
 ```cpp

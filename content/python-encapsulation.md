@@ -1,5 +1,20 @@
 Encapsulation means hiding data and allowing only controlled access to it.
 
+## Syntax
+
+```python
+self._name = value       # one underscore: private by agreement
+self.__name = value      # two underscores: Python hides the name
+
+@property
+def name(self):          # read it as obj.name
+    return self._name
+
+@name.setter
+def name(self, value):   # change it with obj.name = value
+    self._name = value
+```
+
 ## Private fields
 
 ```python

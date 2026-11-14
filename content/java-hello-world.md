@@ -1,5 +1,17 @@
 Java is a popular language used for Android apps, websites and games. Every Java program lives inside a **class**.
 
+## Syntax
+
+```java
+public class ClassName {
+    public static void main(String[] args) {
+        // statements go here;
+    }
+}
+```
+
+The file must be named `ClassName.java`. Print with `System.out.println(value);` (new line) or `System.out.print(value);` (same line).
+
 ## Your first program
 
 ```java

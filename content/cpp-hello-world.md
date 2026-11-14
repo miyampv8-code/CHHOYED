@@ -1,5 +1,18 @@
 C++ is a fast, powerful language used for games, operating systems and devices. Every C++ program starts from a function called `main`.
 
+## Syntax
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << value;   // print
+    return 0;
+}
+```
+
+Every statement ends with `;`. Chain values with `<<`, and use `"\n"` for a new line.
+
 ## Your first program
 
 ```cpp

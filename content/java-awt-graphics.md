@@ -31,6 +31,20 @@ public class Main {
 }
 ```
 
+## Syntax
+
+```java
+class Name extends Canvas {
+    public void paint(Graphics g) {
+        g.setColor(Color.RED);
+        g.drawLine(x1, y1, x2, y2);
+        g.drawRect(x, y, width, height);   // fillRect fills it
+        g.drawOval(x, y, width, height);   // fillOval fills it
+        g.drawString("text", x, y);
+    }
+}
+```
+
 ## How it works
 
 - `Board extends Canvas` makes your own drawing area (this uses inheritance from the OOP lessons).

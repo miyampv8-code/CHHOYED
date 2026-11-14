@@ -1,5 +1,17 @@
 A function is a named block of code that you can reuse.
 
+## Syntax
+
+```python
+def name(param1, param2):
+    # ...
+    return value
+
+name(arg1, arg2)       # call it
+```
+
+A function without `return` gives back `None`.
+
 ## Define and call
 
 ```python

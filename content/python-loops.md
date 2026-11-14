@@ -1,5 +1,20 @@
 A loop repeats code so you don't have to write it many times.
 
+## Syntax
+
+```python
+for item in sequence:
+    # repeated code
+
+for i in range(start, stop):   # stops before "stop"
+    # repeated code
+
+while condition:
+    # repeated code
+```
+
+`break` leaves the loop. `continue` skips to the next round.
+
 ## The for loop
 
 Use `for` when you know how many times to repeat.

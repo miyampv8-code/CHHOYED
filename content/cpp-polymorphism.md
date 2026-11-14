@@ -1,5 +1,26 @@
 The last two pillars of OOP finish the picture.
 
+## Syntax
+
+```cpp
+class Parent {
+public:
+    virtual returnType method() { /* ... */ }   // children may replace it
+};
+
+class Child : public Parent {
+public:
+    returnType method() override { /* ... */ }  // replaces the parent's version
+};
+
+Parent* p = &childObject;
+p->method();                      // runs the Child version
+
+virtual returnType method() = 0;  // pure virtual: no body, the class becomes abstract
+```
+
+Polymorphism works through a pointer or reference to the parent.
+
 ## Polymorphism
 
 One call, different behaviour:

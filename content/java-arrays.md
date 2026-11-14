@@ -1,5 +1,19 @@
 An array stores many values of the same type.
 
+## Syntax
+
+```java
+type[] name = {value1, value2, value3};
+type[] name = new type[size];
+
+name[index]          // one item, counting starts at 0
+name.length          // how many items
+
+for (type item : name) {
+    // runs once for every item
+}
+```
+
 ## Create and use
 
 ```java

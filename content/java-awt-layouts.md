@@ -1,5 +1,16 @@
 A **layout** decides where components go in the window.
 
+## Syntax
+
+```java
+frame.setLayout(new FlowLayout());
+frame.add(component, BorderLayout.NORTH);   // SOUTH, EAST, WEST, CENTER
+
+Panel p = new Panel(new GridLayout(rows, columns));
+p.add(component);
+frame.add(p, BorderLayout.CENTER);
+```
+
 ## The main layouts
 
 - `FlowLayout`: left to right, and wraps to a new row when full.

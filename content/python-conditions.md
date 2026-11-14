@@ -1,5 +1,18 @@
 Conditions let your program choose what to run.
 
+## Syntax
+
+```python
+if condition:
+    # runs when the condition is true
+elif other_condition:
+    # runs when this one is true
+else:
+    # runs when none are true
+```
+
+The `:` at the end of each line and the indentation are required.
+
 ## if, elif and else
 
 ```python

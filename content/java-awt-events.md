@@ -39,6 +39,14 @@ public class Main {
 }
 ```
 
+## Syntax
+
+```java
+button.addActionListener(e -> {
+    // runs when the button is clicked
+});
+```
+
 ## How it works
 
 1. `add.addActionListener(...)` says: run this code when the button is clicked.
