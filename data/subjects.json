@@ -11,6 +11,24 @@
         "tagline": "The foundation guide for future web and mobile app developers"
       },
       {
+        "id": "html",
+        "name": "HTML",
+        "color": "#e34f26",
+        "tagline": "Learn HTML, build the structure of web pages"
+      },
+      {
+        "id": "css",
+        "name": "CSS",
+        "color": "#2965f1",
+        "tagline": "Learn CSS, make your pages beautiful and responsive"
+      },
+      {
+        "id": "javascript",
+        "name": "JavaScript",
+        "color": "#a16207",
+        "tagline": "Learn JavaScript, make your pages interactive"
+      },
+      {
         "id": "java",
         "name": "Java",
         "color": "#e76f00",
