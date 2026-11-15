@@ -1228,5 +1228,101 @@
     "order": 10,
     "part": "JavaScript in the browser",
     "contentFile": "content/js-project.md"
+  },
+  {
+    "id": "sql-intro",
+    "title": "What is a database?",
+    "summary": "Tables, rows, columns, and how to set up your practice table.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 1,
+    "part": "SQL basics",
+    "contentFile": "content/sql-intro.md"
+  },
+  {
+    "id": "sql-select",
+    "title": "SELECT: read your data",
+    "summary": "Choose columns, rename them, remove repeats, sort and limit.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 2,
+    "part": "SQL basics",
+    "contentFile": "content/sql-select.md"
+  },
+  {
+    "id": "sql-where",
+    "title": "WHERE: filter rows",
+    "summary": "Filter with comparisons, AND, OR, IN, BETWEEN, LIKE and IS NULL.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 3,
+    "part": "SQL basics",
+    "contentFile": "content/sql-where.md"
+  },
+  {
+    "id": "sql-aggregate",
+    "title": "Count, total and group",
+    "summary": "Use COUNT, SUM, AVG, MIN, MAX, GROUP BY and HAVING.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 4,
+    "part": "SQL basics",
+    "contentFile": "content/sql-aggregate.md"
+  },
+  {
+    "id": "sql-modify",
+    "title": "INSERT, UPDATE and DELETE",
+    "summary": "Add, change and remove rows safely.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 5,
+    "part": "Tables and relationships",
+    "contentFile": "content/sql-modify.md"
+  },
+  {
+    "id": "sql-tables-keys",
+    "title": "Tables, keys and relationships",
+    "summary": "Design tables with CREATE TABLE, primary keys and foreign keys.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 6,
+    "part": "Tables and relationships",
+    "contentFile": "content/sql-tables-keys.md"
+  },
+  {
+    "id": "sql-joins",
+    "title": "JOIN: connect tables",
+    "summary": "Combine tables with INNER JOIN and LEFT JOIN.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 7,
+    "part": "Tables and relationships",
+    "contentFile": "content/sql-joins.md"
+  },
+  {
+    "id": "sql-project",
+    "title": "Project: a school database",
+    "summary": "Solve eight tasks, then learn how apps use SQL and how to avoid SQL injection.",
+    "subject": "coding",
+    "topic": "sql",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 8,
+    "part": "Project",
+    "contentFile": "content/sql-project.md"
   }
 ]

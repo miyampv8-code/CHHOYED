@@ -36,6 +36,14 @@
         "exercises": "data/exercises/javascript.json"
       },
       {
+        "id": "sql",
+        "name": "SQL",
+        "color": "#0e7490",
+        "tagline": "Learn SQL, store data and ask it questions",
+        "icon": "SQL",
+        "exercises": "data/exercises/sql.json"
+      },
+      {
         "id": "java",
         "name": "Java",
         "color": "#e76f00",

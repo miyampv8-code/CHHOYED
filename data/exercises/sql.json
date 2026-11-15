@@ -1,0 +1,225 @@
+{
+  "lang": "sql",
+  "title": "SQL practice",
+  "items": [
+    {
+      "id": "q01",
+      "topic": "Basics",
+      "type": "choice",
+      "question": "What does SQL stand for?",
+      "options": [
+        "Structured Query Language",
+        "Simple Question List",
+        "System Quick Logic",
+        "Stored Query Library"
+      ],
+      "answer": 0,
+      "explanation": "SQL means Structured Query Language. You use it to ask a relational database for data and to change it."
+    },
+    {
+      "id": "q02",
+      "topic": "SELECT",
+      "type": "choice",
+      "question": "Which command reads data from a table without changing it?",
+      "options": [
+        "INSERT",
+        "SELECT",
+        "UPDATE",
+        "DROP"
+      ],
+      "answer": 1,
+      "explanation": "SELECT only reads. INSERT adds rows, UPDATE changes rows and DROP deletes a whole table."
+    },
+    {
+      "id": "q03",
+      "topic": "SELECT",
+      "type": "blank",
+      "question": "Type the missing keyword that names the table to read from.",
+      "code": "SELECT name, city\n___ students;",
+      "answers": [
+        "FROM",
+        "from"
+      ],
+      "explanation": "FROM says which table the data comes from.",
+      "hint": "Select columns from a table."
+    },
+    {
+      "id": "q04",
+      "topic": "WHERE",
+      "type": "output",
+      "question": "Using the students table, what does this query return?",
+      "code": "SELECT name\nFROM students\nWHERE age = 17\nORDER BY name;",
+      "options": [
+        "Chan Sophea, Pov Malis",
+        "Pov Malis, Chan Sophea",
+        "Sok Dara, Kim Vanna",
+        "Chan Sophea only"
+      ],
+      "answer": 0,
+      "explanation": "Two students are 17: Chan Sophea and Pov Malis. ORDER BY name sorts them alphabetically, so Chan comes first.",
+      "hint": "Filter first, then sort."
+    },
+    {
+      "id": "q05",
+      "topic": "WHERE",
+      "type": "choice",
+      "question": "Which condition finds names that START with the letter S?",
+      "options": [
+        "name = 'S%'",
+        "name LIKE 'S%'",
+        "name LIKE '%S'",
+        "name IN 'S'"
+      ],
+      "answer": 1,
+      "explanation": "LIKE uses patterns. The % means any number of characters, so 'S%' means starts with S. '%S' would mean ends with S."
+    },
+    {
+      "id": "q06",
+      "topic": "WHERE",
+      "type": "blank",
+      "question": "Type the word that correctly tests for a missing value.",
+      "code": "SELECT name\nFROM students\nWHERE score ___ NULL;",
+      "answers": [
+        "IS",
+        "is"
+      ],
+      "explanation": "Comparing with = NULL is never true. Use IS NULL, or IS NOT NULL for the opposite.",
+      "hint": "Not =."
+    },
+    {
+      "id": "q07",
+      "topic": "Aggregates",
+      "type": "output",
+      "question": "The students table has 6 rows, but one score is NULL. What does this query return?",
+      "code": "SELECT COUNT(score)\nFROM students;",
+      "options": [
+        "6",
+        "5",
+        "4",
+        "0"
+      ],
+      "answer": 1,
+      "explanation": "COUNT(score) counts only the rows that have a value in score. The NULL is skipped, so the answer is 5. COUNT(*) would give 6.",
+      "hint": "Does COUNT(column) count NULL?"
+    },
+    {
+      "id": "q08",
+      "topic": "GROUP BY",
+      "type": "output",
+      "question": "Using the students table, what does this query return?",
+      "code": "SELECT city, COUNT(*)\nFROM students\nGROUP BY city\nHAVING COUNT(*) > 1\nORDER BY city;",
+      "options": [
+        "Phnom Penh 3 and Siem Reap 2",
+        "Battambang 1, Phnom Penh 3 and Siem Reap 2",
+        "Phnom Penh 3 only",
+        "Siem Reap 2 only"
+      ],
+      "answer": 0,
+      "explanation": "The students are grouped by city: Battambang 1, Phnom Penh 3, Siem Reap 2. HAVING keeps only the groups with more than one student, so Battambang is removed.",
+      "hint": "HAVING filters the groups."
+    },
+    {
+      "id": "q09",
+      "topic": "GROUP BY",
+      "type": "choice",
+      "question": "Which clause filters the groups AFTER GROUP BY has made them?",
+      "options": [
+        "WHERE",
+        "HAVING",
+        "LIMIT",
+        "DISTINCT"
+      ],
+      "answer": 1,
+      "explanation": "WHERE filters single rows before grouping. HAVING filters the groups afterwards, so only HAVING can use COUNT, AVG and SUM."
+    },
+    {
+      "id": "q10",
+      "topic": "UPDATE",
+      "type": "blank",
+      "question": "Type the keyword that makes sure only the student with id 3 is changed.",
+      "code": "UPDATE students\nSET score = 90\n___ id = 3;",
+      "answers": [
+        "WHERE",
+        "where"
+      ],
+      "explanation": "Without WHERE, UPDATE changes every row in the table.",
+      "hint": "It is the same word you use to filter a SELECT."
+    },
+    {
+      "id": "q11",
+      "topic": "DELETE",
+      "type": "choice",
+      "question": "What happens when you run DELETE FROM students; with no WHERE?",
+      "options": [
+        "Nothing, SQL needs a WHERE",
+        "Only the first row is deleted",
+        "Every row is deleted",
+        "The table itself is dropped"
+      ],
+      "answer": 2,
+      "explanation": "Without WHERE, DELETE removes every row. The empty table stays. DROP TABLE is what removes the table itself."
+    },
+    {
+      "id": "q12",
+      "topic": "Keys",
+      "type": "choice",
+      "question": "What is a primary key?",
+      "options": [
+        "A password for the database",
+        "A column that is different for every row and identifies it",
+        "The first column of a table",
+        "A column that is allowed to contain NULL"
+      ],
+      "answer": 1,
+      "explanation": "A primary key, usually id, is unique and never NULL. It lets other tables point to exactly one row."
+    },
+    {
+      "id": "q13",
+      "topic": "Joins",
+      "type": "output",
+      "question": "Using the students and enrollments tables, which student does this query return?",
+      "code": "SELECT s.name\nFROM students s\nLEFT JOIN enrollments e ON e.student_id = s.id\nWHERE e.id IS NULL;",
+      "options": [
+        "Heng Rithy",
+        "Pov Malis",
+        "Kim Vanna",
+        "Nobody (no rows)"
+      ],
+      "answer": 0,
+      "explanation": "LEFT JOIN keeps every student. The students with no enrollment get NULL in e.id, and WHERE e.id IS NULL keeps only those. Only Heng Rithy has no course.",
+      "hint": "Who takes no course?"
+    },
+    {
+      "id": "q14",
+      "topic": "Security",
+      "type": "choice",
+      "question": "What is the safest way to use a visitor's text in a SQL query?",
+      "options": [
+        "Join the text into the query string",
+        "Use a parameterized query with placeholders",
+        "Convert the text to uppercase",
+        "Hide the form field"
+      ],
+      "answer": 1,
+      "explanation": "Placeholders send the value separately, so the database always treats it as data and never as SQL. This prevents SQL injection."
+    },
+    {
+      "id": "q15",
+      "topic": "Joins",
+      "type": "code",
+      "question": "Write a query that shows each student's name next to the title of each course they take (use students s, enrollments e and courses c).",
+      "solution": "SELECT s.name, c.title\nFROM students s\nJOIN enrollments e ON e.student_id = s.id\nJOIN courses c ON c.id = e.course_id;",
+      "explanation": "The enrollments table connects the other two. Join students to enrollments on student_id, then join courses on course_id.",
+      "hint": "Two JOINs."
+    },
+    {
+      "id": "q16",
+      "topic": "GROUP BY",
+      "type": "code",
+      "question": "Write a query that shows each city with the average score of its students.",
+      "solution": "SELECT city, AVG(score)\nFROM students\nGROUP BY city;",
+      "explanation": "GROUP BY city makes one group per city, and AVG(score) runs once for each group.",
+      "hint": "Use GROUP BY city."
+    }
+  ]
+}
