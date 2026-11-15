@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Repeat with loops | JavaScript | CHHOYED</title>
+  <meta name="description" content="JavaScript: Use for, while and for...of to repeat work. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/js-loops.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Repeat with loops | JavaScript | CHHOYED">
+  <meta property="og:description" content="JavaScript: Use for, while and for...of to repeat work. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/js-loops.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Repeat with loops | JavaScript | CHHOYED">
+  <meta name="twitter:description" content="JavaScript: Use for, while and for...of to repeat work. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Repeat with loops", "description": "Use for, while and for...of to repeat work.", "datePublished": "2026-11-14", "dateModified": "2026-11-14", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/js-loops.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Repeat with loops", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/js-loops.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/javascript">JavaScript</a></div>
+    <article data-id="js-loops" data-ordered="1">
+      <span class="tag" style="--c:#a16207"><i></i>Coding · JavaScript</span><span class="pill">Lesson 4 of 10</span>
+      <h1>Repeat with loops</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-14">14 Nov 2026</time></a>
+      
+      <div class="lesson"><p>A loop repeats code so you don't have to write it many times.</p>
+<h2>Syntax</h2>
+<pre><code class="language-javascript">for (start; test; step) {
+  // repeated code
+}
+
+while (test) {
+  // repeated code
+}
+</code></pre>
+<p><code>break</code> leaves the loop. <code>continue</code> skips to the next round.</p>
+<h2>The for loop</h2>
+<pre><code class="language-javascript">for (let i = 1; i &lt;= 5; i++) {
+  console.log(&quot;Number &quot; + i);
+}
+</code></pre>
+<p>It has three parts: start (<code>let i = 1</code>), condition (<code>i &lt;= 5</code>), step (<code>i++</code>).</p>
+<h2>The while loop</h2>
+<pre><code class="language-javascript">let count = 3;
+
+while (count &gt; 0) {
+  console.log(count);
+  count--;
+}
+
+console.log(&quot;Go!&quot;);
+</code></pre>
+<blockquote>
+<p>If the condition never becomes false, the loop never ends and the page freezes.</p>
+</blockquote>
+<h2>Looping over a list</h2>
+<pre><code class="language-javascript">const fruits = [&quot;Mango&quot;, &quot;Banana&quot;, &quot;Orange&quot;];
+
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+</code></pre>
+<p><code>for...of</code> takes each item in turn. This is the most common loop in real projects.</p>
+<h2>break and continue</h2>
+<pre><code class="language-javascript">for (let i = 1; i &lt;= 10; i++) {
+  if (i === 3) continue;   // skip 3
+  if (i === 6) break;      // stop at 6
+  console.log(i);          // 1 2 4 5
+}
+</code></pre>
+<h2>Try it</h2>
+<p>Print the 5 times table with a <code>for</code> loop. Then add up the numbers from 1 to 100 and print the total.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="js-loops" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="js-loops" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="js-operators-conditions.html"><small>Previous lesson</small>Operators and decisions</a><a href="js-functions.html" class="nx"><small>Next lesson</small>Functions</a></div>
+    <section class="toc"><h2>All lessons in JavaScript</h2><ol><li><a href="js-hello.html">Hello, JavaScript!</a></li><li><a href="js-variables.html">Variables and data types</a></li><li><a href="js-operators-conditions.html">Operators and decisions</a></li><li class="now"><a href="js-loops.html">Repeat with loops</a></li><li><a href="js-functions.html">Functions</a></li><li><a href="js-arrays-objects.html">Arrays and objects</a></li><li><a href="js-dom.html">The DOM: change the page</a></li><li><a href="js-events.html">Events: react to clicks</a></li><li><a href="js-fetch-json.html">Fetch data from an API</a></li><li><a href="js-project.html">Project: a to-do list</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/js-loops">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

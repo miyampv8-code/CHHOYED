@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Events: react to clicks | JavaScript | CHHOYED</title>
+  <meta name="description" content="JavaScript: Run code when the visitor clicks, types or submits. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/js-events.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Events: react to clicks | JavaScript | CHHOYED">
+  <meta property="og:description" content="JavaScript: Run code when the visitor clicks, types or submits. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/js-events.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Events: react to clicks | JavaScript | CHHOYED">
+  <meta name="twitter:description" content="JavaScript: Run code when the visitor clicks, types or submits. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Events: react to clicks", "description": "Run code when the visitor clicks, types or submits.", "datePublished": "2026-11-14", "dateModified": "2026-11-14", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/js-events.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Events: react to clicks", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/js-events.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/javascript">JavaScript</a></div>
+    <article data-id="js-events" data-ordered="1">
+      <span class="tag" style="--c:#a16207"><i></i>Coding · JavaScript</span><span class="pill">Lesson 8 of 10</span>
+      <h1>Events: react to clicks</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-14">14 Nov 2026</time></a>
+      
+      <div class="lesson"><p>An <strong>event</strong> is something that happens on the page: a click, a key press, a form submit. JavaScript can <strong>listen</strong> for events and run code when they happen. This is what makes pages interactive.</p>
+<h2>Syntax</h2>
+<pre><code class="language-javascript">element.addEventListener(&quot;event&quot;, function);
+</code></pre>
+<h2>A button that reacts</h2>
+<pre><code class="language-html">&lt;button id=&quot;btn&quot;&gt;Click me&lt;/button&gt;
+&lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+  const btn = document.querySelector(&quot;#btn&quot;);
+  const msg = document.querySelector(&quot;#msg&quot;);
+
+  btn.addEventListener(&quot;click&quot;, () =&gt; {
+    msg.textContent = &quot;You clicked the button!&quot;;
+  });
+&lt;/script&gt;
+</code></pre>
+<h2>A counter</h2>
+<pre><code class="language-html">&lt;h2 id=&quot;count&quot;&gt;0&lt;/h2&gt;
+&lt;button id=&quot;plus&quot;&gt;+1&lt;/button&gt;
+
+&lt;script&gt;
+  let count = 0;
+  const show = document.querySelector(&quot;#count&quot;);
+
+  document.querySelector(&quot;#plus&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+    count++;
+    show.textContent = count;
+  });
+&lt;/script&gt;
+</code></pre>
+<h2>Common events</h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>When it happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>click</code></td>
+<td>The element is clicked or tapped</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td>The visitor types in a field</td>
+</tr>
+<tr>
+<td><code>submit</code></td>
+<td>A form is sent</td>
+</tr>
+<tr>
+<td><code>keydown</code></td>
+<td>A key is pressed</td>
+</tr>
+<tr>
+<td><code>mouseover</code></td>
+<td>The mouse moves over an element</td>
+</tr>
+<tr>
+<td><code>change</code></td>
+<td>A select, checkbox or file input changes</td>
+</tr>
+</tbody>
+</table>
+<h2>Reading what the visitor types</h2>
+<pre><code class="language-html">&lt;input id=&quot;name&quot; placeholder=&quot;Your name&quot;&gt;
+&lt;p id=&quot;hello&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+  const input = document.querySelector(&quot;#name&quot;);
+
+  input.addEventListener(&quot;input&quot;, () =&gt; {
+    document.querySelector(&quot;#hello&quot;).textContent = &quot;Hello, &quot; + input.value;
+  });
+&lt;/script&gt;
+</code></pre>
+<p><code>input.value</code> holds the current text.</p>
+<h2>Forms: stop the page from reloading</h2>
+<pre><code class="language-javascript">const form = document.querySelector(&quot;form&quot;);
+
+form.addEventListener(&quot;submit&quot;, (event) =&gt; {
+  event.preventDefault();   // stop the page from reloading
+  console.log(&quot;Form sent&quot;);
+});
+</code></pre>
+<p>The function receives an <code>event</code> object with details about what happened.</p>
+<h2>Try it</h2>
+<p>Make a dark-mode button. When clicked, it toggles a class <code>dark</code> on <code>&lt;body&gt;</code>, and your CSS changes the background and text colors.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="js-events" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="js-events" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="js-dom.html"><small>Previous lesson</small>The DOM: change the page</a><a href="js-fetch-json.html" class="nx"><small>Next lesson</small>Fetch data from an API</a></div>
+    <section class="toc"><h2>All lessons in JavaScript</h2><ol><li><a href="js-hello.html">Hello, JavaScript!</a></li><li><a href="js-variables.html">Variables and data types</a></li><li><a href="js-operators-conditions.html">Operators and decisions</a></li><li><a href="js-loops.html">Repeat with loops</a></li><li><a href="js-functions.html">Functions</a></li><li><a href="js-arrays-objects.html">Arrays and objects</a></li><li><a href="js-dom.html">The DOM: change the page</a></li><li class="now"><a href="js-events.html">Events: react to clicks</a></li><li><a href="js-fetch-json.html">Fetch data from an API</a></li><li><a href="js-project.html">Project: a to-do list</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/js-events">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>INSERT, UPDATE and DELETE | SQL | CHHOYED</title>
+  <meta name="description" content="SQL: Add, change and remove rows safely. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/sql-modify.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="INSERT, UPDATE and DELETE | SQL | CHHOYED">
+  <meta property="og:description" content="SQL: Add, change and remove rows safely. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/sql-modify.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="INSERT, UPDATE and DELETE | SQL | CHHOYED">
+  <meta name="twitter:description" content="SQL: Add, change and remove rows safely. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "INSERT, UPDATE and DELETE", "description": "Add, change and remove rows safely.", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-modify.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "INSERT, UPDATE and DELETE", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-modify.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/sql">SQL</a></div>
+    <article data-id="sql-modify" data-ordered="1">
+      <span class="tag" style="--c:#0e7490"><i></i>Coding · SQL</span><span class="pill">Lesson 5 of 8</span>
+      <h1>INSERT, UPDATE and DELETE</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-15">15 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Until now you only <strong>read</strong> data. Real apps also add, change and remove it. Three commands do this: <code>INSERT</code>, <code>UPDATE</code> and <code>DELETE</code>.</p>
+<h2>INSERT: add a new row</h2>
+<pre><code class="language-sql">INSERT INTO table_name (column1, column2)
+VALUES (value1, value2);
+</code></pre>
+<pre><code class="language-sql">INSERT INTO students (id, name, age, city, score)
+VALUES (7, 'Ouk Dany', 18, 'Kampot', 81);
+
+SELECT * FROM students WHERE id = 7;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>age</th>
+<th>city</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>Ouk Dany</td>
+<td>18</td>
+<td>Kampot</td>
+<td>81</td>
+</tr>
+</tbody>
+</table>
+<p>List the columns in the same order as the values. You can leave out a column, and it becomes NULL (or its default value).</p>
+<pre><code class="language-sql">INSERT INTO students (id, name) VALUES (8, 'Meas Bopha');
+
+SELECT * FROM students WHERE id = 8;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>age</th>
+<th>city</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>Meas Bopha</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>To add several rows at once, separate them with commas.</p>
+<pre><code class="language-sql">INSERT INTO students (id, name, age, city, score) VALUES
+  (9, 'Tep Sokha', 19, 'Kampot', 70),
+  (10, 'Yim Channary', 18, 'Siem Reap', 88);
+</code></pre>
+<h2>UPDATE: change existing rows</h2>
+<pre><code class="language-sql">UPDATE table_name
+SET column1 = value1, column2 = value2
+WHERE condition;
+</code></pre>
+<pre><code class="language-sql">UPDATE students
+SET score = 55
+WHERE id = 3;
+
+SELECT id, name, score FROM students WHERE id = 3;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>Kim Vanna</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+<p><code>SET</code> can change several columns at once, and you can calculate from the old value.</p>
+<pre><code class="language-sql">UPDATE students
+SET score = score + 5, city = 'Phnom Penh'
+WHERE name = 'Heng Rithy';
+
+SELECT name, city, score FROM students WHERE name = 'Heng Rithy';
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>city</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heng Rithy</td>
+<td>Phnom Penh</td>
+<td>69</td>
+</tr>
+</tbody>
+</table>
+<p>Give the missing score to Pov Malis:</p>
+<pre><code class="language-sql">UPDATE students
+SET score = 60
+WHERE score IS NULL;
+
+SELECT name, score FROM students WHERE id = 6;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pov Malis</td>
+<td>60</td>
+</tr>
+</tbody>
+</table>
+<h2>DELETE: remove rows</h2>
+<pre><code class="language-sql">DELETE FROM table_name
+WHERE condition;
+</code></pre>
+<pre><code class="language-sql">DELETE FROM students
+WHERE id = 6;
+
+SELECT COUNT(*) AS students_left FROM students;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>students_left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Remember</strong>
+<strong>Never forget the <code>WHERE</code>.</strong> <code>DELETE FROM students;</code> deletes <strong>every</strong> row. <code>UPDATE students SET score = 0;</code> changes <strong>every</strong> row. There is no undo button in most tools.</p>
+</blockquote>
+<h2>A safe habit</h2>
+<p>Before you run an <code>UPDATE</code> or <code>DELETE</code>, run a <code>SELECT</code> with the <strong>same</strong> <code>WHERE</code>, and check that it shows exactly the rows you expect.</p>
+<pre><code class="language-sql">-- 1. Look first
+SELECT * FROM students WHERE city = 'Kampot';
+
+-- 2. Then, if the rows are right, delete
+DELETE FROM students WHERE city = 'Kampot';
+</code></pre>
+<p>In real projects, also keep <strong>backups</strong> of your database.</p>
+<h2>The four basic operations</h2>
+<p>Almost every app is built on these four actions. Developers call them <strong>CRUD</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Letter</th>
+<th>Action</th>
+<th>SQL</th>
+<th>HTTP method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C</strong></td>
+<td>Create</td>
+<td><code>INSERT</code></td>
+<td>POST</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>Read</td>
+<td><code>SELECT</code></td>
+<td>GET</td>
+</tr>
+<tr>
+<td><strong>U</strong></td>
+<td>Update</td>
+<td><code>UPDATE</code></td>
+<td>PUT / PATCH</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Delete</td>
+<td><code>DELETE</code></td>
+<td>DELETE</td>
+</tr>
+</tbody>
+</table>
+<p>This is the same table you met in the book &quot;Before You Code&quot; when you learned about HTTP methods.</p>
+<h2>Try it</h2>
+<ol>
+<li>Add two new students of your own.</li>
+<li>Raise the score of every student from Siem Reap by 3 points.</li>
+<li>Delete one student by <code>id</code>, after checking with a <code>SELECT</code> first.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="sql-modify" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="sql-modify" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="sql-aggregate.html"><small>Previous lesson</small>Count, total and group</a><a href="sql-tables-keys.html" class="nx"><small>Next lesson</small>Tables, keys and relationships</a></div>
+    <section class="toc"><h2>All lessons in SQL</h2><ol><li><a href="sql-intro.html">What is a database?</a></li><li><a href="sql-select.html">SELECT: read your data</a></li><li><a href="sql-where.html">WHERE: filter rows</a></li><li><a href="sql-aggregate.html">Count, total and group</a></li><li class="now"><a href="sql-modify.html">INSERT, UPDATE and DELETE</a></li><li><a href="sql-tables-keys.html">Tables, keys and relationships</a></li><li><a href="sql-joins.html">JOIN: connect tables</a></li><li><a href="sql-project.html">Project: a school database</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/sql-modify">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

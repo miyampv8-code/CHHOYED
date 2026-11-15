@@ -1,0 +1,190 @@
+{
+  "lang": "bash",
+  "title": "Git practice",
+  "items": [
+    {
+      "id": "g01",
+      "topic": "Basics",
+      "type": "choice",
+      "question": "What is GitHub?",
+      "options": [
+        "A program that records versions on your computer",
+        "A website that stores Git repositories online",
+        "A code editor",
+        "A programming language"
+      ],
+      "answer": 1,
+      "explanation": "Git is the program on your computer. GitHub is the website where you store and share Git repositories."
+    },
+    {
+      "id": "g02",
+      "topic": "Basics",
+      "type": "blank",
+      "question": "Type the command word that turns a folder into a Git repository.",
+      "code": "git ___ -b main",
+      "answers": [
+        "init"
+      ],
+      "explanation": "git init creates the hidden .git folder where Git keeps the history.",
+      "hint": "Short for initialize."
+    },
+    {
+      "id": "g03",
+      "topic": "Basics",
+      "type": "choice",
+      "question": "Which command tells you which files changed and what to do next?",
+      "options": [
+        "git log",
+        "git status",
+        "git push",
+        "git clone"
+      ],
+      "answer": 1,
+      "explanation": "git status is the command you will use the most. It shows untracked, modified and staged files."
+    },
+    {
+      "id": "g04",
+      "topic": "Commits",
+      "type": "choice",
+      "question": "Which command moves your changes into the staging area?",
+      "options": [
+        "git add",
+        "git commit",
+        "git push",
+        "git pull"
+      ],
+      "answer": 0,
+      "explanation": "git add chooses the changes for the next snapshot. git commit then saves them."
+    },
+    {
+      "id": "g05",
+      "topic": "Commits",
+      "type": "blank",
+      "question": "Type the option that gives the commit message directly on the command line.",
+      "code": "git commit ___ \"Add home page\"",
+      "answers": [
+        "-m"
+      ],
+      "explanation": "-m means message."
+    },
+    {
+      "id": "g06",
+      "topic": "Commits",
+      "type": "choice",
+      "question": "Which is the best commit message?",
+      "options": [
+        "stuff",
+        "changes",
+        "Fix broken link on the contact page",
+        "asdf"
+      ],
+      "answer": 2,
+      "explanation": "A good message is a short sentence that starts with a verb and says what you did, so your future self understands the history."
+    },
+    {
+      "id": "g07",
+      "topic": "Commits",
+      "type": "choice",
+      "question": "What is a .gitignore file for?",
+      "options": [
+        "It lists files Git must not track, such as .env or node_modules",
+        "It stores your password",
+        "It deletes old commits",
+        "It lists the people who can push"
+      ],
+      "answer": 0,
+      "explanation": "Files listed in .gitignore are skipped by Git. Use it for secrets, logs and folders that can be rebuilt."
+    },
+    {
+      "id": "g08",
+      "topic": "Undo",
+      "type": "choice",
+      "question": "What does git restore index.html do?",
+      "options": [
+        "Deletes the file",
+        "Throws away the edits you have not committed in that file",
+        "Undoes the last commit",
+        "Uploads the file to GitHub"
+      ],
+      "answer": 1,
+      "explanation": "git restore puts the file back to how it was in the last commit. Your uncommitted edits are lost, so check git diff first."
+    },
+    {
+      "id": "g09",
+      "topic": "Undo",
+      "type": "choice",
+      "question": "What is the safest way to undo a commit that other people already have?",
+      "options": [
+        "git revert",
+        "Delete the .git folder",
+        "Edit the history by hand",
+        "git restore"
+      ],
+      "answer": 0,
+      "explanation": "git revert creates a new commit that does the opposite. The history stays honest, which is safe for teams."
+    },
+    {
+      "id": "g10",
+      "topic": "Branches",
+      "type": "blank",
+      "question": "Type the command word that creates a branch called menu and moves to it.",
+      "code": "git ___ -c menu",
+      "answers": [
+        "switch"
+      ],
+      "explanation": "git switch -c creates a new branch and switches to it. git switch name moves between branches.",
+      "hint": "Not checkout."
+    },
+    {
+      "id": "g11",
+      "topic": "Branches",
+      "type": "choice",
+      "question": "In a merge conflict, what is between <<<<<<< HEAD and =======?",
+      "options": [
+        "The other branch's version",
+        "Your current branch's version",
+        "A deleted line",
+        "The commit message"
+      ],
+      "answer": 1,
+      "explanation": "The part between <<<<<<< HEAD and ======= is your current version. The part after ======= is the other branch's version. Edit the file, remove the markers, then add and commit."
+    },
+    {
+      "id": "g12",
+      "topic": "GitHub",
+      "type": "choice",
+      "question": "What does the -u in git push -u origin main do?",
+      "options": [
+        "Uploads faster",
+        "Remembers the connection, so later you can just run git push",
+        "Undoes the push",
+        "Updates Git"
+      ],
+      "answer": 1,
+      "explanation": "-u sets the upstream branch. After that, git push and git pull know where to go."
+    },
+    {
+      "id": "g13",
+      "topic": "GitHub Pages",
+      "type": "choice",
+      "question": "A repository named my-site is owned by the GitHub user dara. What is its GitHub Pages address?",
+      "options": [
+        "https://dara.github.io/my-site/",
+        "https://my-site.github.com/dara/",
+        "https://github.com/dara/my-site/index.html",
+        "https://dara.my-site.io/"
+      ],
+      "answer": 0,
+      "explanation": "A project site is published at https://USERNAME.github.io/REPOSITORY/."
+    },
+    {
+      "id": "g14",
+      "topic": "Workflow",
+      "type": "code",
+      "question": "Write the three Git commands that stage everything, commit it with the message \"Add contact page\", and upload it to GitHub.",
+      "solution": "git add .\ngit commit -m \"Add contact page\"\ngit push",
+      "explanation": "This is the everyday cycle: add, commit, push.",
+      "hint": "add, commit, push."
+    }
+  ]
+}

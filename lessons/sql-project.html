@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Project: a school database | SQL | CHHOYED</title>
+  <meta name="description" content="SQL: Solve eight tasks, then learn how apps use SQL and how to avoid SQL injection. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/sql-project.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Project: a school database | SQL | CHHOYED">
+  <meta property="og:description" content="SQL: Solve eight tasks, then learn how apps use SQL and how to avoid SQL injection. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/sql-project.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Project: a school database | SQL | CHHOYED">
+  <meta name="twitter:description" content="SQL: Solve eight tasks, then learn how apps use SQL and how to avoid SQL injection. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Project: a school database", "description": "Solve eight tasks, then learn how apps use SQL and how to avoid SQL injection.", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-project.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Project: a school database", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-project.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/sql">SQL</a></div>
+    <article data-id="sql-project" data-ordered="1">
+      <span class="tag" style="--c:#0e7490"><i></i>Coding · SQL</span><span class="pill">Lesson 8 of 8</span>
+      <h1>Project: a school database</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-15">15 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Now use everything: <code>SELECT</code>, <code>WHERE</code>, <code>GROUP BY</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> and joins. You will work on the school database you built in this course, then see how a real app talks to a database.</p>
+<h2>Your database</h2>
+<p>You have three tables:</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Columns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>students</code></td>
+<td>id, name, age, city, score</td>
+</tr>
+<tr>
+<td><code>courses</code></td>
+<td>id, title, teacher</td>
+</tr>
+<tr>
+<td><code>enrollments</code></td>
+<td>id, student_id, course_id</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 1: answer the questions</h2>
+<p>Write one query for each task. Try them <strong>before</strong> you look at the solutions.</p>
+<ol>
+<li>Show the names and cities of all students, sorted by name.</li>
+<li>Show the students who live in Phnom Penh and scored more than 50.</li>
+<li>Show the average score of each city, from highest to lowest.</li>
+<li>Show the names of the students who take the CSS course.</li>
+<li>Show every course title with the number of students in it.</li>
+<li>Show the students who are enrolled in <strong>more than one</strong> course.</li>
+<li>Show the teacher &quot;Mr. Dara&quot; with the total number of enrollments in all his courses.</li>
+<li>Enroll Heng Rithy (student 5) in the SQL course (course 4), then show the course list again.</li>
+</ol>
+<h2>Solutions</h2>
+<p>Compare your queries with these. There is often more than one correct way.</p>
+<p><strong>Task 3: average score of each city</strong></p>
+<pre><code class="language-sql">SELECT city, ROUND(AVG(score), 1) AS average_score
+FROM students
+GROUP BY city
+ORDER BY average_score DESC;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>city</th>
+<th>average_score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Siem Reap</td>
+<td>78.0</td>
+</tr>
+<tr>
+<td>Battambang</td>
+<td>76.0</td>
+</tr>
+<tr>
+<td>Phnom Penh</td>
+<td>66.5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Task 4: students who take CSS</strong></p>
+<pre><code class="language-sql">SELECT s.name
+FROM students s
+JOIN enrollments e ON e.student_id = s.id
+JOIN courses c ON c.id = e.course_id
+WHERE c.title = 'CSS'
+ORDER BY s.name;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Task 5: students in every course</strong></p>
+<pre><code class="language-sql">SELECT c.title, COUNT(e.id) AS students
+FROM courses c
+LEFT JOIN enrollments e ON e.course_id = c.id
+GROUP BY c.id, c.title
+ORDER BY c.id;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>title</th>
+<th>students</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTML</td>
+<td>3</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>2</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>3</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Task 6: students in more than one course</strong></p>
+<pre><code class="language-sql">SELECT s.name, COUNT(*) AS courses_taken
+FROM students s
+JOIN enrollments e ON e.student_id = s.id
+GROUP BY s.id, s.name
+HAVING COUNT(*) &gt; 1
+ORDER BY s.name;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>courses_taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Task 7: Mr. Dara's enrollments</strong></p>
+<pre><code class="language-sql">SELECT c.teacher, COUNT(e.id) AS total_enrollments
+FROM courses c
+JOIN enrollments e ON e.course_id = c.id
+WHERE c.teacher = 'Mr. Dara'
+GROUP BY c.teacher;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>teacher</th>
+<th>total_enrollments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mr. Dara</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Task 8: enroll a student</strong></p>
+<pre><code class="language-sql">INSERT INTO enrollments (id, student_id, course_id)
+VALUES (9, 5, 4);
+
+SELECT c.title, COUNT(e.id) AS students
+FROM courses c
+LEFT JOIN enrollments e ON e.course_id = c.id
+GROUP BY c.id, c.title
+ORDER BY c.id;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>title</th>
+<th>students</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTML</td>
+<td>3</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>2</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>3</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2: how a real app uses SQL</h2>
+<p>In the book &quot;Before You Code&quot;, you learned that an app is a <strong>frontend</strong>, a <strong>backend</strong> and a <strong>database</strong>. SQL lives in the backend. The frontend never talks to the database directly. It asks the backend through an <strong>API</strong>, and the backend runs SQL.</p>
+<p><strong>A visitor opens the page &quot;students from Siem Reap&quot;:</strong></p>
+<ol>
+<li>The browser sends <code>GET /students?city=Siem Reap</code> to the backend.</li>
+<li>The backend runs <code>SELECT * FROM students WHERE city = 'Siem Reap'</code>.</li>
+<li>The database returns rows. The backend turns them into <strong>JSON</strong>.</li>
+<li>The frontend receives the JSON and shows it on the page, with the <code>fetch</code> skills you learned in JavaScript.</li>
+</ol>
+<h2>The most important security rule: SQL injection</h2>
+<p>Look at a backend that builds the query by <strong>joining text</strong> with what the visitor typed:</p>
+<pre><code class="language-javascript">// DANGEROUS: never do this
+const city = request.query.city;
+db.query(&quot;SELECT * FROM students WHERE city = '&quot; + city + &quot;'&quot;);
+</code></pre>
+<p>If a visitor types <code>x' OR '1'='1</code> as the city, the query becomes:</p>
+<pre><code class="language-sql">SELECT * FROM students WHERE city = 'x' OR '1'='1'
+</code></pre>
+<p>The condition is always true, so the visitor receives <strong>every row</strong>. A worse input can delete tables. This attack is called <strong>SQL injection</strong>, and it is one of the most common ways websites are hacked.</p>
+<p>The fix is to use a <strong>parameterized query</strong>. You write the query with a placeholder, and send the value separately. The database treats it as plain data, never as SQL.</p>
+<pre><code class="language-javascript">// SAFE
+db.query(&quot;SELECT * FROM students WHERE city = ?&quot;, [city]);
+</code></pre>
+<blockquote>
+<p><strong>Remember</strong>
+Never build SQL by joining text with user input. Always use placeholders (<code>?</code> or <code>$1</code>, depending on the library). Every backend language, such as Node.js, PHP, Python and Java, supports them.</p>
+</blockquote>
+<h2>What to learn next</h2>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build the backend</td>
+<td>Node.js with Express, or PHP with Laravel</td>
+</tr>
+<tr>
+<td>Make your own API</td>
+<td>A REST API that returns JSON from your database</td>
+</tr>
+<tr>
+<td>A ready-made database for apps</td>
+<td>Firebase or Supabase</td>
+</tr>
+<tr>
+<td>Go deeper in SQL</td>
+<td>Indexes, transactions and <code>UNION</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Try it</h2>
+<p>Design a small database for a project you like (a library, a shop, a clinic). Draw the tables on paper, mark the primary and foreign keys, create them with <code>CREATE TABLE</code>, add sample data, and write five queries with a join.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="sql-project" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="sql-project" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="sql-joins.html"><small>Previous lesson</small>JOIN: connect tables</a></div>
+    <section class="toc"><h2>All lessons in SQL</h2><ol><li><a href="sql-intro.html">What is a database?</a></li><li><a href="sql-select.html">SELECT: read your data</a></li><li><a href="sql-where.html">WHERE: filter rows</a></li><li><a href="sql-aggregate.html">Count, total and group</a></li><li><a href="sql-modify.html">INSERT, UPDATE and DELETE</a></li><li><a href="sql-tables-keys.html">Tables, keys and relationships</a></li><li><a href="sql-joins.html">JOIN: connect tables</a></li><li class="now"><a href="sql-project.html">Project: a school database</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/sql-project">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

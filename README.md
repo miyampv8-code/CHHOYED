@@ -51,3 +51,27 @@ Visitors read the book on the site, without opening a PDF.
 
    `pages` is [first page, last page] of the PDF. Add `topic`, `order` and `part` if the subject uses them, as for the Integral calculus lessons. If you also add a `contentFile`, its text is shown above the pages.
 3. A second book is the same steps with a different `--id`. Each book has its own folder.
+
+## Pages for Google (run after adding or changing lessons)
+
+The course view (`index.html#/...`) is one page that changes with JavaScript, so Google mostly sees only the home
+page. `build_pages.py` writes a real page for every lesson, plus `lessons/index.html`, `about.html`, `404.html`
+and `sitemap.xml`.
+
+```
+py -m pip install markdown-it-py     (only the first time)
+py build_pages.py
+git add .
+git commit -m "Update lesson pages"
+git push origin main
+```
+
+Never edit the files in `lessons/`, `about.html`, `404.html` or `sitemap.xml` by hand. Change the lessons in
+`content/` and `data/`, or the About text in `content/about.md`, then run the script again.
+
+After the first push, open Google Search Console, choose **Sitemaps**, and submit `sitemap.xml`.
+
+## Khmer and English
+
+`js/i18n.js` holds the Khmer words for the menu, buttons and messages. Course names and taglines are in
+`data/subjects.json` (`name_km`, `tagline_km`). Lesson titles and text stay in English.

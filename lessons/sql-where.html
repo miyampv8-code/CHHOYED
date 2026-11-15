@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>WHERE: filter rows | SQL | CHHOYED</title>
+  <meta name="description" content="SQL: Filter with comparisons, AND, OR, IN, BETWEEN, LIKE and IS NULL. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/sql-where.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="WHERE: filter rows | SQL | CHHOYED">
+  <meta property="og:description" content="SQL: Filter with comparisons, AND, OR, IN, BETWEEN, LIKE and IS NULL. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/sql-where.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WHERE: filter rows | SQL | CHHOYED">
+  <meta name="twitter:description" content="SQL: Filter with comparisons, AND, OR, IN, BETWEEN, LIKE and IS NULL. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "WHERE: filter rows", "description": "Filter with comparisons, AND, OR, IN, BETWEEN, LIKE and IS NULL.", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-where.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "WHERE: filter rows", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-where.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/sql">SQL</a></div>
+    <article data-id="sql-where" data-ordered="1">
+      <span class="tag" style="--c:#0e7490"><i></i>Coding · SQL</span><span class="pill">Lesson 3 of 8</span>
+      <h1>WHERE: filter rows</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-15">15 Nov 2026</time></a>
+      
+      <div class="lesson"><p><code>WHERE</code> filters rows. Only the rows that pass your condition appear in the result.</p>
+<h2>Syntax</h2>
+<pre><code class="language-sql">SELECT columns
+FROM table_name
+WHERE condition;
+</code></pre>
+<h2>Comparison operators</h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td>Equal (one equals sign, not two)</td>
+</tr>
+<tr>
+<td><code>&lt;&gt;</code> or <code>!=</code></td>
+<td>Not equal</td>
+</tr>
+<tr>
+<td><code>&gt;</code> <code>&lt;</code></td>
+<td>Bigger, smaller</td>
+</tr>
+<tr>
+<td><code>&gt;=</code> <code>&lt;=</code></td>
+<td>Bigger or equal, smaller or equal</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT name, score
+FROM students
+WHERE score &gt;= 75;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>76</td>
+</tr>
+</tbody>
+</table>
+<p>Text values need single quotes.</p>
+<pre><code class="language-sql">SELECT name, city
+FROM students
+WHERE city = 'Siem Reap';
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>city</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>Siem Reap</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>Siem Reap</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Remember</strong>
+A student with a NULL score does <strong>not</strong> appear in <code>score &gt;= 75</code>, and does not appear in <code>score &lt; 75</code> either. Comparing with NULL is never true. Use <code>IS NULL</code>, shown below.</p>
+</blockquote>
+<h2>AND, OR and NOT</h2>
+<ul>
+<li><code>AND</code>: both conditions must be true.</li>
+<li><code>OR</code>: at least one must be true.</li>
+<li><code>NOT</code>: flips a condition.</li>
+</ul>
+<pre><code class="language-sql">SELECT name, age, city
+FROM students
+WHERE city = 'Phnom Penh' AND age &gt;= 18;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>age</th>
+<th>city</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>18</td>
+<td>Phnom Penh</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>19</td>
+<td>Phnom Penh</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT name, city
+FROM students
+WHERE city = 'Siem Reap' OR city = 'Battambang';
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>city</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>Siem Reap</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>Battambang</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>Siem Reap</td>
+</tr>
+</tbody>
+</table>
+<p>When you mix <code>AND</code> and <code>OR</code>, use <strong>parentheses</strong> so the meaning is clear.</p>
+<pre><code class="language-sql">SELECT name, age, score
+FROM students
+WHERE (age = 17 OR age = 18) AND score &gt; 80;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>age</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>18</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>17</td>
+<td>92</td>
+</tr>
+</tbody>
+</table>
+<h2>IN: a list of choices</h2>
+<p><code>IN</code> is a short way to write many <code>OR</code> conditions.</p>
+<pre><code class="language-sql">SELECT name, city
+FROM students
+WHERE city IN ('Siem Reap', 'Battambang');
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>city</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>Siem Reap</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>Battambang</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>Siem Reap</td>
+</tr>
+</tbody>
+</table>
+<h2>BETWEEN: a range</h2>
+<p><code>BETWEEN</code> includes both ends.</p>
+<pre><code class="language-sql">SELECT name, score
+FROM students
+WHERE score BETWEEN 60 AND 80;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lim Sreyneang</td>
+<td>76</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+<h2>LIKE: search inside text</h2>
+<p><code>LIKE</code> finds text that matches a pattern. The symbol <code>%</code> means &quot;any number of characters&quot;. The symbol <code>_</code> means &quot;exactly one character&quot;.</p>
+<pre><code class="language-sql">SELECT name
+FROM students
+WHERE name LIKE 'S%';
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT name
+FROM students
+WHERE name LIKE '%a%';
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+</tr>
+</tbody>
+</table>
+<p><code>'S%'</code> means &quot;starts with S&quot;. <code>'%a%'</code> means &quot;contains an a anywhere&quot;. In SQLite and MySQL, <code>LIKE</code> ignores uppercase and lowercase. In PostgreSQL it does not (use <code>ILIKE</code> there).</p>
+<h2>IS NULL: find missing values</h2>
+<pre><code class="language-sql">SELECT name, score
+FROM students
+WHERE score IS NULL;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pov Malis</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>IS NOT NULL</code> for the opposite.</p>
+<pre><code class="language-sql">SELECT name, score
+FROM students
+WHERE score IS NOT NULL
+ORDER BY score DESC;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>76</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>48</td>
+</tr>
+</tbody>
+</table>
+<h2>Try it</h2>
+<ol>
+<li>Show the students who are older than 18.</li>
+<li>Show the students from Phnom Penh whose score is below 80.</li>
+<li>Show the students whose names end with <code>y</code> (hint: the pattern is <code>'%y'</code>).</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="sql-where" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="sql-where" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="sql-select.html"><small>Previous lesson</small>SELECT: read your data</a><a href="sql-aggregate.html" class="nx"><small>Next lesson</small>Count, total and group</a></div>
+    <section class="toc"><h2>All lessons in SQL</h2><ol><li><a href="sql-intro.html">What is a database?</a></li><li><a href="sql-select.html">SELECT: read your data</a></li><li class="now"><a href="sql-where.html">WHERE: filter rows</a></li><li><a href="sql-aggregate.html">Count, total and group</a></li><li><a href="sql-modify.html">INSERT, UPDATE and DELETE</a></li><li><a href="sql-tables-keys.html">Tables, keys and relationships</a></li><li><a href="sql-joins.html">JOIN: connect tables</a></li><li><a href="sql-project.html">Project: a school database</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/sql-where">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

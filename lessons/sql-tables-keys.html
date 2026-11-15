@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Tables, keys and relationships | SQL | CHHOYED</title>
+  <meta name="description" content="SQL: Design tables with CREATE TABLE, primary keys and foreign keys. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/sql-tables-keys.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Tables, keys and relationships | SQL | CHHOYED">
+  <meta property="og:description" content="SQL: Design tables with CREATE TABLE, primary keys and foreign keys. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/sql-tables-keys.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tables, keys and relationships | SQL | CHHOYED">
+  <meta name="twitter:description" content="SQL: Design tables with CREATE TABLE, primary keys and foreign keys. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Tables, keys and relationships", "description": "Design tables with CREATE TABLE, primary keys and foreign keys.", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-tables-keys.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Tables, keys and relationships", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-tables-keys.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/sql">SQL</a></div>
+    <article data-id="sql-tables-keys" data-ordered="1">
+      <span class="tag" style="--c:#0e7490"><i></i>Coding · SQL</span><span class="pill">Lesson 6 of 8</span>
+      <h1>Tables, keys and relationships</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-15">15 Nov 2026</time></a>
+      
+      <div class="lesson"><p>You have used a table that was already made. Now you will design your own. Good table design is the secret of a good database.</p>
+<h2>CREATE TABLE</h2>
+<pre><code class="language-sql">CREATE TABLE table_name (
+  column1 TYPE constraints,
+  column2 TYPE constraints
+);
+</code></pre>
+<p>Here is the <code>students</code> table again, with its parts explained:</p>
+<pre><code class="language-sql">CREATE TABLE students (
+  id    INTEGER PRIMARY KEY,
+  name  TEXT NOT NULL,
+  age   INTEGER,
+  city  TEXT,
+  score INTEGER DEFAULT 0
+);
+</code></pre>
+<h2>Common data types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Stores</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INTEGER</code></td>
+<td>Whole numbers</td>
+<td><code>18</code></td>
+</tr>
+<tr>
+<td><code>REAL</code> / <code>DECIMAL</code></td>
+<td>Numbers with decimals</td>
+<td><code>9.99</code></td>
+</tr>
+<tr>
+<td><code>TEXT</code> / <code>VARCHAR(n)</code></td>
+<td>Text</td>
+<td><code>'Sok Dara'</code></td>
+</tr>
+<tr>
+<td><code>DATE</code></td>
+<td>A date</td>
+<td><code>'2026-11-15'</code></td>
+</tr>
+<tr>
+<td><code>BOOLEAN</code></td>
+<td>True or false</td>
+<td><code>TRUE</code></td>
+</tr>
+</tbody>
+</table>
+<p>Type names differ a little between databases (for example <code>VARCHAR(100)</code> in MySQL and <code>TEXT</code> in SQLite), but the idea is the same.</p>
+<h2>Constraints: rules for the data</h2>
+<p>A constraint makes the database refuse bad data.</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRIMARY KEY</code></td>
+<td>Identifies each row. Must be unique and never NULL.</td>
+</tr>
+<tr>
+<td><code>NOT NULL</code></td>
+<td>The value is required.</td>
+</tr>
+<tr>
+<td><code>UNIQUE</code></td>
+<td>No two rows can have the same value, such as an email.</td>
+</tr>
+<tr>
+<td><code>DEFAULT value</code></td>
+<td>Used when you do not provide a value.</td>
+</tr>
+<tr>
+<td><code>CHECK (condition)</code></td>
+<td>The value must pass a test, such as <code>CHECK (age &gt;= 0)</code>.</td>
+</tr>
+<tr>
+<td><code>FOREIGN KEY</code></td>
+<td>Points to a row in another table (explained below).</td>
+</tr>
+</tbody>
+</table>
+<h2>The primary key</h2>
+<p>Names can repeat: two students may both be called &quot;Dara&quot;. So every table needs a column that is <strong>different for every row</strong>. This is the <strong>primary key</strong>, usually called <code>id</code>.</p>
+<pre><code class="language-sql">-- This fails: id 1 already exists
+INSERT INTO students (id, name) VALUES (1, 'Another Student');
+</code></pre>
+<h2>One table is not enough</h2>
+<p>Imagine that students take courses. You could write the course name into every student row, but that repeats the same text again and again, and one typing mistake creates a &quot;different&quot; course. The better design is to use <strong>separate tables</strong>, connected by keys.</p>
+<pre><code class="language-sql">CREATE TABLE courses (
+  id      INTEGER PRIMARY KEY,
+  title   TEXT NOT NULL,
+  teacher TEXT
+);
+
+CREATE TABLE enrollments (
+  id          INTEGER PRIMARY KEY,
+  student_id  INTEGER NOT NULL,
+  course_id   INTEGER NOT NULL,
+  FOREIGN KEY (student_id) REFERENCES students(id),
+  FOREIGN KEY (course_id)  REFERENCES courses(id)
+);
+</code></pre>
+<p>A <strong>foreign key</strong> is a column that holds the primary key of a row in another table. Here, <code>enrollments.student_id</code> points to a student, and <code>enrollments.course_id</code> points to a course.</p>
+<p>Add some data. Run this script after creating the tables:</p>
+<pre><code class="language-sql">INSERT INTO courses (id, title, teacher) VALUES
+  (1, 'HTML', 'Mr. Dara'),
+  (2, 'CSS', 'Ms. Sokha'),
+  (3, 'JavaScript', 'Mr. Dara'),
+  (4, 'SQL', 'Ms. Sokha');
+
+INSERT INTO enrollments (id, student_id, course_id) VALUES
+  (1, 1, 1), (2, 1, 3),
+  (3, 2, 1), (4, 2, 2), (5, 2, 3),
+  (6, 3, 2),
+  (7, 4, 1),
+  (8, 6, 3);
+</code></pre>
+<p>Read <code>(2, 1, 3)</code> as &quot;enrollment number 2: student 1 takes course 3&quot;, which means Sok Dara takes JavaScript.</p>
+<blockquote>
+<p><strong>Note:</strong> SQLite only checks foreign keys if you run <code>PRAGMA foreign_keys = ON;</code> first. MySQL and PostgreSQL check them automatically.</p>
+</blockquote>
+<h2>Types of relationships</h2>
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th>Example</th>
+<th>How to build it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>One to many</strong></td>
+<td>One teacher has many courses</td>
+<td>Put the teacher's id in the courses table</td>
+</tr>
+<tr>
+<td><strong>Many to many</strong></td>
+<td>Students take many courses, and courses have many students</td>
+<td>Use a middle table, like <code>enrollments</code></td>
+</tr>
+<tr>
+<td><strong>One to one</strong></td>
+<td>A user has one profile</td>
+<td>Put a unique foreign key in one table</td>
+</tr>
+</tbody>
+</table>
+<h2>Change or remove a table</h2>
+<pre><code class="language-sql">ALTER TABLE students ADD COLUMN email TEXT;  -- add a column
+DROP TABLE enrollments;                      -- delete the whole table
+</code></pre>
+<blockquote>
+<p><strong>Remember</strong>
+<code>DROP TABLE</code> deletes the table <strong>and all its data</strong>. Be as careful with it as with <code>DELETE</code> without <code>WHERE</code>.</p>
+</blockquote>
+<h2>Try it</h2>
+<p>Design a <code>books</code> table (id, title, author, year) and a <code>loans</code> table that records which student borrowed which book. Decide which columns are primary keys and which are foreign keys.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="sql-tables-keys" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="sql-tables-keys" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="sql-modify.html"><small>Previous lesson</small>INSERT, UPDATE and DELETE</a><a href="sql-joins.html" class="nx"><small>Next lesson</small>JOIN: connect tables</a></div>
+    <section class="toc"><h2>All lessons in SQL</h2><ol><li><a href="sql-intro.html">What is a database?</a></li><li><a href="sql-select.html">SELECT: read your data</a></li><li><a href="sql-where.html">WHERE: filter rows</a></li><li><a href="sql-aggregate.html">Count, total and group</a></li><li><a href="sql-modify.html">INSERT, UPDATE and DELETE</a></li><li class="now"><a href="sql-tables-keys.html">Tables, keys and relationships</a></li><li><a href="sql-joins.html">JOIN: connect tables</a></li><li><a href="sql-project.html">Project: a school database</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/sql-tables-keys">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

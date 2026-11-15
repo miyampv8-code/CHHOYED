@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Functions | C++ | CHHOYED</title>
+  <meta name="description" content="C++: Reuse code with parameters, return values and references. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/cpp-functions.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Functions | C++ | CHHOYED">
+  <meta property="og:description" content="C++: Reuse code with parameters, return values and references. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/cpp-functions.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Functions | C++ | CHHOYED">
+  <meta name="twitter:description" content="C++: Reuse code with parameters, return values and references. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Functions", "description": "Reuse code with parameters, return values and references.", "datePublished": "2026-11-13", "dateModified": "2026-11-13", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/cpp-functions.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Functions", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/cpp-functions.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/cpp">C++</a></div>
+    <article data-id="cpp-functions" data-ordered="1">
+      <span class="tag" style="--c:#00599c"><i></i>Coding · C++</span><span class="pill">Lesson 7 of 11</span>
+      <h1>Functions</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-13">13 Nov 2026</time></a>
+      
+      <div class="lesson"><p>A function is a named block of code that you can reuse.</p>
+<h2>Syntax</h2>
+<pre><code class="language-cpp">returnType name(type param1, type param2) {
+    // ...
+    return value;
+}
+
+name(arg1, arg2);                // call it
+</code></pre>
+<p>Use <code>void</code> as the return type when nothing is returned. Write the function before the line that calls it.</p>
+<h2>Define and call</h2>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+void greet(std::string name) {
+    std::cout &lt;&lt; &quot;Hello, &quot; &lt;&lt; name &lt;&lt; &quot;\n&quot;;
+}
+
+int main() {
+    greet(&quot;Dara&quot;);
+    int total = add(3, 4);
+    std::cout &lt;&lt; total &lt;&lt; &quot;\n&quot;;   // 7
+    return 0;
+}
+</code></pre>
+<ul>
+<li>Write the <strong>return type</strong> first. <code>void</code> means the function returns nothing.</li>
+<li>A function must be written above the place where you use it.</li>
+</ul>
+<h2>Pass by reference</h2>
+<pre><code class="language-cpp">void addOne(int&amp; n) {
+    n++;
+}
+
+int x = 5;
+addOne(x);
+std::cout &lt;&lt; x &lt;&lt; &quot;\n&quot;;   // 6
+</code></pre>
+<p>Normally a function gets a <strong>copy</strong> of the value. <code>&amp;</code> makes it work on the original variable instead. For big values you only read, use <code>const std::string&amp;</code> to avoid copying.</p>
+<h2>Default values</h2>
+<pre><code class="language-cpp">void greet(std::string name = &quot;friend&quot;) {
+    std::cout &lt;&lt; &quot;Hello, &quot; &lt;&lt; name &lt;&lt; &quot;\n&quot;;
+}
+</code></pre>
+<blockquote>
+<p>Variables made inside a function exist only inside that function.</p>
+</blockquote>
+<h2>Try it</h2>
+<p>Write <code>bool isEven(int n)</code> that returns <code>true</code> when <code>n</code> is even.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="cpp-functions" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="cpp-functions" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="cpp-arrays.html"><small>Previous lesson</small>Arrays and vectors</a><a href="cpp-classes-objects.html" class="nx"><small>Next lesson</small>Classes and objects</a></div>
+    <section class="toc"><h2>All lessons in C++</h2><ol><li><a href="cpp-hello-world.html">Hello, World!</a></li><li><a href="cpp-variables.html">Variables and data types</a></li><li><a href="cpp-operators-input.html">Operators and user input</a></li><li><a href="cpp-conditions.html">Making decisions</a></li><li><a href="cpp-loops.html">Repeat with loops</a></li><li><a href="cpp-arrays.html">Arrays and vectors</a></li><li class="now"><a href="cpp-functions.html">Functions</a></li><li><a href="cpp-classes-objects.html">Classes and objects</a></li><li><a href="cpp-encapsulation.html">Encapsulation</a></li><li><a href="cpp-inheritance.html">Inheritance</a></li><li><a href="cpp-polymorphism.html">Polymorphism and abstraction</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/cpp-functions">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

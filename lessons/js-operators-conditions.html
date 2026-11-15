@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Operators and decisions | JavaScript | CHHOYED</title>
+  <meta name="description" content="JavaScript: Do math, compare values and choose with if, else and switch. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/js-operators-conditions.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Operators and decisions | JavaScript | CHHOYED">
+  <meta property="og:description" content="JavaScript: Do math, compare values and choose with if, else and switch. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/js-operators-conditions.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Operators and decisions | JavaScript | CHHOYED">
+  <meta name="twitter:description" content="JavaScript: Do math, compare values and choose with if, else and switch. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Operators and decisions", "description": "Do math, compare values and choose with if, else and switch.", "datePublished": "2026-11-14", "dateModified": "2026-11-14", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/js-operators-conditions.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Operators and decisions", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/js-operators-conditions.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/javascript">JavaScript</a></div>
+    <article data-id="js-operators-conditions" data-ordered="1">
+      <span class="tag" style="--c:#a16207"><i></i>Coding · JavaScript</span><span class="pill">Lesson 3 of 10</span>
+      <h1>Operators and decisions</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-14">14 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Programs make decisions. First you need operators to calculate and compare, then <code>if</code> to choose what runs.</p>
+<h2>Operators</h2>
+<pre><code class="language-javascript">let a = 10;
+let b = 3;
+
+console.log(a + b);   // 13
+console.log(a - b);   // 7
+console.log(a * b);   // 30
+console.log(a / b);   // 3.333...
+console.log(a % b);   // 1 (the remainder)
+console.log(a ** 2);  // 100 (power)
+</code></pre>
+<p>Shortcuts: <code>x += 5</code> means <code>x = x + 5</code>. <code>x++</code> adds 1.</p>
+<h2>Comparing</h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>===</code></td>
+<td>Equal (value <strong>and</strong> type)</td>
+</tr>
+<tr>
+<td><code>!==</code></td>
+<td>Not equal</td>
+</tr>
+<tr>
+<td><code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></td>
+<td>Bigger, smaller</td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>AND: both must be true</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>OR: at least one must be true</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NOT: flips true and false</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Always use <code>===</code>, not <code>==</code>. The double-equals converts types and gives surprising results, such as <code>&quot;5&quot; == 5</code> being true.</p>
+</blockquote>
+<h2>Syntax</h2>
+<pre><code class="language-javascript">if (condition) {
+  // runs when the condition is true
+} else if (otherCondition) {
+  // runs when this one is true
+} else {
+  // runs otherwise
+}
+</code></pre>
+<h2>Example</h2>
+<pre><code class="language-javascript">const score = 75;
+
+if (score &gt;= 90) {
+  console.log(&quot;Excellent&quot;);
+} else if (score &gt;= 50) {
+  console.log(&quot;Pass&quot;);
+} else {
+  console.log(&quot;Try again&quot;);
+}
+</code></pre>
+<h2>Combining conditions</h2>
+<pre><code class="language-javascript">const age = 20;
+const hasTicket = true;
+
+if (age &gt;= 18 &amp;&amp; hasTicket) {
+  console.log(&quot;Welcome in&quot;);
+}
+</code></pre>
+<h2>Shorter: the ternary operator</h2>
+<pre><code class="language-javascript">const message = age &gt;= 18 ? &quot;Adult&quot; : &quot;Minor&quot;;
+</code></pre>
+<h2>switch</h2>
+<pre><code class="language-javascript">const day = &quot;Mon&quot;;
+
+switch (day) {
+  case &quot;Mon&quot;:
+    console.log(&quot;Start of week&quot;);
+    break;
+  case &quot;Fri&quot;:
+    console.log(&quot;Almost weekend&quot;);
+    break;
+  default:
+    console.log(&quot;Normal day&quot;);
+}
+</code></pre>
+<h2>Try it</h2>
+<p>Write a program with a variable <code>temperature</code>. Print &quot;Hot&quot; above 30, &quot;Nice&quot; from 20 to 30, and &quot;Cold&quot; below 20.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="js-operators-conditions" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="js-operators-conditions" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="js-variables.html"><small>Previous lesson</small>Variables and data types</a><a href="js-loops.html" class="nx"><small>Next lesson</small>Repeat with loops</a></div>
+    <section class="toc"><h2>All lessons in JavaScript</h2><ol><li><a href="js-hello.html">Hello, JavaScript!</a></li><li><a href="js-variables.html">Variables and data types</a></li><li class="now"><a href="js-operators-conditions.html">Operators and decisions</a></li><li><a href="js-loops.html">Repeat with loops</a></li><li><a href="js-functions.html">Functions</a></li><li><a href="js-arrays-objects.html">Arrays and objects</a></li><li><a href="js-dom.html">The DOM: change the page</a></li><li><a href="js-events.html">Events: react to clicks</a></li><li><a href="js-fetch-json.html">Fetch data from an API</a></li><li><a href="js-project.html">Project: a to-do list</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/js-operators-conditions">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

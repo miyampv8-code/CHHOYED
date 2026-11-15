@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>SELECT: read your data | SQL | CHHOYED</title>
+  <meta name="description" content="SQL: Choose columns, rename them, remove repeats, sort and limit. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/sql-select.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="SELECT: read your data | SQL | CHHOYED">
+  <meta property="og:description" content="SQL: Choose columns, rename them, remove repeats, sort and limit. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/sql-select.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SELECT: read your data | SQL | CHHOYED">
+  <meta name="twitter:description" content="SQL: Choose columns, rename them, remove repeats, sort and limit. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SELECT: read your data", "description": "Choose columns, rename them, remove repeats, sort and limit.", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-select.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "SELECT: read your data", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-select.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/sql">SQL</a></div>
+    <article data-id="sql-select" data-ordered="1">
+      <span class="tag" style="--c:#0e7490"><i></i>Coding · SQL</span><span class="pill">Lesson 2 of 8</span>
+      <h1>SELECT: read your data</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-15">15 Nov 2026</time></a>
+      
+      <div class="lesson"><p><code>SELECT</code> is the command you will use most. It reads data from a table and shows it to you. It never changes the data.</p>
+<h2>Syntax</h2>
+<pre><code class="language-sql">SELECT column1, column2
+FROM table_name;
+</code></pre>
+<p><code>SELECT</code> says which columns. <code>FROM</code> says which table.</p>
+<h2>All columns, or only some</h2>
+<p>An asterisk <code>*</code> means &quot;every column&quot;.</p>
+<pre><code class="language-sql">SELECT * FROM students;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>age</th>
+<th>city</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sok Dara</td>
+<td>18</td>
+<td>Phnom Penh</td>
+<td>85</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Chan Sophea</td>
+<td>17</td>
+<td>Siem Reap</td>
+<td>92</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kim Vanna</td>
+<td>19</td>
+<td>Phnom Penh</td>
+<td>48</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lim Sreyneang</td>
+<td>18</td>
+<td>Battambang</td>
+<td>76</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Heng Rithy</td>
+<td>20</td>
+<td>Siem Reap</td>
+<td>64</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Pov Malis</td>
+<td>17</td>
+<td>Phnom Penh</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Usually you only need a few columns. List them, separated by commas.</p>
+<pre><code class="language-sql">SELECT name, city
+FROM students;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>city</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>Phnom Penh</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>Siem Reap</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>Phnom Penh</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>Battambang</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>Siem Reap</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>Phnom Penh</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Remember</strong>
+In real apps, avoid <code>SELECT *</code> on big tables. Ask only for the columns you need. It is faster and clearer.</p>
+</blockquote>
+<h2>Rename a column with AS</h2>
+<p><code>AS</code> gives a column a friendlier name in the result. This is called an <strong>alias</strong>.</p>
+<pre><code class="language-sql">SELECT name AS student_name, score AS points
+FROM students;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>student_name</th>
+<th>points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>48</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>76</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<h2>Calculate in a query</h2>
+<p>You can do math on the columns.</p>
+<pre><code class="language-sql">SELECT name, age, age + 1 AS age_next_year
+FROM students;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>age</th>
+<th>age_next_year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>18</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>17</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>19</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>18</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>20</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>17</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+<h2>DISTINCT: remove repeated values</h2>
+<p>Three students live in Phnom Penh, but you may want each city only once.</p>
+<pre><code class="language-sql">SELECT DISTINCT city
+FROM students;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>city</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phnom Penh</td>
+</tr>
+<tr>
+<td>Siem Reap</td>
+</tr>
+<tr>
+<td>Battambang</td>
+</tr>
+</tbody>
+</table>
+<h2>ORDER BY: sort the result</h2>
+<p>Without <code>ORDER BY</code>, the database may return rows in any order. Add it when order matters. <code>ASC</code> means smallest first (this is the default). <code>DESC</code> means biggest first.</p>
+<pre><code class="language-sql">SELECT name, score
+FROM students
+ORDER BY score DESC;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>76</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>48</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that NULL is placed last when sorting <code>DESC</code> in SQLite. Other databases may place it differently.</p>
+<p>You can sort by two columns. The second one breaks ties.</p>
+<pre><code class="language-sql">SELECT name, city, score
+FROM students
+ORDER BY city ASC, score DESC;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>city</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lim Sreyneang</td>
+<td>Battambang</td>
+<td>76</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>Phnom Penh</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>Phnom Penh</td>
+<td>48</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>Phnom Penh</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>Siem Reap</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>Siem Reap</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+<h2>LIMIT: take only the first rows</h2>
+<pre><code class="language-sql">SELECT name, score
+FROM students
+ORDER BY score DESC
+LIMIT 3;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>85</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>76</td>
+</tr>
+</tbody>
+</table>
+<p>This is the &quot;top 3 students&quot;. (SQL Server uses <code>SELECT TOP 3</code> instead of <code>LIMIT</code>.)</p>
+<h2>The order of the clauses</h2>
+<p>A query is written in this fixed order. You will meet all of them in this course.</p>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Clause</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>SELECT</code></td>
+<td>Which columns</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>FROM</code></td>
+<td>Which table</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>WHERE</code></td>
+<td>Which rows</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>GROUP BY</code></td>
+<td>Make groups</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>HAVING</code></td>
+<td>Which groups</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>ORDER BY</code></td>
+<td>Sort</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>LIMIT</code></td>
+<td>How many</td>
+</tr>
+</tbody>
+</table>
+<h2>Try it</h2>
+<ol>
+<li>Show only the <code>name</code> and <code>age</code> of every student.</li>
+<li>Show the names of the students from the youngest to the oldest.</li>
+<li>Show the single oldest student.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="sql-select" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="sql-select" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="sql-intro.html"><small>Previous lesson</small>What is a database?</a><a href="sql-where.html" class="nx"><small>Next lesson</small>WHERE: filter rows</a></div>
+    <section class="toc"><h2>All lessons in SQL</h2><ol><li><a href="sql-intro.html">What is a database?</a></li><li class="now"><a href="sql-select.html">SELECT: read your data</a></li><li><a href="sql-where.html">WHERE: filter rows</a></li><li><a href="sql-aggregate.html">Count, total and group</a></li><li><a href="sql-modify.html">INSERT, UPDATE and DELETE</a></li><li><a href="sql-tables-keys.html">Tables, keys and relationships</a></li><li><a href="sql-joins.html">JOIN: connect tables</a></li><li><a href="sql-project.html">Project: a school database</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/sql-select">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Flexbox layout | CSS | CHHOYED</title>
+  <meta name="description" content="CSS: Arrange items in a row or column and center anything. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/css-flexbox.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Flexbox layout | CSS | CHHOYED">
+  <meta property="og:description" content="CSS: Arrange items in a row or column and center anything. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/css-flexbox.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flexbox layout | CSS | CHHOYED">
+  <meta name="twitter:description" content="CSS: Arrange items in a row or column and center anything. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Flexbox layout", "description": "Arrange items in a row or column and center anything.", "datePublished": "2026-11-14", "dateModified": "2026-11-14", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/css-flexbox.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Flexbox layout", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/css-flexbox.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/css">CSS</a></div>
+    <article data-id="css-flexbox" data-ordered="1">
+      <span class="tag" style="--c:#2965f1"><i></i>Coding · CSS</span><span class="pill">Lesson 5 of 8</span>
+      <h1>Flexbox layout</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-14">14 Nov 2026</time></a>
+      
+      <div class="lesson"><p><strong>Flexbox</strong> is a layout tool that arranges items in a row or a column, and spaces them out for you. It is perfect for menus, card rows and centering.</p>
+<h2>Syntax</h2>
+<pre><code class="language-css">.container {
+  display: flex;
+}
+</code></pre>
+<p>The element with <code>display: flex</code> is the <strong>container</strong>. Its direct children become <strong>flex items</strong>.</p>
+<h2>A navigation bar</h2>
+<pre><code class="language-html">&lt;nav class=&quot;menu&quot;&gt;
+  &lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+  &lt;a href=&quot;#&quot;&gt;Courses&lt;/a&gt;
+  &lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+<pre><code class="language-css">.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+</code></pre>
+<h2>The key properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flex-direction</code></td>
+<td><code>row</code> (default) or <code>column</code></td>
+</tr>
+<tr>
+<td><code>justify-content</code></td>
+<td>Spacing along the <strong>main</strong> direction: <code>flex-start</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code></td>
+</tr>
+<tr>
+<td><code>align-items</code></td>
+<td>Alignment across the other direction: <code>flex-start</code>, <code>center</code>, <code>stretch</code></td>
+</tr>
+<tr>
+<td><code>gap</code></td>
+<td>Space between the items</td>
+</tr>
+<tr>
+<td><code>flex-wrap</code></td>
+<td><code>wrap</code> lets items move to a new line when there is no room</td>
+</tr>
+</tbody>
+</table>
+<h2>Centering anything</h2>
+<p>This is the famous trick that used to be hard:</p>
+<pre><code class="language-css">.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+</code></pre>
+<p><code>100vh</code> means the full height of the screen.</p>
+<h2>Items that grow</h2>
+<pre><code class="language-css">.sidebar { width: 200px; }
+.content { flex: 1; }
+</code></pre>
+<p><code>flex: 1</code> tells the content to take all the remaining space.</p>
+<h2>A row of cards</h2>
+<pre><code class="language-css">.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 250px;
+}
+</code></pre>
+<p>Each card is at least about 250px wide, and they wrap onto new lines on small screens.</p>
+<h2>Try it</h2>
+<p>Turn your navigation links into a horizontal menu with Flexbox, then center a card in the middle of the screen.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="css-flexbox" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="css-flexbox" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="css-box-model.html"><small>Previous lesson</small>The box model</a><a href="css-grid.html" class="nx"><small>Next lesson</small>Grid layout</a></div>
+    <section class="toc"><h2>All lessons in CSS</h2><ol><li><a href="css-intro.html">What is CSS?</a></li><li><a href="css-selectors.html">Selectors: classes, ids and more</a></li><li><a href="css-colors-text.html">Colors, fonts and text</a></li><li><a href="css-box-model.html">The box model</a></li><li class="now"><a href="css-flexbox.html">Flexbox layout</a></li><li><a href="css-grid.html">Grid layout</a></li><li><a href="css-responsive.html">Responsive design</a></li><li><a href="css-effects.html">Hover, transitions and variables</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/css-flexbox">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

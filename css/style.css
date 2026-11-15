@@ -1464,6 +1464,10 @@ footer.wrap {
     background: rgba(255, 255, 255, .22)
 }
 
+.copy {
+    min-width: 76px
+}
+
 .copy.ok {
     background: #16a34a;
     border-color: #16a34a;
@@ -1582,4 +1586,252 @@ footer.wrap {
     color: inherit;
     border-radius: 3px;
     padding: 0 2px
+}
+
+/* ---- Live "Try it" editor ---- */
+.tryb {
+    position: absolute;
+    top: 8px;
+    right: 98px;
+    padding: 4px 11px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    background: var(--acc);
+    border-color: transparent;
+    color: #fff;
+    font: 600 .78rem/1.4 system-ui, sans-serif;
+    cursor: pointer;
+    transition: filter .15s
+}
+
+.tryb:hover {
+    filter: brightness(1.12)
+}
+
+.try {
+    margin: -6px 0 22px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    box-shadow: var(--sh);
+    overflow: hidden
+}
+
+.try-h {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    font-size: .9rem
+}
+
+.try-h span {
+    color: var(--mute);
+    font-size: .85rem
+}
+
+.try-sp {
+    flex: 1
+}
+
+.try-h button {
+    padding: 5px 13px;
+    border-radius: 99px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    font: 600 .82rem/1.3 system-ui, sans-serif;
+    cursor: pointer
+}
+
+.try-h button.try-run {
+    background: var(--ok);
+    border-color: var(--ok);
+    color: #fff
+}
+
+.try-g {
+    display: grid;
+    grid-template-columns: 1fr 1fr
+}
+
+.try-code {
+    min-height: 260px;
+    padding: 14px;
+    border: 0;
+    border-right: 1px solid var(--line);
+    background: var(--code);
+    color: #e8eaf6;
+    font: .88rem/1.55 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    resize: vertical;
+    tab-size: 2;
+    white-space: pre;
+    overflow: auto
+}
+
+.try-code:focus {
+    outline: 2px solid var(--acc);
+    outline-offset: -2px
+}
+
+.try-out {
+    width: 100%;
+    min-height: 260px;
+    border: 0;
+    background: #fff
+}
+
+@media(max-width:760px) {
+    .try-g {
+        grid-template-columns: 1fr
+    }
+
+    .try-code {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        min-height: 200px
+    }
+
+    .try-out {
+        min-height: 220px
+    }
+
+    .tryb {
+        right: 8px;
+        top: 40px
+    }
+}
+
+.try-h {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif
+}
+
+/* ---- Helpful buttons ---- */
+.helpful {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 14px 0 6px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    background: var(--card);
+    border: 1px solid var(--line)
+}
+
+.helpful .hq {
+    font-weight: 600
+}
+
+.helpful button {
+    padding: 7px 16px;
+    border-radius: 99px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    font: 600 .9rem/1.3 system-ui, sans-serif;
+    cursor: pointer;
+    transition: border-color .15s, background .15s
+}
+
+.helpful button:hover {
+    border-color: var(--acc)
+}
+
+.helpful button.on {
+    background: var(--acc);
+    border-color: var(--acc);
+    color: #fff
+}
+
+.helpful .hm {
+    flex-basis: 100%;
+    color: var(--mute);
+    font-size: .92rem
+}
+
+.helpful .hm:empty {
+    display: none
+}
+
+/* ---- Static lesson pages ---- */
+.crumbs {
+    margin: 4px 0 14px;
+    color: var(--mute);
+    font-size: .92rem
+}
+
+.crumbs a {
+    color: inherit
+}
+
+.toc {
+    margin: 36px 0 0;
+    padding: 22px 26px;
+    border-radius: 20px;
+    background: var(--card);
+    border: 1px solid var(--line)
+}
+
+.toc h2 {
+    margin: 0 0 10px;
+    font-size: 1.15rem
+}
+
+.toc ol {
+    margin: 0;
+    padding-left: 1.3em;
+    columns: 2 280px;
+    column-gap: 30px
+}
+
+.toc li {
+    margin: 4px 0;
+    break-inside: avoid
+}
+
+.toc li.now a {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ink)
+}
+
+.openlink {
+    margin: 18px 0 0;
+    text-align: center
+}
+
+.flinks {
+    font-size: .92rem
+}
+
+.alllist h2 {
+    margin-top: 1.8em
+}
+
+.alllist ul {
+    padding-left: 1.2em
+}
+
+.alllist li {
+    margin: 6px 0
+}
+
+.alllist li small {
+    display: block;
+    color: var(--mute)
+}
+
+/* ---- Language button ---- */
+.lbtn {
+    width: auto;
+    padding: 0 14px;
+    border-radius: 99px;
+    font: 700 .86rem/1 "Noto Sans Khmer", system-ui, sans-serif
+}
+
+.lbtn+.tbtn {
+    margin-left: 8px
 }

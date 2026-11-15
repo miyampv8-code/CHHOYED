@@ -9,7 +9,9 @@
         "name": "Before You Code",
         "color": "#7c3aed",
         "tagline": "The foundation guide for future web and mobile app developers",
-        "icon": "BYC"
+        "icon": "BYC",
+        "name_km": "មុនពេលសរសេរកូដ",
+        "tagline_km": "មគ្គុទ្ទេសក៍មូលដ្ឋានសម្រាប់អ្នកអភិវឌ្ឍគេហទំព័រ និងកម្មវិធីទូរសព្ទនាពេលអនាគត"
       },
       {
         "id": "html",
@@ -17,7 +19,9 @@
         "color": "#e34f26",
         "tagline": "Learn HTML, build the structure of web pages",
         "icon": "</>",
-        "exercises": "data/exercises/html.json"
+        "exercises": "data/exercises/html.json",
+        "name_km": "HTML",
+        "tagline_km": "រៀន HTML បង្កើតរចនាសម្ព័ន្ធនៃទំព័រគេហទំព័រ"
       },
       {
         "id": "css",
@@ -25,7 +29,9 @@
         "color": "#2965f1",
         "tagline": "Learn CSS, make your pages beautiful and responsive",
         "icon": "{ }",
-        "exercises": "data/exercises/css.json"
+        "exercises": "data/exercises/css.json",
+        "name_km": "CSS",
+        "tagline_km": "រៀន CSS ធ្វើឱ្យទំព័ររបស់អ្នកស្អាត និងសម្របតាមអេក្រង់គ្រប់ទំហំ"
       },
       {
         "id": "javascript",
@@ -33,7 +39,9 @@
         "color": "#a16207",
         "tagline": "Learn JavaScript, make your pages interactive",
         "icon": "JS",
-        "exercises": "data/exercises/javascript.json"
+        "exercises": "data/exercises/javascript.json",
+        "name_km": "JavaScript",
+        "tagline_km": "រៀន JavaScript ធ្វើឱ្យទំព័ររបស់អ្នកមានអន្តរកម្ម"
       },
       {
         "id": "sql",
@@ -41,7 +49,19 @@
         "color": "#0e7490",
         "tagline": "Learn SQL, store data and ask it questions",
         "icon": "SQL",
-        "exercises": "data/exercises/sql.json"
+        "exercises": "data/exercises/sql.json",
+        "name_km": "SQL",
+        "tagline_km": "រៀន SQL រក្សាទុកទិន្នន័យ និងសួរសំណួរទៅកាន់ទិន្នន័យ"
+      },
+      {
+        "id": "git",
+        "name": "Git & GitHub",
+        "color": "#d6401e",
+        "tagline": "Learn Git and GitHub, save your code and publish your website",
+        "icon": "Git",
+        "exercises": "data/exercises/git.json",
+        "name_km": "Git និង GitHub",
+        "tagline_km": "រៀន Git និង GitHub រក្សាទុកកូដ និងដាក់គេហទំព័ររបស់អ្នកលើអ៊ីនធឺណិត"
       },
       {
         "id": "java",
@@ -49,7 +69,9 @@
         "color": "#e76f00",
         "tagline": "Learn Java, from Hello World to OOP",
         "exercises": "data/exercises/java.json",
-        "icon": "Java"
+        "icon": "Java",
+        "name_km": "Java",
+        "tagline_km": "រៀន Java ចាប់ពី Hello World រហូតដល់ OOP"
       },
       {
         "id": "awt",
@@ -57,7 +79,9 @@
         "color": "#0d9488",
         "tagline": "Build windows and buttons with Java AWT",
         "exercises": "data/exercises/awt.json",
-        "icon": "AWT"
+        "icon": "AWT",
+        "name_km": "Java AWT",
+        "tagline_km": "បង្កើតបង្អួច និងប៊ូតុងដោយ Java AWT"
       },
       {
         "id": "python",
@@ -65,7 +89,9 @@
         "color": "#3776ab",
         "tagline": "Learn Python, from Hello World to OOP",
         "exercises": "data/exercises/python.json",
-        "icon": "Py"
+        "icon": "Py",
+        "name_km": "Python",
+        "tagline_km": "រៀន Python ចាប់ពី Hello World រហូតដល់ OOP"
       },
       {
         "id": "cpp",
@@ -73,10 +99,13 @@
         "color": "#00599c",
         "tagline": "Learn C++, from Hello World to OOP",
         "exercises": "data/exercises/cpp.json",
-        "icon": "C++"
+        "icon": "C++",
+        "name_km": "C++",
+        "tagline_km": "រៀន C++ ចាប់ពី Hello World រហូតដល់ OOP"
       }
     ],
-    "icon": "</>"
+    "icon": "</>",
+    "name_km": "កូដ"
   },
   {
     "id": "math",
@@ -88,35 +117,44 @@
         "name": "General math",
         "color": "#c2410c",
         "tagline": "Algebra, geometry and more",
-        "icon": "x²"
+        "icon": "x²",
+        "name_km": "គណិតវិទ្យាទូទៅ",
+        "tagline_km": "ពិជគណិតធរណីមាត្រ និងច្រើនទៀត"
       },
       {
         "id": "integral",
         "name": "Integral calculus",
         "color": "#d97706",
         "tagline": "Integral Book: 500 exercises with answers",
-        "icon": "∫"
+        "icon": "∫",
+        "name_km": "អាំងតេក្រាល",
+        "tagline_km": "សៀវភៅអាំងតេក្រាល៖ លំហាត់ ៥០០ មានចម្លើយ"
       },
       {
         "id": "limit",
         "name": "Limits",
         "color": "#b45309",
         "tagline": "Limits: exercises with full solutions",
-        "icon": "lim"
+        "icon": "lim",
+        "name_km": "លីមីត",
+        "tagline_km": "លីមីត៖ លំហាត់ជាមួយចម្លើយលម្អិត"
       }
     ],
-    "icon": "∑"
+    "icon": "∑",
+    "name_km": "គណិតវិទ្យា"
   },
   {
     "id": "physics",
     "name": "Physics",
     "color": "#4f46e5",
-    "icon": "F=ma"
+    "icon": "F=ma",
+    "name_km": "រូបវិទ្យា"
   },
   {
     "id": "news",
     "name": "News",
     "color": "#be185d",
-    "icon": "NEW"
+    "icon": "NEW",
+    "name_km": "ព័ត៌មាន"
   }
 ]

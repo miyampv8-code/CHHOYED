@@ -1324,5 +1324,89 @@
     "order": 8,
     "part": "Project",
     "contentFile": "content/sql-project.md"
+  },
+  {
+    "id": "git-intro",
+    "title": "What are Git and GitHub?",
+    "summary": "Why version control matters, how to install Git and set your name.",
+    "subject": "coding",
+    "topic": "git",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 1,
+    "part": "Getting started",
+    "contentFile": "content/git-intro.md"
+  },
+  {
+    "id": "git-first-repo",
+    "title": "Your first repository",
+    "summary": "init, status, add, commit, log and .gitignore.",
+    "subject": "coding",
+    "topic": "git",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 2,
+    "part": "Getting started",
+    "contentFile": "content/git-first-repo.md"
+  },
+  {
+    "id": "git-undo",
+    "title": "Look back and undo",
+    "summary": "See changes with diff, and undo with restore and revert.",
+    "subject": "coding",
+    "topic": "git",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 3,
+    "part": "Getting started",
+    "contentFile": "content/git-undo.md"
+  },
+  {
+    "id": "git-branches",
+    "title": "Branches and merging",
+    "summary": "Work on ideas safely and fix merge conflicts.",
+    "subject": "coding",
+    "topic": "git",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 4,
+    "part": "Branches and GitHub",
+    "contentFile": "content/git-branches.md"
+  },
+  {
+    "id": "git-github",
+    "title": "GitHub: push, pull and clone",
+    "summary": "Put your project online and keep it in sync.",
+    "subject": "coding",
+    "topic": "git",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 5,
+    "part": "Branches and GitHub",
+    "contentFile": "content/git-github.md"
+  },
+  {
+    "id": "git-pages",
+    "title": "Publish a website with GitHub Pages",
+    "summary": "Turn a repository into a free live website.",
+    "subject": "coding",
+    "topic": "git",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 6,
+    "part": "Publish and teamwork",
+    "contentFile": "content/git-pages.md"
+  },
+  {
+    "id": "git-teamwork",
+    "title": "Teamwork, pull requests and cheat sheet",
+    "summary": "Work with others and keep every command in one table.",
+    "subject": "coding",
+    "topic": "git",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-15",
+    "order": 7,
+    "part": "Publish and teamwork",
+    "contentFile": "content/git-teamwork.md"
   }
 ]

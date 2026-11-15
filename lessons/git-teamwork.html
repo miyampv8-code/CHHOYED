@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Teamwork, pull requests and cheat sheet | Git &amp; GitHub | CHHOYED</title>
+  <meta name="description" content="Git &amp; GitHub: Work with others and keep every command in one table. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/git-teamwork.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Teamwork, pull requests and cheat sheet | Git &amp; GitHub | CHHOYED">
+  <meta property="og:description" content="Git &amp; GitHub: Work with others and keep every command in one table. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/git-teamwork.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Teamwork, pull requests and cheat sheet | Git &amp; GitHub | CHHOYED">
+  <meta name="twitter:description" content="Git &amp; GitHub: Work with others and keep every command in one table. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Teamwork, pull requests and cheat sheet", "description": "Work with others and keep every command in one table.", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/git-teamwork.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Teamwork, pull requests and cheat sheet", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/git-teamwork.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/git">Git &amp; GitHub</a></div>
+    <article data-id="git-teamwork" data-ordered="1">
+      <span class="tag" style="--c:#d6401e"><i></i>Coding · Git &amp; GitHub</span><span class="pill">Lesson 7 of 7</span>
+      <h1>Teamwork, pull requests and cheat sheet</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-15">15 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Git was made for teams. This lesson shows how developers work together, and ends with a cheat sheet you can keep.</p>
+<h2>Forks, issues and pull requests</h2>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Issue</strong></td>
+<td>A note on GitHub: a bug, a question or an idea</td>
+</tr>
+<tr>
+<td><strong>Fork</strong></td>
+<td>Your own copy of someone else's repository, on your account</td>
+</tr>
+<tr>
+<td><strong>Pull request</strong> (PR)</td>
+<td>A request: &quot;please merge my changes into your project&quot;</td>
+</tr>
+<tr>
+<td><strong>Review</strong></td>
+<td>Teammates read your PR, comment, and approve it</td>
+</tr>
+</tbody>
+</table>
+<h2>The pull request workflow</h2>
+<p>This is how most open-source projects, and most companies, work.</p>
+<ol>
+<li><strong>Fork</strong> the repository (or <strong>clone</strong> it, if you are a team member).</li>
+<li><strong>Create a branch</strong> for your change:</li>
+</ol>
+<pre><code class="language-bash">git switch -c fix-typo
+</code></pre>
+<ol start="3">
+<li><strong>Edit, add and commit</strong>:</li>
+</ol>
+<pre><code class="language-bash">git add .
+git commit -m &quot;Fix typo in the contact page&quot;
+</code></pre>
+<ol start="4">
+<li><strong>Push the branch</strong> to GitHub:</li>
+</ol>
+<pre><code class="language-bash">git push -u origin fix-typo
+</code></pre>
+<ol start="5">
+<li>On GitHub, click <strong>Compare &amp; pull request</strong>. Write a title and a short explanation of what you changed and why.</li>
+<li>Teammates <strong>review</strong> it. You may need to commit more changes to the same branch.</li>
+<li>When it is approved, the owner clicks <strong>Merge pull request</strong>. Your work is now in <code>main</code>.</li>
+<li>Update your computer and clean up:</li>
+</ol>
+<pre><code class="language-bash">git switch main
+git pull
+git branch -d fix-typo
+</code></pre>
+<h2>Good habits for teams</h2>
+<ul>
+<li>Write clear commit messages and small commits.</li>
+<li>Always <code>git pull</code> before you start work.</li>
+<li>Work on a branch, never directly on <code>main</code>.</li>
+<li>Keep pull requests small, so they are easy to review.</li>
+<li>Use issues to discuss a problem <strong>before</strong> you write the code.</li>
+<li>Be kind in reviews. Comment on the code, not on the person.</li>
+</ul>
+<h2>Contribute to open source</h2>
+<p>Open source projects welcome beginners. A fixed typo in the documentation is a real contribution, and it appears on your GitHub profile. Look for issues labeled <strong>good first issue</strong>.</p>
+<h2>Cheat sheet</h2>
+<table>
+<thead>
+<tr>
+<th>I want to...</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start tracking a folder</td>
+<td><code>git init -b main</code></td>
+</tr>
+<tr>
+<td>Copy a project from GitHub</td>
+<td><code>git clone URL</code></td>
+</tr>
+<tr>
+<td>See what changed</td>
+<td><code>git status</code> and <code>git diff</code></td>
+</tr>
+<tr>
+<td>Choose changes</td>
+<td><code>git add file</code> or <code>git add .</code></td>
+</tr>
+<tr>
+<td>Save a snapshot</td>
+<td><code>git commit -m &quot;message&quot;</code></td>
+</tr>
+<tr>
+<td>See the history</td>
+<td><code>git log --oneline</code></td>
+</tr>
+<tr>
+<td>Throw away my edits in a file</td>
+<td><code>git restore file</code></td>
+</tr>
+<tr>
+<td>Undo a commit safely</td>
+<td><code>git revert HEAD</code></td>
+</tr>
+<tr>
+<td>Make a branch</td>
+<td><code>git switch -c name</code></td>
+</tr>
+<tr>
+<td>Change branch</td>
+<td><code>git switch name</code></td>
+</tr>
+<tr>
+<td>Merge a branch</td>
+<td><code>git merge name</code></td>
+</tr>
+<tr>
+<td>Connect to GitHub</td>
+<td><code>git remote add origin URL</code></td>
+</tr>
+<tr>
+<td>Upload</td>
+<td><code>git push</code></td>
+</tr>
+<tr>
+<td>Download new work</td>
+<td><code>git pull</code></td>
+</tr>
+</tbody>
+</table>
+<h2>The whole course in one picture</h2>
+<p><strong>Edit files → <code>git add</code> → <code>git commit</code> → <code>git push</code> → GitHub → <code>git pull</code> on another computer</strong></p>
+<h2>What to learn next</h2>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show your work</td>
+<td>Build a portfolio site and publish it with GitHub Pages</td>
+</tr>
+<tr>
+<td>Automate</td>
+<td>GitHub Actions: run tests every time you push</td>
+</tr>
+<tr>
+<td>Safer logins</td>
+<td>Set up an SSH key</td>
+</tr>
+<tr>
+<td>Cleaner history</td>
+<td><code>git rebase</code> and <code>git stash</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Remember</strong>
+You will make mistakes with Git, and that is how everyone learns it. Because of the history, almost nothing is permanently lost. Stay calm, run <code>git status</code>, and read what it says.</p>
+</blockquote>
+<h2>Try it</h2>
+<p>Ask a friend to add you to their repository (or fork a public one). Create a branch, change one line, push it, and open a pull request.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="git-teamwork" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="git-teamwork" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="git-pages.html"><small>Previous lesson</small>Publish a website with GitHub Pages</a></div>
+    <section class="toc"><h2>All lessons in Git &amp; GitHub</h2><ol><li><a href="git-intro.html">What are Git and GitHub?</a></li><li><a href="git-first-repo.html">Your first repository</a></li><li><a href="git-undo.html">Look back and undo</a></li><li><a href="git-branches.html">Branches and merging</a></li><li><a href="git-github.html">GitHub: push, pull and clone</a></li><li><a href="git-pages.html">Publish a website with GitHub Pages</a></li><li class="now"><a href="git-teamwork.html">Teamwork, pull requests and cheat sheet</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/git-teamwork">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

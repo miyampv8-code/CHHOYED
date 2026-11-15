@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>JOIN: connect tables | SQL | CHHOYED</title>
+  <meta name="description" content="SQL: Combine tables with INNER JOIN and LEFT JOIN. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/sql-joins.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="JOIN: connect tables | SQL | CHHOYED">
+  <meta property="og:description" content="SQL: Combine tables with INNER JOIN and LEFT JOIN. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/sql-joins.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JOIN: connect tables | SQL | CHHOYED">
+  <meta name="twitter:description" content="SQL: Combine tables with INNER JOIN and LEFT JOIN. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "JOIN: connect tables", "description": "Combine tables with INNER JOIN and LEFT JOIN.", "datePublished": "2026-11-15", "dateModified": "2026-11-15", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-joins.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "JOIN: connect tables", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/sql-joins.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/sql">SQL</a></div>
+    <article data-id="sql-joins" data-ordered="1">
+      <span class="tag" style="--c:#0e7490"><i></i>Coding · SQL</span><span class="pill">Lesson 7 of 8</span>
+      <h1>JOIN: connect tables</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-15">15 Nov 2026</time></a>
+      
+      <div class="lesson"><p>The data is now spread over three tables. A <strong>JOIN</strong> puts it back together in one answer. This is the most powerful idea in SQL.</p>
+<h2>Why we need it</h2>
+<p>The <code>enrollments</code> table only holds numbers:</p>
+<pre><code class="language-sql">SELECT * FROM enrollments;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>student_id</th>
+<th>course_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>6</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Numbers like <code>student_id = 1</code> are not friendly. We want names and course titles. A join matches the rows of two tables using the key.</p>
+<h2>Syntax</h2>
+<pre><code class="language-sql">SELECT columns
+FROM table_a
+JOIN table_b ON table_a.column = table_b.column;
+</code></pre>
+<p><code>ON</code> says how the rows match: here, a foreign key equals a primary key.</p>
+<h2>INNER JOIN</h2>
+<p><code>INNER JOIN</code> (or just <code>JOIN</code>) keeps only the rows that have a match on <strong>both</strong> sides.</p>
+<pre><code class="language-sql">SELECT students.name, enrollments.course_id
+FROM students
+INNER JOIN enrollments ON enrollments.student_id = students.id;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>course_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Now the names appear, but the course is still a number. Join a third table to get the title:</p>
+<pre><code class="language-sql">SELECT students.name, courses.title
+FROM students
+INNER JOIN enrollments ON enrollments.student_id = students.id
+INNER JOIN courses ON courses.id = enrollments.course_id
+ORDER BY students.name, courses.title;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>title</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>CSS</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>HTML</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>CSS</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>HTML</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>HTML</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>JavaScript</td>
+</tr>
+</tbody>
+</table>
+<p>Read it from top to bottom: start with students, attach their enrollments, then attach the course of each enrollment.</p>
+<h2>Table aliases make it shorter</h2>
+<p>Give each table a short name right after it. This is the style professionals use.</p>
+<pre><code class="language-sql">SELECT s.name, c.title
+FROM students s
+JOIN enrollments e ON e.student_id = s.id
+JOIN courses c ON c.id = e.course_id
+WHERE c.title = 'JavaScript';
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>title</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>JavaScript</td>
+</tr>
+</tbody>
+</table>
+<p>You can use <code>WHERE</code>, <code>ORDER BY</code> and every other clause as before.</p>
+<h2>LEFT JOIN: keep everything from the left table</h2>
+<p>Look at the result above: Heng Rithy is missing. He takes no course at all, so <code>INNER JOIN</code> dropped him. A <code>LEFT JOIN</code> keeps <strong>every row of the left table</strong>, and fills NULL where there is no match.</p>
+<pre><code class="language-sql">SELECT s.name, e.course_id
+FROM students s
+LEFT JOIN enrollments e ON e.student_id = s.id
+ORDER BY s.id;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>course_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sok Dara</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Chan Sophea</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>This is perfect for questions like &quot;which students have <strong>no</strong> course?&quot;:</p>
+<pre><code class="language-sql">SELECT s.name
+FROM students s
+LEFT JOIN enrollments e ON e.student_id = s.id
+WHERE e.id IS NULL;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heng Rithy</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Join</th>
+<th>Keeps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INNER JOIN</code></td>
+<td>Only rows that match in both tables</td>
+</tr>
+<tr>
+<td><code>LEFT JOIN</code></td>
+<td>All rows from the left table, plus matches from the right (NULL if none)</td>
+</tr>
+</tbody>
+</table>
+<h2>Join and group together</h2>
+<p>How many courses does each student take?</p>
+<pre><code class="language-sql">SELECT s.name, COUNT(e.id) AS courses_taken
+FROM students s
+LEFT JOIN enrollments e ON e.student_id = s.id
+GROUP BY s.id, s.name
+ORDER BY courses_taken DESC, s.name;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>courses_taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chan Sophea</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Sok Dara</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Kim Vanna</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Lim Sreyneang</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Pov Malis</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Heng Rithy</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>And how many students are in each course?</p>
+<pre><code class="language-sql">SELECT c.title, COUNT(e.id) AS students
+FROM courses c
+LEFT JOIN enrollments e ON e.course_id = c.id
+GROUP BY c.id, c.title
+ORDER BY students DESC, c.title;
+</code></pre>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>title</th>
+<th>students</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTML</td>
+<td>3</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>3</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>2</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The SQL course has 0 students. A <code>LEFT JOIN</code> from <code>courses</code> makes sure it still appears in the list.</p>
+<blockquote>
+<p><strong>Key idea</strong>
+Think of a join as a <strong>question that follows a key</strong>: &quot;for each enrollment, go to the student with this id, and to the course with this id.&quot; Once you can see the keys, joins stop being scary.</p>
+</blockquote>
+<h2>Try it</h2>
+<ol>
+<li>List each course title together with the teacher and the number of students in it.</li>
+<li>List the names of all students who take the HTML course.</li>
+<li>Find the courses that have no students (use <code>LEFT JOIN</code> and <code>IS NULL</code>).</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="sql-joins" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="sql-joins" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="sql-tables-keys.html"><small>Previous lesson</small>Tables, keys and relationships</a><a href="sql-project.html" class="nx"><small>Next lesson</small>Project: a school database</a></div>
+    <section class="toc"><h2>All lessons in SQL</h2><ol><li><a href="sql-intro.html">What is a database?</a></li><li><a href="sql-select.html">SELECT: read your data</a></li><li><a href="sql-where.html">WHERE: filter rows</a></li><li><a href="sql-aggregate.html">Count, total and group</a></li><li><a href="sql-modify.html">INSERT, UPDATE and DELETE</a></li><li><a href="sql-tables-keys.html">Tables, keys and relationships</a></li><li class="now"><a href="sql-joins.html">JOIN: connect tables</a></li><li><a href="sql-project.html">Project: a school database</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/sql-joins">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

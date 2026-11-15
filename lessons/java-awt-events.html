@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Events: reacting to clicks | Java AWT | CHHOYED</title>
+  <meta name="description" content="Java AWT: Make a button do something with an ActionListener. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/java-awt-events.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Events: reacting to clicks | Java AWT | CHHOYED">
+  <meta property="og:description" content="Java AWT: Make a button do something with an ActionListener. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/java-awt-events.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Events: reacting to clicks | Java AWT | CHHOYED">
+  <meta name="twitter:description" content="Java AWT: Make a button do something with an ActionListener. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Events: reacting to clicks", "description": "Make a button do something with an ActionListener.", "datePublished": "2026-11-14", "dateModified": "2026-11-14", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/java-awt-events.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Events: reacting to clicks", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/java-awt-events.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/awt">Java AWT</a></div>
+    <article data-id="java-awt-events" data-ordered="1">
+      <span class="tag" style="--c:#0d9488"><i></i>Coding · Java AWT</span><span class="pill">Lesson 4 of 5</span>
+      <h1>Events: reacting to clicks</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-14">14 Nov 2026</time></a>
+      
+      <div class="lesson"><p>An <strong>event</strong> is something the user does, like clicking a button. To react to it, you add a <strong>listener</strong> to the component.</p>
+<pre><code class="language-java">import java.awt.*;
+import java.awt.event.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Frame f = new Frame(&quot;Adder&quot;);
+        f.setLayout(new FlowLayout());
+
+        TextField a = new TextField(5);
+        TextField b = new TextField(5);
+        Button add = new Button(&quot;Add&quot;);
+        Label result = new Label(&quot;Result: ?                  &quot;);
+
+        add.addActionListener(e -&gt; {
+            try {
+                int sum = Integer.parseInt(a.getText().trim())
+                        + Integer.parseInt(b.getText().trim());
+                result.setText(&quot;Result: &quot; + sum);
+            } catch (NumberFormatException ex) {
+                result.setText(&quot;Enter whole numbers&quot;);
+            }
+        });
+
+        f.add(a);
+        f.add(new Label(&quot;+&quot;));
+        f.add(b);
+        f.add(add);
+        f.add(result);
+
+        f.setSize(420, 120);
+        f.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) { System.exit(0); }
+        });
+        f.setVisible(true);
+    }
+}
+</code></pre>
+<h2>Syntax</h2>
+<pre><code class="language-java">button.addActionListener(e -&gt; {
+    // runs when the button is clicked
+});
+</code></pre>
+<h2>How it works</h2>
+<ol>
+<li><code>add.addActionListener(...)</code> says: run this code when the button is clicked.</li>
+<li>The code reads the two text fields with <code>getText()</code>.</li>
+<li><code>Integer.parseInt</code> turns text into a number. If the text is not a number, Java throws <code>NumberFormatException</code>, and we show a message instead of crashing.</li>
+<li><code>setText</code> shows the answer in the label.</li>
+</ol>
+<p>The label starts with extra spaces so it has room for longer text.</p>
+<h2>Other listeners</h2>
+<ul>
+<li><code>MouseListener</code>: clicks and mouse movement</li>
+<li><code>KeyListener</code>: keys on the keyboard</li>
+<li><code>ItemListener</code>: checkboxes and choices</li>
+</ul>
+<h2>Try it</h2>
+<p>Add a second button, <strong>Multiply</strong>, that shows <code>a * b</code>.</p>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="java-awt-events" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="java-awt-events" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="java-awt-layouts.html"><small>Previous lesson</small>Layouts and panels</a><a href="java-awt-graphics.html" class="nx"><small>Next lesson</small>Drawing with Graphics</a></div>
+    <section class="toc"><h2>All lessons in Java AWT</h2><ol><li><a href="java-awt-intro.html">Your first window</a></li><li><a href="java-awt-components.html">Labels, buttons and text fields</a></li><li><a href="java-awt-layouts.html">Layouts and panels</a></li><li class="now"><a href="java-awt-events.html">Events: reacting to clicks</a></li><li><a href="java-awt-graphics.html">Drawing with Graphics</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/java-awt-events">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>
