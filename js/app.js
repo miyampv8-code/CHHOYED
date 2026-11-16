@@ -337,6 +337,7 @@ async function route() {
   document.title = page && h ? `${h.textContent} - CHHOYED` : 'CHHOYED';
   const active = page === 'subject' ? `#/subject/${id}` : page === 'contact' ? '#/contact' : page === 'search' ? '#/search' : (!page ? '#/' : null);
   nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === active));
+  { const on = nav.querySelector('a.on'); if (on && nav.scrollWidth > nav.clientWidth) { const x = on.getBoundingClientRect().left - nav.getBoundingClientRect().left + nav.scrollLeft; nav.scrollTo({ left: Math.max(0, x - (nav.clientWidth - on.offsetWidth) / 2), behavior: 'smooth' }); } }
   window.scrollTo(0, 0);
   track();
 }
@@ -381,3 +382,19 @@ addEventListener('keydown', e => {
   if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || '')) return;
   e.preventDefault(); if (location.hash.startsWith('#/search')) document.getElementById('sq')?.focus(); else location.hash = '#/search';
 });
+
+// Phone header: hide the menu row while scrolling down, show it again when scrolling up
+(function () {
+  let last = window.scrollY, busy = false;
+  const small = matchMedia('(max-width:760px)');
+  addEventListener('scroll', () => {
+    if (busy) return; busy = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (!small.matches) document.body.classList.remove('nav-hidden');
+      else if (y > last + 6 && y > 120) document.body.classList.add('nav-hidden');
+      else if (y < last - 6 || y < 60) document.body.classList.remove('nav-hidden');
+      last = y; busy = false;
+    });
+  }, { passive: true });
+})();

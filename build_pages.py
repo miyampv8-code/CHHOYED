@@ -151,6 +151,7 @@ def shell(title, desc, path, prefix, body, jsonld=(), og_type="article", base_hr
     <div class="wrap bar">
       <a class="logo" href="{prefix}index.html#/"><img src="{prefix}images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
       <nav id="nav" aria-label="Subjects">{nav}</nav>
+      <a id="srch" class="tbtn sbtn" href="{prefix}index.html#/search" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
       <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
     </div>
   </header>

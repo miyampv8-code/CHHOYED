@@ -1836,3 +1836,131 @@ footer.wrap {
 .lesson pre {
     padding-top: 46px
 }
+
+
+/* ---- Phone header: logo and buttons on top, the menu on its own scrolling row ---- */
+@media(max-width:760px) {
+    .bar {
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        padding-top: 8px;
+        padding-bottom: 6px
+    }
+
+    .logo {
+        order: 1;
+        font-size: 1.15rem
+    }
+
+    .lbtn {
+        order: 2;
+        margin-left: auto
+    }
+
+    .tbtn {
+        order: 3
+    }
+
+    header nav {
+        order: 4;
+        flex: 1 0 100%;
+        max-height: 52px;
+        padding: 2px 0 4px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+        mask-image: linear-gradient(to right, #000 88%, transparent);
+        transition: max-height .25s ease, opacity .2s ease, padding .25s ease
+    }
+
+    header nav a {
+        padding: 8px 15px;
+        font-size: .95rem
+    }
+
+    body.nav-hidden header nav {
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+        overflow: hidden
+    }
+}
+
+/* ---- Search icon: only on phones, where the menu row hides "Search" off to the side ---- */
+.sbtn {
+    display: none;
+    text-decoration: none;
+    color: var(--ink)
+}
+
+@media(max-width:760px) {
+    .sbtn {
+        display: grid;
+        order: 2;
+        margin-left: auto
+    }
+
+    .lbtn {
+        order: 3;
+        margin-left: 0
+    }
+
+    .tbtn:not(.sbtn):not(.lbtn) {
+        order: 4;
+        margin-left: 0
+    }
+
+    .lbtn+.tbtn {
+        margin-left: 0
+    }
+}
+
+/* Phones: keep logo, search, language and theme on ONE row, even on 320px screens */
+@media(max-width:760px) {
+    .bar {
+        gap: 6px 8px
+    }
+
+    .logo {
+        gap: 8px;
+        font-size: 1.05rem
+    }
+
+    .logo img {
+        width: 30px;
+        height: 30px
+    }
+
+    .tbtn {
+        width: 36px;
+        height: 36px
+    }
+
+    .lbtn {
+        width: auto;
+        padding: 0 11px;
+        font-size: .8rem
+    }
+}
+
+@media(max-width:760px) {
+    header nav {
+        order: 5
+    }
+}
+
+/* Very small phones (320px to 360px) */
+@media(max-width:360px) {
+    header .wrap {
+        padding-left: 14px;
+        padding-right: 14px
+    }
+
+    .logo {
+        font-size: 1rem
+    }
+
+    .lbtn {
+        padding: 0 9px
+    }
+}

@@ -45,4 +45,20 @@
     const b = e.target.closest('[data-done]');
     if (b) { const P = getP(), id = b.dataset.done, i = P.done.indexOf(id); if (i < 0) P.done.push(id); else P.done.splice(i, 1); setP(P); paintDone(b, i < 0); }
   });
+
+  // Phone header: hide the menu row while scrolling down, show it again when scrolling up
+  (function () {
+    let last = window.scrollY, busy = false;
+    const small = matchMedia('(max-width:760px)');
+    addEventListener('scroll', () => {
+      if (busy) return; busy = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (!small.matches) document.body.classList.remove('nav-hidden');
+        else if (y > last + 6 && y > 120) document.body.classList.add('nav-hidden');
+        else if (y < last - 6 || y < 60) document.body.classList.remove('nav-hidden');
+        last = y; busy = false;
+      });
+    }, { passive: true });
+  })();
 })();
