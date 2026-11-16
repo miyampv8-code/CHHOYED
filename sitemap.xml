@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://miyampv8-code.github.io/CHHOYED/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/</loc><lastmod>2026-11-15</lastmod></url>
-  <url><loc>https://miyampv8-code.github.io/CHHOYED/about.html</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/about.html</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/quadratic-equations.html</loc><lastmod>2026-11-08</lastmod></url>
   <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/pythagorean-theorem.html</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/newton-laws.html</loc><lastmod>2026-11-09</lastmod></url>
@@ -117,4 +117,13 @@
   <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/git-github.html</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/git-pages.html</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/git-teamwork.html</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/term-what.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/term-files.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/term-vscode.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/term-errors.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/pf-plan.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/pf-html.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/pf-css.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/pf-js.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://miyampv8-code.github.io/CHHOYED/lessons/pf-publish.html</loc><lastmod>2026-11-16</lastmod></url>
 </urlset>

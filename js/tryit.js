@@ -5,7 +5,7 @@
   const LANGS = ['html', 'css', 'javascript'];
 
   // Blocks that are only syntax templates (placeholders), not real examples
-  const TEMPLATE = /\.\.\.|tagname|attribute="|selector\s*\{|property\s*:\s*value|\(condition\)|\(parameters\)|\(start; test; step\)|name\(parameters\)|function name\(|querySelector\("selector"\)|addEventListener\("event"|fetch\(url\)|href="address"|src="file"|console\.log\(value\)|\/\/ code\b|\/\/ repeated code|\/\/ runs when|\/\/ use the data|\/\/ ok\b/i;
+  const TEMPLATE = /\.\.\.|tagname|attribute="|selector\s*\{|property\s*:\s*value|\(condition\)|\(parameters\)|\(start; test; step\)|name\(parameters\)|function name\(|querySelector\("selector"\)|addEventListener\("event"|fetch\(url\)|href="address"|src="file"|console\.log\(value\)|\/\/ code\b|\/\/ repeated code|\/\/ runs when|\/\/ use the data|\/\/ ok\b/;
 
   const BASE = '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
     '<style>body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;padding:12px;margin:0;color:#14162b}</style>';

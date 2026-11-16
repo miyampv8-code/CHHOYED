@@ -1,0 +1,286 @@
+{
+  "lang": "plaintext",
+  "title": "Before You Code practice",
+  "items": [
+    {
+      "id": "b01",
+      "topic": "1 Computers",
+      "type": "choice",
+      "question": "What is the difference between RAM and storage?",
+      "options": [
+        "RAM keeps files forever, storage is erased when power is off",
+        "RAM holds data for running programs and is erased when power is off, storage keeps files permanently",
+        "They are the same thing",
+        "RAM is for the screen, storage is for sound"
+      ],
+      "answer": 1,
+      "explanation": "RAM is the work desk: fast and temporary. Storage (SSD or HDD) is the filing cabinet: it keeps files permanently."
+    },
+    {
+      "id": "b02",
+      "topic": "1 Computers",
+      "type": "choice",
+      "question": "What does a compiler do?",
+      "options": [
+        "Draws the screen",
+        "Translates readable code into machine code the CPU can run",
+        "Connects to Wi-Fi",
+        "Deletes bugs automatically"
+      ],
+      "answer": 1,
+      "explanation": "Computers only understand binary. A compiler or interpreter translates the code you write into instructions the processor can execute."
+    },
+    {
+      "id": "b03",
+      "topic": "2 Operating systems",
+      "type": "choice",
+      "question": "Which is NOT a job of an operating system?",
+      "options": [
+        "Share RAM and CPU time between programs",
+        "Provide security with users and permissions",
+        "Write your application's code for you",
+        "Talk to hardware through drivers"
+      ],
+      "answer": 2,
+      "explanation": "The OS manages hardware, programs, files and security. It does not write your code."
+    },
+    {
+      "id": "b04",
+      "topic": "2 Operating systems",
+      "type": "choice",
+      "question": "Why is a Mac needed to build and publish iPhone apps?",
+      "options": [
+        "iPhones only connect to Macs",
+        "Xcode, the tool for iOS apps, runs only on macOS",
+        "Macs are faster",
+        "Apple sells apps only to Mac owners"
+      ],
+      "answer": 1,
+      "explanation": "Native iOS apps are built with Xcode, and Xcode runs only on macOS."
+    },
+    {
+      "id": "b05",
+      "topic": "2 Operating systems",
+      "type": "choice",
+      "question": "Why do websites work on every operating system?",
+      "options": [
+        "They are written in Java",
+        "They run inside a browser, and browsers exist on every OS",
+        "They are copied to each OS",
+        "They do not need code"
+      ],
+      "answer": 1,
+      "explanation": "A website runs in the browser, so it avoids platform dependence."
+    },
+    {
+      "id": "b06",
+      "topic": "3 Mobile systems",
+      "type": "choice",
+      "question": "Which pair is correct: operating system and its store?",
+      "options": [
+        "Android and the App Store",
+        "iOS and Google Play",
+        "Android and Google Play, iOS and the App Store",
+        "iOS and AppGallery"
+      ],
+      "answer": 2,
+      "explanation": "Android apps are published on Google Play. iOS apps are published on the App Store. HarmonyOS uses AppGallery."
+    },
+    {
+      "id": "b07",
+      "topic": "4 Web and mobile",
+      "type": "choice",
+      "question": "Which technology controls behavior, such as reacting to clicks and checking forms?",
+      "options": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "JSON"
+      ],
+      "answer": 2,
+      "explanation": "HTML is the structure, CSS is the style, and JavaScript is the behavior."
+    },
+    {
+      "id": "b08",
+      "topic": "4 Web and mobile",
+      "type": "choice",
+      "question": "What is a Progressive Web App (PWA)?",
+      "options": [
+        "A mobile game",
+        "A web app that can be added to the home screen, work partly offline and send notifications",
+        "An app only for iPhones",
+        "A very fast database"
+      ],
+      "answer": 1,
+      "explanation": "A PWA gives users an app-like experience without a store, and it is cheaper to build than a native app."
+    },
+    {
+      "id": "b09",
+      "topic": "5 Apps and the internet",
+      "type": "choice",
+      "question": "In the restaurant analogy, what is the API?",
+      "options": [
+        "The dining room",
+        "The kitchen",
+        "The storeroom",
+        "The waiter who carries orders and food"
+      ],
+      "answer": 3,
+      "explanation": "The dining room is the frontend, the kitchen is the backend, the storeroom is the database, and the waiter is the API."
+    },
+    {
+      "id": "b10",
+      "topic": "5 Apps and the internet",
+      "type": "choice",
+      "question": "What does the response code 404 mean?",
+      "options": [
+        "Server error",
+        "Not found",
+        "Not logged in",
+        "Created"
+      ],
+      "answer": 1,
+      "explanation": "404 means the page or data was not found. 401 means not logged in, 500 means server error, and 201 means created."
+    },
+    {
+      "id": "b11",
+      "topic": "5 Apps and the internet",
+      "type": "choice",
+      "question": "Which HTTP method is used to create new data, such as registering a user?",
+      "options": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PUT"
+      ],
+      "answer": 1,
+      "explanation": "GET reads, POST creates, PUT or PATCH updates, and DELETE removes."
+    },
+    {
+      "id": "b12",
+      "topic": "5 Apps and the internet",
+      "type": "choice",
+      "question": "What does DNS do when you type a web address?",
+      "options": [
+        "Sends the page to your screen",
+        "Finds the IP address of the server, like a phone book",
+        "Colors the page",
+        "Stores your password"
+      ],
+      "answer": 1,
+      "explanation": "DNS translates a name such as example.com into the IP address of the server."
+    },
+    {
+      "id": "b13",
+      "topic": "5 Apps and the internet",
+      "type": "choice",
+      "question": "Which layer of an app decides whether a password is correct?",
+      "options": [
+        "Presentation (UI)",
+        "Logic (business)",
+        "Data",
+        "Hardware"
+      ],
+      "answer": 1,
+      "explanation": "The presentation layer shows screens, the logic layer makes decisions such as checking a password, and the data layer saves and loads data."
+    },
+    {
+      "id": "b14",
+      "topic": "6 App types",
+      "type": "choice",
+      "question": "What is the main disadvantage of native development?",
+      "options": [
+        "It is slow",
+        "You need two separate codebases, one for each OS",
+        "It cannot use the camera",
+        "It only works offline"
+      ],
+      "answer": 1,
+      "explanation": "Native apps have the best speed and look, but Android and iOS each need their own code, so it costs more time and often two teams."
+    },
+    {
+      "id": "b15",
+      "topic": "6 App types",
+      "type": "choice",
+      "question": "Which two are cross-platform frameworks?",
+      "options": [
+        "Flutter and React Native",
+        "Swift and Xcode",
+        "Kotlin and Java",
+        "Ionic and Gradle only"
+      ],
+      "answer": 0,
+      "explanation": "Flutter (Dart) and React Native (JavaScript) build apps for Android and iOS from one codebase."
+    },
+    {
+      "id": "b16",
+      "topic": "7 Programming",
+      "type": "choice",
+      "question": "What is the difference between a variable and a function?",
+      "options": [
+        "A variable stores a value, a function is a reusable block of code",
+        "They are the same",
+        "A function stores a value, a variable repeats code",
+        "A variable only holds text"
+      ],
+      "answer": 0,
+      "explanation": "A variable is a named box that stores a value, such as age = 18. A function is a named block of code you can reuse, such as calculateTotal(price, qty)."
+    },
+    {
+      "id": "b17",
+      "topic": "8 Languages and frameworks",
+      "type": "choice",
+      "question": "Dart is a language. What is Flutter?",
+      "options": [
+        "Another language",
+        "A framework built with Dart",
+        "A database",
+        "An operating system"
+      ],
+      "answer": 1,
+      "explanation": "A language is how you write instructions. A framework is a ready-made toolkit built with a language. Flutter is the framework, Dart is the language."
+    },
+    {
+      "id": "b18",
+      "topic": "9 Android",
+      "type": "choice",
+      "question": "What does Jetpack Compose replace?",
+      "options": [
+        "Gradle",
+        "Older XML screen layouts",
+        "The Android Studio emulator",
+        "The manifest file"
+      ],
+      "answer": 1,
+      "explanation": "Compose lets you describe screens directly in Kotlin code instead of writing XML files."
+    },
+    {
+      "id": "b19",
+      "topic": "9 Android",
+      "type": "choice",
+      "question": "In which year did Kotlin become an official language for Android?",
+      "options": [
+        "2010",
+        "2017",
+        "2020",
+        "2024"
+      ],
+      "answer": 1,
+      "explanation": "Kotlin, made by JetBrains, became an official Android language in 2017. Google now recommends a Kotlin-first approach."
+    },
+    {
+      "id": "b20",
+      "topic": "9 Android",
+      "type": "choice",
+      "question": "Which Android package type is used for Google Play?",
+      "options": [
+        "APK only",
+        "AAB",
+        "EXE",
+        "ZIP"
+      ],
+      "answer": 1,
+      "explanation": "An APK is the file installed on phones. The AAB (Android App Bundle) is the format used to publish on Google Play."
+    }
+  ]
+}

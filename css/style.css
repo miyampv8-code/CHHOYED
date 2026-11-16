@@ -1698,10 +1698,6 @@ footer.wrap {
         min-height: 220px
     }
 
-    .tryb {
-        right: 8px;
-        top: 40px
-    }
 }
 
 .try-h {
@@ -1834,4 +1830,9 @@ footer.wrap {
 
 .lbtn+.tbtn {
     margin-left: 8px
+}
+
+/* Room for the Copy / Try it buttons, so they never cover the first line of code */
+.lesson pre {
+    padding-top: 46px
 }

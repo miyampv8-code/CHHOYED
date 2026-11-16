@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Build the structure (HTML) | Build a Portfolio | CHHOYED</title>
+  <meta name="description" content="Build a Portfolio: Write the complete index.html with semantic tags. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/pf-html.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Build the structure (HTML) | Build a Portfolio | CHHOYED">
+  <meta property="og:description" content="Build a Portfolio: Write the complete index.html with semantic tags. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/pf-html.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Build the structure (HTML) | Build a Portfolio | CHHOYED">
+  <meta name="twitter:description" content="Build a Portfolio: Write the complete index.html with semantic tags. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Build the structure (HTML)", "description": "Write the complete index.html with semantic tags.", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/pf-html.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Build the structure (HTML)", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/pf-html.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/portfolio">Build a Portfolio</a></div>
+    <article data-id="pf-html" data-ordered="1">
+      <span class="tag" style="--c:#db2777"><i></i>Coding · Build a Portfolio</span><span class="pill">Lesson 2 of 5</span>
+      <h1>Build the structure (HTML)</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-16">16 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Now you build the <strong>skeleton</strong> of the page with HTML only. Do not think about colors yet. If the structure is good, the styling will be easy.</p>
+<h2>The complete index.html</h2>
+<p>Type this code into your <code>index.html</code> (do not only copy it, you learn more by typing). Then change the text to <strong>your own</strong> information.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Sok Dara | Web Developer&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Portfolio of Sok Dara, a student web developer from Phnom Penh.&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class=&quot;site-header&quot;&gt;
+    &lt;div class=&quot;container bar&quot;&gt;
+      &lt;a class=&quot;brand&quot; href=&quot;#top&quot;&gt;Sok Dara&lt;/a&gt;
+      &lt;nav id=&quot;nav&quot; class=&quot;nav&quot; aria-label=&quot;Main menu&quot;&gt;
+        &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;
+        &lt;a href=&quot;#skills&quot;&gt;Skills&lt;/a&gt;
+        &lt;a href=&quot;#projects&quot;&gt;Projects&lt;/a&gt;
+        &lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;
+      &lt;/nav&gt;
+      &lt;button class=&quot;icon-btn&quot; id=&quot;theme-btn&quot; type=&quot;button&quot; aria-label=&quot;Switch to dark mode&quot;&gt;Dark&lt;/button&gt;
+      &lt;button class=&quot;icon-btn menu-btn&quot; id=&quot;menu-btn&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;nav&quot;&gt;Menu&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;main id=&quot;top&quot;&gt;
+    &lt;section class=&quot;hero container&quot;&gt;
+      &lt;div&gt;
+        &lt;p class=&quot;eyebrow&quot;&gt;Hello, I am&lt;/p&gt;
+        &lt;h1&gt;Sok Dara&lt;/h1&gt;
+        &lt;p class=&quot;lead&quot;&gt;I am a student web developer. I build simple, fast and friendly websites with HTML, CSS and JavaScript.&lt;/p&gt;
+        &lt;p class=&quot;actions&quot;&gt;
+          &lt;a class=&quot;btn&quot; href=&quot;#projects&quot;&gt;See my projects&lt;/a&gt;
+          &lt;a class=&quot;btn alt&quot; href=&quot;#contact&quot;&gt;Contact me&lt;/a&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;avatar&quot; aria-hidden=&quot;true&quot;&gt;SD&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;about&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;About me&lt;/h2&gt;
+      &lt;p&gt;I live in Phnom Penh and I am learning to code every day. I like to turn an idea into a working page, and I enjoy explaining what I learn to my friends.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;skills&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;Skills&lt;/h2&gt;
+      &lt;ul class=&quot;chips&quot;&gt;
+        &lt;li&gt;HTML&lt;/li&gt;
+        &lt;li&gt;CSS&lt;/li&gt;
+        &lt;li&gt;JavaScript&lt;/li&gt;
+        &lt;li&gt;Git and GitHub&lt;/li&gt;
+        &lt;li&gt;SQL&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;projects&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;Projects&lt;/h2&gt;
+      &lt;div class=&quot;filters&quot; id=&quot;filters&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;chip active&quot; data-filter=&quot;all&quot;&gt;All&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;chip&quot; data-filter=&quot;web&quot;&gt;Websites&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;chip&quot; data-filter=&quot;app&quot;&gt;Small apps&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;grid&quot; id=&quot;grid&quot;&gt;
+        &lt;article class=&quot;card&quot; data-type=&quot;web&quot;&gt;
+          &lt;h3&gt;Profile page&lt;/h3&gt;
+          &lt;p&gt;My first web page, built with HTML and CSS. It is responsive and works on phones.&lt;/p&gt;
+          &lt;a href=&quot;#&quot;&gt;View project&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;card&quot; data-type=&quot;app&quot;&gt;
+          &lt;h3&gt;To-do list&lt;/h3&gt;
+          &lt;p&gt;Add, finish and delete tasks. Built with JavaScript and the DOM.&lt;/p&gt;
+          &lt;a href=&quot;#&quot;&gt;View project&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;card&quot; data-type=&quot;app&quot;&gt;
+          &lt;h3&gt;Quiz game&lt;/h3&gt;
+          &lt;p&gt;Ten questions with a score at the end. It checks each answer with JavaScript.&lt;/p&gt;
+          &lt;a href=&quot;#&quot;&gt;View project&lt;/a&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;contact&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;Contact&lt;/h2&gt;
+      &lt;p&gt;Do you want to work together, or just say hello? Send me an email.&lt;/p&gt;
+      &lt;p&gt;&lt;a class=&quot;btn&quot; href=&quot;mailto:dara@example.com&quot;&gt;dara@example.com&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer class=&quot;site-footer&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;p&gt;&amp;copy; &lt;span id=&quot;year&quot;&gt;2026&lt;/span&gt; Sok Dara. Built with HTML, CSS and JavaScript.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Press <strong>Try it</strong> to see the page. It looks plain without CSS, and that is correct. You will style it in the next lesson.</p>
+<h2>How the page is built</h2>
+<p><strong>The <code>&lt;head&gt;</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Why it is there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></td>
+<td>Shows every letter correctly, including Khmer</td>
+</tr>
+<tr>
+<td><code>&lt;meta name=&quot;viewport&quot; ...&gt;</code></td>
+<td>Makes the page fit phone screens. Without it, phones show a tiny zoomed-out page</td>
+</tr>
+<tr>
+<td><code>&lt;title&gt;</code></td>
+<td>The text on the browser tab, and the big blue link in Google</td>
+</tr>
+<tr>
+<td><code>&lt;meta name=&quot;description&quot;&gt;</code></td>
+<td>The short text Google shows under the title</td>
+</tr>
+<tr>
+<td><code>&lt;link rel=&quot;stylesheet&quot; ...&gt;</code></td>
+<td>Connects <code>style.css</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The <code>&lt;body&gt;</code></strong> uses the semantic tags you learned: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> and <code>&lt;footer&gt;</code>. They tell browsers, search engines and screen readers what each part means.</p>
+<h2>Ideas worth noticing</h2>
+<ul>
+<li><strong>Menu links that jump.</strong> <code>&lt;a href=&quot;#about&quot;&gt;</code> jumps to the element with <code>id=&quot;about&quot;</code>. The <code>id</code> of each section matches a menu link.</li>
+<li><strong>One <code>&lt;h1&gt;</code>.</strong> The page has a single main heading, your name. Each section uses <code>&lt;h2&gt;</code>, and each project uses <code>&lt;h3&gt;</code>.</li>
+<li><strong>A list for the skills.</strong> Skills are a list, so they use <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>.</li>
+<li><strong>Cards as articles.</strong> Each project is an <code>&lt;article&gt;</code> with a <code>data-type</code> attribute. JavaScript will use it to filter projects.</li>
+<li><strong><code>aria-label</code>, <code>aria-expanded</code> and <code>aria-controls</code>.</strong> These small attributes help screen readers. The menu button tells them whether the menu is open.</li>
+<li><strong><code>type=&quot;button&quot;</code></strong> on buttons that are not in a form, so they never try to submit anything.</li>
+<li><strong>The <code>&amp;copy;</code> symbol</strong> is how you write the copyright sign in HTML.</li>
+<li><strong><code>&lt;script&gt;</code> at the end of <code>&lt;body&gt;</code></strong>, so the page appears first and the script runs after.</li>
+</ul>
+<blockquote>
+<p><strong>Remember</strong>
+Avoid links that go nowhere. The three <code>href=&quot;#&quot;</code> in the project cards are placeholders. When you finish a project, replace them with a real address, such as the GitHub repository or the live page.</p>
+</blockquote>
+<h2>Make it yours</h2>
+<ol>
+<li>Replace &quot;Sok Dara&quot;, the description and the city with your own.</li>
+<li>Change the skills, and write your three real projects.</li>
+<li>Replace <code>dara@example.com</code> with your real email, in both places.</li>
+<li>Optional: put a photo at <code>images/me.jpg</code>, and replace the <code>avatar</code> div with:</li>
+</ol>
+<pre><code class="language-html">&lt;img class=&quot;avatar&quot; src=&quot;images/me.jpg&quot; alt=&quot;Photo of Sok Dara&quot; width=&quot;240&quot; height=&quot;240&quot;&gt;
+</code></pre>
+<p>Always write a meaningful <code>alt</code> text for a photo.</p>
+<h2>Save your work</h2>
+<pre><code class="language-bash">git add .
+git commit -m &quot;Add portfolio HTML structure&quot;
+</code></pre>
+<h2>Try it</h2>
+<ol>
+<li>Open the page in the browser with Live Server, and click each menu link. Does it jump to the right section?</li>
+<li>Check your page with the <strong>Elements</strong> tab in the browser tools (F12). Can you find your <code>&lt;h1&gt;</code>?</li>
+<li>Run the commit above.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="pf-html" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="pf-html" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="pf-plan.html"><small>Previous lesson</small>Plan your portfolio</a><a href="pf-css.html" class="nx"><small>Next lesson</small>Make it beautiful (CSS)</a></div>
+    <section class="toc"><h2>All lessons in Build a Portfolio</h2><ol><li><a href="pf-plan.html">Plan your portfolio</a></li><li class="now"><a href="pf-html.html">Build the structure (HTML)</a></li><li><a href="pf-css.html">Make it beautiful (CSS)</a></li><li><a href="pf-js.html">Make it interactive (JavaScript)</a></li><li><a href="pf-publish.html">Publish and share it</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/pf-html">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

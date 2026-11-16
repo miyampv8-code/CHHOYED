@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Read errors and find help | Terminal &amp; Tools | CHHOYED</title>
+  <meta name="description" content="Terminal &amp; Tools: Read error messages, use the browser console, and search and ask well. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/term-errors.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Read errors and find help | Terminal &amp; Tools | CHHOYED">
+  <meta property="og:description" content="Terminal &amp; Tools: Read error messages, use the browser console, and search and ask well. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/term-errors.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Read errors and find help | Terminal &amp; Tools | CHHOYED">
+  <meta name="twitter:description" content="Terminal &amp; Tools: Read error messages, use the browser console, and search and ask well. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Read errors and find help", "description": "Read error messages, use the browser console, and search and ask well.", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/term-errors.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Read errors and find help", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/term-errors.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/terminal">Terminal &amp; Tools</a></div>
+    <article data-id="term-errors" data-ordered="1">
+      <span class="tag" style="--c:#475569"><i></i>Coding · Terminal &amp; Tools</span><span class="pill">Lesson 4 of 4</span>
+      <h1>Read errors and find help</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-16">16 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Every developer sees errors every day, beginners and experts alike. The difference is not that experts make fewer mistakes. They know how to <strong>read</strong> an error and how to <strong>find help</strong>. This lesson teaches both.</p>
+<h2>An error message is a clue</h2>
+<p>Look at this Python error:</p>
+<pre><code class="language-plaintext">Traceback (most recent call last):
+  File &quot;oops.py&quot;, line 2, in &lt;module&gt;
+    print(&quot;Hello, &quot; + nmae)
+                      ^^^^
+NameError: name 'nmae' is not defined
+</code></pre>
+<p>Read it from the <strong>bottom</strong> to the top:</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NameError</code></td>
+<td>The <strong>type</strong> of the problem</td>
+</tr>
+<tr>
+<td><code>name 'nmae' is not defined</code></td>
+<td>The <strong>message</strong>: Python does not know a variable called <code>nmae</code></td>
+</tr>
+<tr>
+<td><code>line 2</code></td>
+<td><strong>Where</strong> to look</td>
+</tr>
+<tr>
+<td><code>^^^^</code></td>
+<td>The exact spot</td>
+</tr>
+</tbody>
+</table>
+<p>The cause is a typing mistake: <code>nmae</code> should be <code>name</code>. The error told you everything you needed.</p>
+<p>Here is a different one:</p>
+<pre><code class="language-plaintext">  File &quot;oops2.py&quot;, line 1
+    print(&quot;Hello&quot;
+         ^
+SyntaxError: '(' was never closed
+</code></pre>
+<p>The message says a bracket <code>(</code> was never closed. The fix is to add the missing <code>)</code>.</p>
+<blockquote>
+<p><strong>Remember</strong>
+Do not panic and do not skip the message. <strong>Read it slowly, out loud if it helps.</strong> Most of the time, the answer is in the message and the line number.</p>
+</blockquote>
+<h2>The same idea in the browser</h2>
+<p>In JavaScript, errors do not appear on the page. They appear in the <strong>console</strong>.</p>
+<ol>
+<li>Press <strong>F12</strong> (or right-click and choose <strong>Inspect</strong>).</li>
+<li>Open the <strong>Console</strong> tab.</li>
+</ol>
+<pre><code class="language-plaintext">Uncaught ReferenceError: userName is not defined
+    at script.js:5:13
+</code></pre>
+<p>This says: the variable <code>userName</code> does not exist, in the file <code>script.js</code>, line 5. The red messages in the console are your best friends.</p>
+<p>The other tabs of this tool are useful too:</p>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>Use it to...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Console</strong></td>
+<td>Read errors and test small pieces of JavaScript</td>
+</tr>
+<tr>
+<td><strong>Elements</strong></td>
+<td>See and change the HTML and CSS of the page, live</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td>See which files loaded, and which ones failed (look for a red 404)</td>
+</tr>
+</tbody>
+</table>
+<h2>A calm routine for any bug</h2>
+<ol>
+<li><strong>Read</strong> the error message and the line number.</li>
+<li><strong>Reproduce</strong> it: can you make it happen again, every time?</li>
+<li><strong>Make the problem smaller.</strong> Comment out code, or test one piece at a time.</li>
+<li><strong>Change one thing at a time</strong>, then test again. If you change five things, you will not know which one helped.</li>
+<li><strong>Search</strong> for the error message (see below).</li>
+<li><strong>Take a break.</strong> A short walk often finds a bug that an hour of staring did not.</li>
+</ol>
+<blockquote>
+<p><strong>Key idea</strong>
+Save your work with <strong>Git</strong> before you experiment. If you break something, you can always go back to the last working version.</p>
+</blockquote>
+<h2>Common errors and what they mean</h2>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Usually means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>command not found</code></td>
+<td>The tool is not installed, or the command is misspelled</td>
+</tr>
+<tr>
+<td><code>No such file or directory</code></td>
+<td>The path is wrong. Check spelling and capital letters</td>
+</tr>
+<tr>
+<td><code>Permission denied</code></td>
+<td>You are not allowed to do this here. Check the folder</td>
+</tr>
+<tr>
+<td><code>ReferenceError: x is not defined</code></td>
+<td>You used a name that does not exist. Check spelling</td>
+</tr>
+<tr>
+<td><code>SyntaxError</code></td>
+<td>A bracket, quote or comma is missing or extra</td>
+</tr>
+<tr>
+<td><code>404 Not Found</code></td>
+<td>The file or page is not at that address. Check the path and the name</td>
+</tr>
+<tr>
+<td><code>Failed to fetch</code></td>
+<td>The server or the address is wrong, or you are offline</td>
+</tr>
+</tbody>
+</table>
+<h2>How to search for help</h2>
+<ol>
+<li><strong>Copy the exact error message</strong> (without your own file names), and paste it into a search engine.</li>
+<li><strong>Add the language or tool</strong>: <code>python NameError name is not defined</code>.</li>
+<li>Open results from <strong>official documentation</strong> (such as MDN for web code), Stack Overflow, or GitHub issues.</li>
+<li>Check that the answer matches <strong>your</strong> problem, then try it. Do not copy code you do not understand.</li>
+</ol>
+<h2>How to ask a good question</h2>
+<p>When you ask a teacher, a friend or a community, include:</p>
+<ul>
+<li>What you <strong>wanted</strong> to happen.</li>
+<li>What <strong>really</strong> happened, with the exact error message.</li>
+<li>The <strong>smallest</strong> piece of code that shows the problem.</li>
+<li>What you already <strong>tried</strong>.</li>
+</ul>
+<p>A good question often answers itself while you write it. Programmers call this <strong>rubber duck debugging</strong>: explain the problem out loud to a toy duck, and you will often see the answer.</p>
+<h2>Try it</h2>
+<ol>
+<li>Make a Python or JavaScript file with a spelling mistake in a variable name. Read the error message and find the line.</li>
+<li>Open any web page, press <strong>F12</strong>, and look at the Console and the Network tabs.</li>
+<li>Search for the error <code>SyntaxError: '(' was never closed</code> and read two different answers.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="term-errors" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="term-errors" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="term-vscode.html"><small>Previous lesson</small>Set up VS Code and a local server</a></div>
+    <section class="toc"><h2>All lessons in Terminal &amp; Tools</h2><ol><li><a href="term-what.html">What is the terminal?</a></li><li><a href="term-files.html">Work with files and folders</a></li><li><a href="term-vscode.html">Set up VS Code and a local server</a></li><li class="now"><a href="term-errors.html">Read errors and find help</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/term-errors">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

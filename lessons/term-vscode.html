@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Set up VS Code and a local server | Terminal &amp; Tools | CHHOYED</title>
+  <meta name="description" content="Terminal &amp; Tools: Install VS Code, Live Server, Emmet shortcuts and a Python server. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/term-vscode.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Set up VS Code and a local server | Terminal &amp; Tools | CHHOYED">
+  <meta property="og:description" content="Terminal &amp; Tools: Install VS Code, Live Server, Emmet shortcuts and a Python server. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/term-vscode.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Set up VS Code and a local server | Terminal &amp; Tools | CHHOYED">
+  <meta name="twitter:description" content="Terminal &amp; Tools: Install VS Code, Live Server, Emmet shortcuts and a Python server. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Set up VS Code and a local server", "description": "Install VS Code, Live Server, Emmet shortcuts and a Python server.", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/term-vscode.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Set up VS Code and a local server", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/term-vscode.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/terminal">Terminal &amp; Tools</a></div>
+    <article data-id="term-vscode" data-ordered="1">
+      <span class="tag" style="--c:#475569"><i></i>Coding · Terminal &amp; Tools</span><span class="pill">Lesson 3 of 4</span>
+      <h1>Set up VS Code and a local server</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-16">16 Nov 2026</time></a>
+      
+      <div class="lesson"><p><strong>Visual Studio Code</strong> (VS Code) is the free code editor that most web developers use. It colors your code, finishes words for you, and has a terminal built in. This lesson sets it up the way professionals use it.</p>
+<h2>Install it</h2>
+<ol>
+<li>Search for &quot;VS Code download&quot; and install the free version for your system.</li>
+<li>Open it. The first time, close any welcome tab.</li>
+</ol>
+<h2>The screen</h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Explorer</strong> (left)</td>
+<td>The files and folders of your project</td>
+</tr>
+<tr>
+<td><strong>Editor</strong> (middle)</td>
+<td>Where you write code. Each file is a tab</td>
+</tr>
+<tr>
+<td><strong>Terminal</strong> (bottom)</td>
+<td>A real terminal, already inside your project folder</td>
+</tr>
+<tr>
+<td><strong>Extensions</strong> (left icon)</td>
+<td>A store of add-ons</td>
+</tr>
+</tbody>
+</table>
+<h2>Open your project folder</h2>
+<p>Always open the <strong>folder</strong> of your project, not a single file. Then VS Code can see all your files.</p>
+<ol>
+<li>Choose <strong>File</strong>, then <strong>Open Folder</strong>, and pick your project.</li>
+<li>Or, from a terminal inside the folder, type:</li>
+</ol>
+<pre><code class="language-bash">code .
+</code></pre>
+<h2>Three extensions worth installing</h2>
+<p>Open the Extensions icon, search for the name, and click <strong>Install</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Live Server</strong></td>
+<td>Opens your page in the browser and reloads it every time you save</td>
+</tr>
+<tr>
+<td><strong>Prettier</strong></td>
+<td>Formats your code so it is always neat</td>
+</tr>
+<tr>
+<td><strong>Code Spell Checker</strong></td>
+<td>Underlines spelling mistakes in your code and text</td>
+</tr>
+</tbody>
+</table>
+<h2>See your page: Live Server</h2>
+<ol>
+<li>Open your project folder.</li>
+<li>Right-click <code>index.html</code> and choose <strong>Open with Live Server</strong>.</li>
+<li>Your browser opens an address like <code>http://127.0.0.1:5500/</code>.</li>
+<li>Edit the code, press <code>Ctrl + S</code>, and the page updates by itself.</li>
+</ol>
+<h2>Why not just double-click the file?</h2>
+<p>A page opened from your disk has an address like <code>file:///C:/...</code>. A real website has an address like <code>http://...</code>. Some things only work on <code>http://</code>, for example loading data with <code>fetch</code>, and paths that start with <code>/</code>. A <strong>local server</strong> shows your page the same way the real website will. Live Server is one. You can also start one yourself with Python:</p>
+<pre><code class="language-bash">python3 -m http.server 8000
+</code></pre>
+<p>On Windows, use <code>py -m http.server 8000</code> instead.</p>
+<pre><code class="language-plaintext">Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+</code></pre>
+<p>Open <code>http://localhost:8000</code> in your browser. Press <code>Ctrl + C</code> in the terminal to stop the server.</p>
+<h2>Settings that help</h2>
+<p>Open <strong>File</strong>, <strong>Preferences</strong>, <strong>Settings</strong>, and search for:</p>
+<ul>
+<li><strong>Auto Save</strong>: choose <code>afterDelay</code>, so you never lose work.</li>
+<li><strong>Format On Save</strong>: tick it. Prettier then tidies your code each time you save.</li>
+<li><strong>Font Size</strong>: make it comfortable for your eyes.</li>
+</ul>
+<h2>Type less with Emmet</h2>
+<p>VS Code can expand short codes into HTML. Type the short code, then press <strong>Tab</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>You type</th>
+<th>You get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>!</code></td>
+<td>A complete HTML page skeleton</td>
+</tr>
+<tr>
+<td><code>ul&gt;li*3</code></td>
+<td>A list with three items</td>
+</tr>
+<tr>
+<td><code>h1</code></td>
+<td><code>&lt;h1&gt;&lt;/h1&gt;</code></td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td><code>&lt;a href=&quot;&quot;&gt;&lt;/a&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Shortcuts to learn first</h2>
+<p>On macOS, use <code>Cmd</code> instead of <code>Ctrl</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + S</code></td>
+<td>Save</td>
+</tr>
+<tr>
+<td><code>Ctrl + P</code></td>
+<td>Open any file by typing its name</td>
+</tr>
+<tr>
+<td><code>Ctrl + Shift + P</code></td>
+<td>Command palette: search every command</td>
+</tr>
+<tr>
+<td><code>Ctrl + ` </code></td>
+<td>Show or hide the terminal</td>
+</tr>
+<tr>
+<td><code>Ctrl + /</code></td>
+<td>Comment or uncomment the line</td>
+</tr>
+<tr>
+<td><code>Alt + Up</code> or <code>Alt + Down</code></td>
+<td>Move the line</td>
+</tr>
+<tr>
+<td><code>Shift + Alt + Down</code></td>
+<td>Copy the line</td>
+</tr>
+<tr>
+<td><code>Ctrl + D</code></td>
+<td>Select the next same word, to edit many at once</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Key idea</strong>
+You do not need to remember all of these. Learn <strong>Ctrl + S</strong>, <strong>Ctrl + P</strong> and <strong>Ctrl + Shift + P</strong> first. The command palette finds anything else you forget.</p>
+</blockquote>
+<h2>Try it</h2>
+<ol>
+<li>Install VS Code, Live Server and Prettier.</li>
+<li>Make a folder, open it in VS Code, and create <code>index.html</code>. Type <code>!</code> and press Tab.</li>
+<li>Open it with Live Server, change the heading, and watch the browser update when you save.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="term-vscode" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="term-vscode" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="term-files.html"><small>Previous lesson</small>Work with files and folders</a><a href="term-errors.html" class="nx"><small>Next lesson</small>Read errors and find help</a></div>
+    <section class="toc"><h2>All lessons in Terminal &amp; Tools</h2><ol><li><a href="term-what.html">What is the terminal?</a></li><li><a href="term-files.html">Work with files and folders</a></li><li class="now"><a href="term-vscode.html">Set up VS Code and a local server</a></li><li><a href="term-errors.html">Read errors and find help</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/term-vscode">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

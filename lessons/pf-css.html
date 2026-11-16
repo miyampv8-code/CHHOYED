@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Make it beautiful (CSS) | Build a Portfolio | CHHOYED</title>
+  <meta name="description" content="Build a Portfolio: Variables, flexbox, grid, responsive rules and dark mode. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/pf-css.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Make it beautiful (CSS) | Build a Portfolio | CHHOYED">
+  <meta property="og:description" content="Build a Portfolio: Variables, flexbox, grid, responsive rules and dark mode. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/pf-css.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Make it beautiful (CSS) | Build a Portfolio | CHHOYED">
+  <meta name="twitter:description" content="Build a Portfolio: Variables, flexbox, grid, responsive rules and dark mode. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Make it beautiful (CSS)", "description": "Variables, flexbox, grid, responsive rules and dark mode.", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/pf-css.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Make it beautiful (CSS)", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/pf-css.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/portfolio">Build a Portfolio</a></div>
+    <article data-id="pf-css" data-ordered="1">
+      <span class="tag" style="--c:#db2777"><i></i>Coding · Build a Portfolio</span><span class="pill">Lesson 3 of 5</span>
+      <h1>Make it beautiful (CSS)</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-16">16 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Now you give the skeleton its looks: colors, spacing, layout, and a version for phones. Your HTML does not change at all. CSS reads the same elements and styles them.</p>
+<h2>Your HTML (from the last lesson)</h2>
+<p>This is the page you built. It is repeated here so the <strong>Try it</strong> button of the CSS below can show a real preview. If you finished the last lesson, you already have this file.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Sok Dara | Web Developer&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Portfolio of Sok Dara, a student web developer from Phnom Penh.&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class=&quot;site-header&quot;&gt;
+    &lt;div class=&quot;container bar&quot;&gt;
+      &lt;a class=&quot;brand&quot; href=&quot;#top&quot;&gt;Sok Dara&lt;/a&gt;
+      &lt;nav id=&quot;nav&quot; class=&quot;nav&quot; aria-label=&quot;Main menu&quot;&gt;
+        &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;
+        &lt;a href=&quot;#skills&quot;&gt;Skills&lt;/a&gt;
+        &lt;a href=&quot;#projects&quot;&gt;Projects&lt;/a&gt;
+        &lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;
+      &lt;/nav&gt;
+      &lt;button class=&quot;icon-btn&quot; id=&quot;theme-btn&quot; type=&quot;button&quot; aria-label=&quot;Switch to dark mode&quot;&gt;Dark&lt;/button&gt;
+      &lt;button class=&quot;icon-btn menu-btn&quot; id=&quot;menu-btn&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;nav&quot;&gt;Menu&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;main id=&quot;top&quot;&gt;
+    &lt;section class=&quot;hero container&quot;&gt;
+      &lt;div&gt;
+        &lt;p class=&quot;eyebrow&quot;&gt;Hello, I am&lt;/p&gt;
+        &lt;h1&gt;Sok Dara&lt;/h1&gt;
+        &lt;p class=&quot;lead&quot;&gt;I am a student web developer. I build simple, fast and friendly websites with HTML, CSS and JavaScript.&lt;/p&gt;
+        &lt;p class=&quot;actions&quot;&gt;
+          &lt;a class=&quot;btn&quot; href=&quot;#projects&quot;&gt;See my projects&lt;/a&gt;
+          &lt;a class=&quot;btn alt&quot; href=&quot;#contact&quot;&gt;Contact me&lt;/a&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;avatar&quot; aria-hidden=&quot;true&quot;&gt;SD&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;about&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;About me&lt;/h2&gt;
+      &lt;p&gt;I live in Phnom Penh and I am learning to code every day. I like to turn an idea into a working page, and I enjoy explaining what I learn to my friends.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;skills&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;Skills&lt;/h2&gt;
+      &lt;ul class=&quot;chips&quot;&gt;
+        &lt;li&gt;HTML&lt;/li&gt;
+        &lt;li&gt;CSS&lt;/li&gt;
+        &lt;li&gt;JavaScript&lt;/li&gt;
+        &lt;li&gt;Git and GitHub&lt;/li&gt;
+        &lt;li&gt;SQL&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;projects&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;Projects&lt;/h2&gt;
+      &lt;div class=&quot;filters&quot; id=&quot;filters&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;chip active&quot; data-filter=&quot;all&quot;&gt;All&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;chip&quot; data-filter=&quot;web&quot;&gt;Websites&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;chip&quot; data-filter=&quot;app&quot;&gt;Small apps&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;grid&quot; id=&quot;grid&quot;&gt;
+        &lt;article class=&quot;card&quot; data-type=&quot;web&quot;&gt;
+          &lt;h3&gt;Profile page&lt;/h3&gt;
+          &lt;p&gt;My first web page, built with HTML and CSS. It is responsive and works on phones.&lt;/p&gt;
+          &lt;a href=&quot;#&quot;&gt;View project&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;card&quot; data-type=&quot;app&quot;&gt;
+          &lt;h3&gt;To-do list&lt;/h3&gt;
+          &lt;p&gt;Add, finish and delete tasks. Built with JavaScript and the DOM.&lt;/p&gt;
+          &lt;a href=&quot;#&quot;&gt;View project&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;card&quot; data-type=&quot;app&quot;&gt;
+          &lt;h3&gt;Quiz game&lt;/h3&gt;
+          &lt;p&gt;Ten questions with a score at the end. It checks each answer with JavaScript.&lt;/p&gt;
+          &lt;a href=&quot;#&quot;&gt;View project&lt;/a&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id=&quot;contact&quot; class=&quot;container section&quot;&gt;
+      &lt;h2&gt;Contact&lt;/h2&gt;
+      &lt;p&gt;Do you want to work together, or just say hello? Send me an email.&lt;/p&gt;
+      &lt;p&gt;&lt;a class=&quot;btn&quot; href=&quot;mailto:dara@example.com&quot;&gt;dara@example.com&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer class=&quot;site-footer&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;p&gt;&amp;copy; &lt;span id=&quot;year&quot;&gt;2026&lt;/span&gt; Sok Dara. Built with HTML, CSS and JavaScript.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>The complete style.css</h2>
+<p>Type this into <code>style.css</code>, and press <strong>Try it</strong> to see the result. Try changing <code>--accent</code> to another color.</p>
+<pre><code class="language-css">/* 1. Colors and sizes, saved once as variables */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a2e;
+  --muted: #5b6078;
+  --card: #f4f5fb;
+  --line: #e3e6f0;
+  --accent: #5b3df5;
+  --accent-text: #ffffff;
+  --radius: 14px;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  --bg: #0f1020;
+  --text: #eceefb;
+  --muted: #a0a6c8;
+  --card: #181a33;
+  --line: #2a2d52;
+  --accent: #9b8cff;
+  --accent-text: #0f1020;
+}
+
+/* 2. Basics */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container { width: min(1000px, 92%); margin: 0 auto; }
+
+h1, h2, h3 { line-height: 1.2; }
+a { color: var(--accent); }
+
+/* 3. Header and menu */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.bar { display: flex; align-items: center; gap: 14px; min-height: 64px; }
+.brand { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+.nav { display: flex; gap: 20px; margin-left: auto; }
+.nav a { text-decoration: none; color: var(--muted); font-weight: 600; }
+.nav a:hover { color: var(--accent); }
+
+.icon-btn {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.menu-btn { display: none; }
+
+/* 4. Hero */
+.hero {
+  display: grid;
+  gap: 30px;
+  align-items: center;
+  padding: 60px 0 40px;
+}
+
+.eyebrow { margin: 0; color: var(--accent); font-weight: 700; }
+.hero h1 { margin: 6px 0 12px; font-size: clamp(2.4rem, 7vw, 4rem); }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 34em; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 99px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -10px var(--accent); }
+.btn.alt { background: transparent; color: var(--text); border: 2px solid var(--line); }
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #5b3df5, #ff7a59);
+}
+
+/* 5. Sections */
+.section { padding: 40px 0; }
+.section h2 { font-size: 1.8rem; margin: 0 0 14px; }
+
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; }
+.chips li, .chip {
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.filters .chip { cursor: pointer; }
+.filters .chip.active { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+
+/* 6. Project cards */
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+.card {
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px -18px rgba(0, 0, 0, .35); }
+.card h3 { margin: 0 0 8px; }
+.card p { color: var(--muted); }
+.card[hidden] { display: none; }
+
+/* 7. Footer */
+.site-footer { margin-top: 40px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); text-align: center; }
+
+/* 8. Larger screens: two columns in the hero */
+@media (min-width: 800px) {
+  .hero { grid-template-columns: 1fr auto; }
+  .avatar { width: 240px; height: 240px; font-size: 4.4rem; }
+}
+
+/* 9. Phones: the menu opens and closes with the button */
+@media (max-width: 700px) {
+  .menu-btn { display: inline-block; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 4%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px 0; }
+  .icon-btn:first-of-type { margin-left: auto; }
+}
+</code></pre>
+<h2>What each part does</h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Variables</strong></td>
+<td>The colors and the corner size are saved once, in <code>:root</code>, and used everywhere with <code>var(--accent)</code>. To change the whole design, you change one line</td>
+</tr>
+<tr>
+<td><strong>2. Basics</strong></td>
+<td><code>box-sizing: border-box</code> makes sizes easier to calculate. <code>scroll-behavior: smooth</code> makes menu links glide. <code>scroll-padding-top</code> stops the sticky header from covering the section title</td>
+</tr>
+<tr>
+<td><strong>3. Header</strong></td>
+<td><code>position: sticky</code> keeps the header at the top while you scroll. Flexbox puts the brand, menu and buttons in one row, and <code>margin-left: auto</code> pushes the menu to the right</td>
+</tr>
+<tr>
+<td><strong>4. Hero</strong></td>
+<td><code>clamp(2.4rem, 7vw, 4rem)</code> makes the title grow and shrink with the screen, but never too small or too big</td>
+</tr>
+<tr>
+<td><strong>5. Sections</strong></td>
+<td>The skills are rounded &quot;chips&quot;. The <code>.active</code> chip shows which filter is chosen</td>
+</tr>
+<tr>
+<td><strong>6. Cards</strong></td>
+<td>CSS Grid with <code>repeat(auto-fit, minmax(250px, 1fr))</code> builds as many columns as fit. On a phone you get one column, on a laptop three, with no media query</td>
+</tr>
+<tr>
+<td><strong>7. Footer</strong></td>
+<td>A thin line on top and calm, grey text</td>
+</tr>
+<tr>
+<td><strong>8. Larger screens</strong></td>
+<td><code>@media (min-width: 800px)</code> makes the hero two columns, and the avatar bigger</td>
+</tr>
+<tr>
+<td><strong>9. Phones</strong></td>
+<td><code>@media (max-width: 700px)</code> hides the menu behind the <strong>Menu</strong> button. The class <code>.open</code>, which JavaScript adds, shows it</td>
+</tr>
+</tbody>
+</table>
+<h2>Dark mode with variables</h2>
+<p>Look at this block:</p>
+<pre><code class="language-css">:root[data-theme=&quot;dark&quot;] {
+  --bg: #0f1020;
+  --text: #eceefb;
+  --accent: #9b8cff;
+}
+</code></pre>
+<p>When the <code>&lt;html&gt;</code> tag has the attribute <code>data-theme=&quot;dark&quot;</code>, the same variable names get <strong>new values</strong>. Because every rule uses the variables, the whole page changes colors at once. In the next lesson, JavaScript will set this attribute when the visitor presses the <strong>Dark</strong> button.</p>
+<h2>Smooth little effects</h2>
+<p>Buttons and cards use <code>transition</code> and <code>transform: translateY(-2px)</code> on <code>:hover</code>, so they lift a little when the mouse is over them. Keep effects small and fast. Too much motion tires the reader.</p>
+<blockquote>
+<p><strong>Key idea</strong>
+<strong>Mobile first</strong> thinking: the base CSS works for a small screen, and the <code>@media (min-width: ...)</code> rules add changes for bigger screens. This is how most professional sites are built.</p>
+</blockquote>
+<h2>Save your work</h2>
+<pre><code class="language-bash">git add .
+git commit -m &quot;Add portfolio styles&quot;
+</code></pre>
+<h2>Try it</h2>
+<ol>
+<li>Change <code>--accent</code> to a color you like, and see the whole page change.</li>
+<li>Change the <code>minmax(250px, 1fr)</code> to <code>minmax(180px, 1fr)</code> and watch the cards.</li>
+<li>Open the browser tools (F12) and use the phone icon to test a narrow screen. Open the <strong>Elements</strong> tab and change a color live.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="pf-css" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="pf-css" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="pf-html.html"><small>Previous lesson</small>Build the structure (HTML)</a><a href="pf-js.html" class="nx"><small>Next lesson</small>Make it interactive (JavaScript)</a></div>
+    <section class="toc"><h2>All lessons in Build a Portfolio</h2><ol><li><a href="pf-plan.html">Plan your portfolio</a></li><li><a href="pf-html.html">Build the structure (HTML)</a></li><li class="now"><a href="pf-css.html">Make it beautiful (CSS)</a></li><li><a href="pf-js.html">Make it interactive (JavaScript)</a></li><li><a href="pf-publish.html">Publish and share it</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/pf-css">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

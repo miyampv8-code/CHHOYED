@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Make it interactive (JavaScript) | Build a Portfolio | CHHOYED</title>
+  <meta name="description" content="Build a Portfolio: A mobile menu, a dark-mode button and a project filter. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/pf-js.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Make it interactive (JavaScript) | Build a Portfolio | CHHOYED">
+  <meta property="og:description" content="Build a Portfolio: A mobile menu, a dark-mode button and a project filter. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/pf-js.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Make it interactive (JavaScript) | Build a Portfolio | CHHOYED">
+  <meta name="twitter:description" content="Build a Portfolio: A mobile menu, a dark-mode button and a project filter. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Make it interactive (JavaScript)", "description": "A mobile menu, a dark-mode button and a project filter.", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/pf-js.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Make it interactive (JavaScript)", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/pf-js.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/portfolio">Build a Portfolio</a></div>
+    <article data-id="pf-js" data-ordered="1">
+      <span class="tag" style="--c:#db2777"><i></i>Coding · Build a Portfolio</span><span class="pill">Lesson 4 of 5</span>
+      <h1>Make it interactive (JavaScript)</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-16">16 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Your page looks good. Now you make it <strong>do</strong> things, with four small features: a menu that opens on phones, a dark-mode button that remembers the choice, a project filter, and an automatic year in the footer. You do not change the HTML or the CSS. JavaScript only finds elements by their <code>id</code> and reacts to clicks.</p>
+<h2>The parts of the page that the script uses</h2>
+<p>This is a short version of your page with only the elements the script touches. It is here so <strong>Try it</strong> can run the script below. Your real <code>index.html</code> already has all of them.</p>
+<pre><code class="language-html">&lt;header class=&quot;site-header&quot;&gt;
+  &lt;div class=&quot;container bar&quot;&gt;
+    &lt;a class=&quot;brand&quot; href=&quot;#top&quot;&gt;Sok Dara&lt;/a&gt;
+    &lt;nav id=&quot;nav&quot; class=&quot;nav&quot;&gt;
+      &lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;
+      &lt;a href=&quot;#projects&quot;&gt;Projects&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;button class=&quot;icon-btn&quot; id=&quot;theme-btn&quot; type=&quot;button&quot;&gt;Dark&lt;/button&gt;
+    &lt;button class=&quot;icon-btn menu-btn&quot; id=&quot;menu-btn&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;nav&quot;&gt;Menu&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;section id=&quot;projects&quot; class=&quot;container section&quot;&gt;
+  &lt;div class=&quot;filters&quot; id=&quot;filters&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;chip active&quot; data-filter=&quot;all&quot;&gt;All&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;chip&quot; data-filter=&quot;web&quot;&gt;Websites&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;chip&quot; data-filter=&quot;app&quot;&gt;Small apps&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid&quot; id=&quot;grid&quot;&gt;
+    &lt;article class=&quot;card&quot; data-type=&quot;web&quot;&gt;&lt;h3&gt;Profile page&lt;/h3&gt;&lt;/article&gt;
+    &lt;article class=&quot;card&quot; data-type=&quot;app&quot;&gt;&lt;h3&gt;To-do list&lt;/h3&gt;&lt;/article&gt;
+    &lt;article class=&quot;card&quot; data-type=&quot;app&quot;&gt;&lt;h3&gt;Quiz game&lt;/h3&gt;&lt;/article&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;&amp;copy; &lt;span id=&quot;year&quot;&gt;2026&lt;/span&gt; Sok Dara&lt;/p&gt;
+</code></pre>
+<h2>The complete script.js</h2>
+<p>Type this into <code>script.js</code>, press <strong>Try it</strong>, then click <strong>Run</strong>. (The preview has no CSS, so the page is plain, but the buttons work.)</p>
+<pre><code class="language-javascript">// 1. Footer: show the current year
+document.getElementById(&quot;year&quot;).textContent = new Date().getFullYear();
+
+// 2. Mobile menu: open and close
+const menuBtn = document.getElementById(&quot;menu-btn&quot;);
+const nav = document.getElementById(&quot;nav&quot;);
+
+menuBtn.addEventListener(&quot;click&quot;, () =&gt; {
+  const open = nav.classList.toggle(&quot;open&quot;);
+  menuBtn.setAttribute(&quot;aria-expanded&quot;, open);
+});
+
+// Close the menu after the visitor taps a link
+nav.addEventListener(&quot;click&quot;, (event) =&gt; {
+  if (event.target.tagName === &quot;A&quot;) {
+    nav.classList.remove(&quot;open&quot;);
+    menuBtn.setAttribute(&quot;aria-expanded&quot;, &quot;false&quot;);
+  }
+});
+
+// 3. Dark mode: remember the choice
+const themeBtn = document.getElementById(&quot;theme-btn&quot;);
+const root = document.documentElement;
+
+function setTheme(theme) {
+  root.dataset.theme = theme;
+  themeBtn.textContent = theme === &quot;dark&quot; ? &quot;Light&quot; : &quot;Dark&quot;;
+  themeBtn.setAttribute(&quot;aria-label&quot;, theme === &quot;dark&quot; ? &quot;Switch to light mode&quot; : &quot;Switch to dark mode&quot;);
+  try { localStorage.setItem(&quot;theme&quot;, theme); } catch (e) { }
+}
+
+let saved = null;
+try { saved = localStorage.getItem(&quot;theme&quot;); } catch (e) { }
+const prefersDark = window.matchMedia(&quot;(prefers-color-scheme: dark)&quot;).matches;
+setTheme(saved || (prefersDark ? &quot;dark&quot; : &quot;light&quot;));
+
+themeBtn.addEventListener(&quot;click&quot;, () =&gt; {
+  setTheme(root.dataset.theme === &quot;dark&quot; ? &quot;light&quot; : &quot;dark&quot;);
+});
+
+// 4. Project filter: show only one kind of project
+const filters = document.getElementById(&quot;filters&quot;);
+const cards = document.querySelectorAll(&quot;#grid .card&quot;);
+
+filters.addEventListener(&quot;click&quot;, (event) =&gt; {
+  const button = event.target.closest(&quot;button&quot;);
+  if (!button) return;
+
+  filters.querySelectorAll(&quot;button&quot;).forEach((b) =&gt; b.classList.remove(&quot;active&quot;));
+  button.classList.add(&quot;active&quot;);
+
+  const type = button.dataset.filter;
+  cards.forEach((card) =&gt; {
+    card.hidden = type !== &quot;all&quot; &amp;&amp; card.dataset.type !== type;
+  });
+});
+</code></pre>
+<h2>How it works</h2>
+<p><strong>1. The year.</strong> <code>new Date().getFullYear()</code> reads the year from the computer clock, so you never edit the footer again.</p>
+<p><strong>2. The mobile menu.</strong> <code>nav.classList.toggle(&quot;open&quot;)</code> adds the class <code>open</code> if it is missing, and removes it if it is there. It also returns <code>true</code> or <code>false</code>, which the script copies into <code>aria-expanded</code>, so screen readers know the state. The second listener closes the menu when a link inside it is tapped. It uses <strong>event delegation</strong>: one listener on the <code>&lt;nav&gt;</code> handles all four links.</p>
+<p><strong>3. Dark mode.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>root.dataset.theme = theme</code></td>
+<td>Sets <code>data-theme=&quot;dark&quot;</code> on <code>&lt;html&gt;</code>. Your CSS variables do the rest</td>
+</tr>
+<tr>
+<td><code>localStorage.setItem(&quot;theme&quot;, theme)</code></td>
+<td>Saves the choice in the visitor's browser</td>
+</tr>
+<tr>
+<td><code>try ... catch</code></td>
+<td>Storage can fail (private mode, blocked cookies). The page must still work</td>
+</tr>
+<tr>
+<td><code>matchMedia(&quot;(prefers-color-scheme: dark)&quot;)</code></td>
+<td>Asks the phone or computer: &quot;does the person use dark mode?&quot;</td>
+</tr>
+<tr>
+<td><code>saved or the system choice or light</code></td>
+<td>Uses the saved choice first, then the system choice, then light</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. The project filter.</strong> The script listens for clicks on the whole <code>#filters</code> box. It finds the button with <code>closest(&quot;button&quot;)</code>, marks it <code>active</code>, then goes through every card. The card's <code>hidden</code> property is <code>true</code> when its <code>data-type</code> is not the chosen one. Your CSS rule <code>.card[hidden]</code> hides it.</p>
+<blockquote>
+<p><strong>Key idea</strong>
+Three habits make this script professional: it <strong>waits for nothing it does not need</strong> (the script is at the end of the page), it <strong>never crashes</strong> if storage is blocked, and it uses <strong>classes and data attributes</strong> to change the page. JavaScript decides <strong>when</strong>, and CSS decides <strong>how it looks</strong>.</p>
+</blockquote>
+<h2>Make it better</h2>
+<ol>
+<li>Show a small message in the footer when the theme changes.</li>
+<li>Add a &quot;Back to top&quot; button that appears after the visitor scrolls down.</li>
+<li>Make the cards fade in when they enter the screen (search for <code>IntersectionObserver</code>).</li>
+<li>Add a new filter button and a fourth project, then change <strong>only</strong> the HTML. The script already handles it. That is the point of using <code>data-filter</code> and <code>data-type</code>.</li>
+</ol>
+<h2>Save your work</h2>
+<pre><code class="language-bash">git add .
+git commit -m &quot;Add portfolio menu, dark mode and filter&quot;
+</code></pre>
+<h2>Try it</h2>
+<ol>
+<li>Open your page, press <strong>Dark</strong>, then refresh. Is the dark theme still there?</li>
+<li>Open the browser console (F12). Are there any red errors?</li>
+<li>Test the menu on a narrow screen, using the phone icon in the browser tools.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="pf-js" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="pf-js" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="pf-css.html"><small>Previous lesson</small>Make it beautiful (CSS)</a><a href="pf-publish.html" class="nx"><small>Next lesson</small>Publish and share it</a></div>
+    <section class="toc"><h2>All lessons in Build a Portfolio</h2><ol><li><a href="pf-plan.html">Plan your portfolio</a></li><li><a href="pf-html.html">Build the structure (HTML)</a></li><li><a href="pf-css.html">Make it beautiful (CSS)</a></li><li class="now"><a href="pf-js.html">Make it interactive (JavaScript)</a></li><li><a href="pf-publish.html">Publish and share it</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/pf-js">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

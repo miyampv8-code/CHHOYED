@@ -1,0 +1,215 @@
+{
+  "lang": "bash",
+  "title": "Terminal and tools practice",
+  "items": [
+    {
+      "id": "t01",
+      "topic": "Basics",
+      "type": "choice",
+      "question": "Which command shows the folder you are in right now?",
+      "options": [
+        "ls",
+        "pwd",
+        "cd",
+        "mkdir"
+      ],
+      "answer": 1,
+      "explanation": "pwd means print working directory. It shows the full path of the current folder.",
+      "hint": "Print working directory."
+    },
+    {
+      "id": "t02",
+      "topic": "Basics",
+      "type": "choice",
+      "question": "What does cd .. do?",
+      "options": [
+        "Goes up one folder",
+        "Goes to your home folder",
+        "Deletes the current folder",
+        "Lists hidden files"
+      ],
+      "answer": 0,
+      "explanation": "Two dots mean the folder above. One dot means the current folder, and ~ means your home folder."
+    },
+    {
+      "id": "t03",
+      "topic": "Files",
+      "type": "blank",
+      "question": "Type the command that creates an empty file named style.css.",
+      "code": "___ style.css",
+      "answers": [
+        "touch"
+      ],
+      "explanation": "touch creates an empty file. (On PowerShell, use ni.)",
+      "hint": "It sounds like you are touching the file."
+    },
+    {
+      "id": "t04",
+      "topic": "Shortcuts",
+      "type": "choice",
+      "question": "Which key finishes a file or folder name for you?",
+      "options": [
+        "Enter",
+        "Tab",
+        "Space",
+        "Esc"
+      ],
+      "answer": 1,
+      "explanation": "Tab completes names. It saves typing and avoids spelling mistakes, because it only completes names that really exist."
+    },
+    {
+      "id": "t05",
+      "topic": "Files",
+      "type": "choice",
+      "question": "What does the -a option of ls show?",
+      "options": [
+        "The file sizes",
+        "Hidden files (names starting with a dot)",
+        "Only folders",
+        "Files sorted by date"
+      ],
+      "answer": 1,
+      "explanation": "ls -a shows all files, including hidden ones such as .gitignore and the .git folder."
+    },
+    {
+      "id": "t06",
+      "topic": "Files",
+      "type": "choice",
+      "question": "Which command deletes a folder and everything inside it?",
+      "options": [
+        "rm folder",
+        "rm -r folder",
+        "mv folder",
+        "cp -r folder"
+      ],
+      "answer": 1,
+      "explanation": "rm -r removes recursively, so the folder and all its contents are deleted. Without -r, rm refuses to delete a folder."
+    },
+    {
+      "id": "t07",
+      "topic": "Files",
+      "type": "choice",
+      "question": "Why must you be careful with rm?",
+      "options": [
+        "It makes files bigger",
+        "It deletes forever, with no recycle bin",
+        "It copies files to the internet",
+        "It needs a password"
+      ],
+      "answer": 1,
+      "explanation": "The terminal has no recycle bin. Check with ls first, and read your command twice."
+    },
+    {
+      "id": "t08",
+      "topic": "Files",
+      "type": "choice",
+      "question": "Which command renames old.html to new.html?",
+      "options": [
+        "rename old.html new.html",
+        "mv old.html new.html",
+        "cp old.html",
+        "touch new.html"
+      ],
+      "answer": 1,
+      "explanation": "mv moves a file. In the same folder, moving is the same as renaming."
+    },
+    {
+      "id": "t09",
+      "topic": "Shortcuts",
+      "type": "choice",
+      "question": "Which keys stop a command that is still running in the terminal?",
+      "options": [
+        "Ctrl + S",
+        "Ctrl + C",
+        "Ctrl + Z only",
+        "Alt + F4"
+      ],
+      "answer": 1,
+      "explanation": "Ctrl + C interrupts the running command. It is also how you stop a local server."
+    },
+    {
+      "id": "t10",
+      "topic": "Errors",
+      "type": "choice",
+      "question": "The terminal says: command not found. What does it usually mean?",
+      "options": [
+        "The command is misspelled, or the tool is not installed",
+        "Your file is too big",
+        "The internet is off",
+        "Your keyboard is broken"
+      ],
+      "answer": 0,
+      "explanation": "Check the spelling first. If it is correct, the tool may not be installed or may not be in your PATH."
+    },
+    {
+      "id": "t11",
+      "topic": "Errors",
+      "type": "choice",
+      "question": "A Python error message has several lines. Which line usually tells you the type and the cause of the problem?",
+      "options": [
+        "The first line, Traceback",
+        "The last line, such as NameError: name 'x' is not defined",
+        "The date",
+        "The prompt"
+      ],
+      "answer": 1,
+      "explanation": "Read an error from the bottom. The last line names the type of error and says what is wrong. The lines above show where."
+    },
+    {
+      "id": "t12",
+      "topic": "VS Code",
+      "type": "choice",
+      "question": "Which shortcut opens the command palette, where you can search every VS Code command?",
+      "options": [
+        "Ctrl + S",
+        "Ctrl + Shift + P",
+        "Ctrl + B",
+        "Ctrl + Z"
+      ],
+      "answer": 1,
+      "explanation": "Ctrl + Shift + P (Cmd + Shift + P on macOS) is the command palette. If you forget a shortcut, search here."
+    },
+    {
+      "id": "t13",
+      "topic": "Errors",
+      "type": "choice",
+      "question": "Which browser tool tab shows JavaScript errors?",
+      "options": [
+        "Elements",
+        "Console",
+        "Network",
+        "Sources"
+      ],
+      "answer": 1,
+      "explanation": "Press F12 and open the Console tab. Errors appear in red, with the file name and the line number."
+    },
+    {
+      "id": "t14",
+      "topic": "VS Code",
+      "type": "choice",
+      "question": "What does the Live Server extension do?",
+      "options": [
+        "Hosts your site on the internet for everyone",
+        "Opens your page in the browser and reloads it when you save",
+        "Fixes errors automatically",
+        "Formats your code"
+      ],
+      "answer": 1,
+      "explanation": "Live Server runs a local server and refreshes the browser each time you save. It is only on your computer."
+    },
+    {
+      "id": "t15",
+      "topic": "Errors",
+      "type": "choice",
+      "question": "Which search is most likely to find help for an error?",
+      "options": [
+        "my code does not work",
+        "The exact error message plus the language, such as: python NameError name is not defined",
+        "help me please",
+        "python"
+      ],
+      "answer": 1,
+      "explanation": "Copy the exact error message, add the language or tool, and open results from official documentation or trusted sites."
+    }
+  ]
+}

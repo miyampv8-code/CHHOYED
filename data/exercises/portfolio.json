@@ -1,0 +1,193 @@
+{
+  "lang": "html",
+  "title": "Portfolio practice",
+  "items": [
+    {
+      "id": "p01",
+      "topic": "Setup",
+      "type": "choice",
+      "question": "What must the home page file be called, so web servers find it first?",
+      "options": [
+        "home.html",
+        "index.html",
+        "main.html",
+        "start.html"
+      ],
+      "answer": 1,
+      "explanation": "Web servers, including GitHub Pages, look for index.html first. Use lowercase."
+    },
+    {
+      "id": "p02",
+      "topic": "HTML",
+      "type": "choice",
+      "question": "Why does the page need <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">?",
+      "options": [
+        "It makes the page load faster",
+        "It makes the page fit phone screens instead of looking zoomed out",
+        "It adds a dark mode",
+        "It connects the CSS file"
+      ],
+      "answer": 1,
+      "explanation": "Without the viewport tag, phones pretend to be wide and shrink the page. The tag tells them to use the real screen width."
+    },
+    {
+      "id": "p03",
+      "topic": "HTML",
+      "type": "blank",
+      "question": "Type the attribute that lets the link <a href=\"#about\"> jump to this section.",
+      "code": "<section ___=\"about\">",
+      "answers": [
+        "id"
+      ],
+      "explanation": "A link with href=\"#about\" jumps to the element whose id is \"about\".",
+      "hint": "Ids must be unique."
+    },
+    {
+      "id": "p04",
+      "topic": "HTML",
+      "type": "choice",
+      "question": "How many <h1> headings should the page have?",
+      "options": [
+        "One, your name",
+        "One for each section",
+        "None",
+        "As many as you like"
+      ],
+      "answer": 0,
+      "explanation": "One <h1> says what the whole page is about. Sections use <h2>, and smaller items use <h3>."
+    },
+    {
+      "id": "p05",
+      "topic": "CSS",
+      "type": "blank",
+      "question": "Type the CSS function that reads a variable, so the text uses the accent color.",
+      "code": "a {\n  color: ___(--accent);\n}",
+      "answers": [
+        "var"
+      ],
+      "explanation": "var(--accent) reads the value of the custom property --accent. Change the variable once and everything that uses it changes.",
+      "hint": "Four letters, short for variable."
+    },
+    {
+      "id": "p06",
+      "topic": "CSS",
+      "type": "choice",
+      "question": "Which rule builds as many columns as fit, with each column at least 250px wide?",
+      "options": [
+        "grid-template-columns: 250px;",
+        "grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));",
+        "display: flex;",
+        "columns: 250px 1fr;"
+      ],
+      "answer": 1,
+      "explanation": "repeat(auto-fit, minmax(250px, 1fr)) makes a responsive grid with no media queries: one column on a phone and more on a larger screen."
+    },
+    {
+      "id": "p07",
+      "topic": "CSS",
+      "type": "choice",
+      "question": "What does position: sticky with top: 0 do to the header?",
+      "options": [
+        "Hides it",
+        "Keeps it at the top of the screen while you scroll",
+        "Moves it to the bottom",
+        "Makes it transparent"
+      ],
+      "answer": 1,
+      "explanation": "A sticky element scrolls normally until it reaches the top, then it stays there."
+    },
+    {
+      "id": "p08",
+      "topic": "CSS",
+      "type": "choice",
+      "question": "What does \"mobile first\" mean?",
+      "options": [
+        "Only phones are supported",
+        "The base CSS is for small screens, and @media (min-width) rules add changes for bigger screens",
+        "The site is built in a phone app",
+        "Phone code is written last"
+      ],
+      "answer": 1,
+      "explanation": "You design the small screen first, then add rules for larger screens. It keeps the phone version simple and fast."
+    },
+    {
+      "id": "p09",
+      "topic": "JavaScript",
+      "type": "choice",
+      "question": "How does the dark-mode button change the whole page?",
+      "options": [
+        "It rewrites the CSS file",
+        "It sets data-theme=\"dark\" on the <html> tag, and the CSS variables get new values",
+        "It reloads the page from the server",
+        "It changes every element one by one"
+      ],
+      "answer": 1,
+      "explanation": "JavaScript only sets one attribute. The CSS rule :root[data-theme=\"dark\"] gives the variables new values, and every rule that uses them changes."
+    },
+    {
+      "id": "p10",
+      "topic": "JavaScript",
+      "type": "choice",
+      "question": "Why is localStorage wrapped in try ... catch in the script?",
+      "options": [
+        "To make it faster",
+        "Because storage can be blocked, and the page must still work",
+        "Because it only works once",
+        "Because it needs a password"
+      ],
+      "answer": 1,
+      "explanation": "In private mode or with blocked cookies, localStorage can throw an error. try ... catch keeps the rest of the script running."
+    },
+    {
+      "id": "p11",
+      "topic": "Publishing",
+      "type": "choice",
+      "question": "You name a GitHub repository dara.github.io (your username is dara). What is the address of your Pages site?",
+      "options": [
+        "https://dara.github.io/",
+        "https://github.com/dara.github.io",
+        "https://dara.github.io/dara/",
+        "https://pages.github.com/dara"
+      ],
+      "answer": 0,
+      "explanation": "A repository named USERNAME.github.io is published at the short address https://USERNAME.github.io/."
+    },
+    {
+      "id": "p12",
+      "topic": "Publishing",
+      "type": "choice",
+      "question": "Where do you find the Lighthouse quality checker?",
+      "options": [
+        "In the VS Code settings",
+        "In the browser tools (F12), in the Lighthouse tab",
+        "On the GitHub Settings page",
+        "In the terminal"
+      ],
+      "answer": 1,
+      "explanation": "Lighthouse is built into Chrome and Edge. It scores Performance, Accessibility, Best practices and SEO."
+    },
+    {
+      "id": "p13",
+      "topic": "HTML",
+      "type": "choice",
+      "question": "Why should every <img> have a meaningful alt text?",
+      "options": [
+        "It makes the picture bigger",
+        "Screen readers read it aloud, and it shows if the picture cannot load",
+        "It is required to make a link",
+        "It makes the image load faster"
+      ],
+      "answer": 1,
+      "explanation": "The alt text describes the picture for people who cannot see it, and appears if the image fails to load."
+    },
+    {
+      "id": "p14",
+      "topic": "CSS",
+      "type": "code",
+      "question": "Write the CSS for a class .grid that is a grid with an 18px gap and responsive columns that are at least 250px wide.",
+      "solution": ".grid {\n  display: grid;\n  gap: 18px;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n}",
+      "explanation": "Use display: grid, gap, and repeat(auto-fit, minmax(...)).",
+      "hint": "Start with display: grid."
+    }
+  ]
+}

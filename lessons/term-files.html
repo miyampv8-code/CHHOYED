@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <title>Work with files and folders | Terminal &amp; Tools | CHHOYED</title>
+  <meta name="description" content="Terminal &amp; Tools: Make, copy, move and delete files with mkdir, touch, cp, mv and rm. Free lesson on CHHOYED.">
+  <link rel="canonical" href="https://miyampv8-code.github.io/CHHOYED/lessons/term-files.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CHHOYED">
+  <meta property="og:title" content="Work with files and folders | Terminal &amp; Tools | CHHOYED">
+  <meta property="og:description" content="Terminal &amp; Tools: Make, copy, move and delete files with mkdir, touch, cp, mv and rm. Free lesson on CHHOYED.">
+  <meta property="og:url" content="https://miyampv8-code.github.io/CHHOYED/lessons/term-files.html">
+  <meta property="og:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work with files and folders | Terminal &amp; Tools | CHHOYED">
+  <meta name="twitter:description" content="Terminal &amp; Tools: Make, copy, move and delete files with mkdir, touch, cp, mv and rm. Free lesson on CHHOYED.">
+  <meta name="twitter:image" content="https://miyampv8-code.github.io/CHHOYED/images/og-banner.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Work with files and folders", "description": "Make, copy, move and delete files with mkdir, touch, cp, mv and rm.", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "inLanguage": "en", "image": "https://miyampv8-code.github.io/CHHOYED/images/og-banner.png", "mainEntityOfPage": "https://miyampv8-code.github.io/CHHOYED/lessons/term-files.html", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "CHHOYED Team"}, "publisher": {"@type": "Organization", "name": "CHHOYED", "logo": {"@type": "ImageObject", "url": "https://miyampv8-code.github.io/CHHOYED/images/apple-touch-icon.png"}}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://miyampv8-code.github.io/CHHOYED/"}, {"@type": "ListItem", "position": 2, "name": "All lessons", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/"}, {"@type": "ListItem", "position": 3, "name": "Work with files and folders", "item": "https://miyampv8-code.github.io/CHHOYED/lessons/term-files.html"}]}</script>
+  <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="../index.html#/">Home</a> › <a href="index.html">All lessons</a> › <a href="../index.html#/subject/coding/terminal">Terminal &amp; Tools</a></div>
+    <article data-id="term-files" data-ordered="1">
+      <span class="tag" style="--c:#475569"><i></i>Coding · Terminal &amp; Tools</span><span class="pill">Lesson 2 of 4</span>
+      <h1>Work with files and folders</h1>
+      <a class="byline" href="../index.html#/teacher/chhoyed-team"><span class="av sm"><img src="../images/logo.svg" alt="">CT</span><span>CHHOYED Team</span><time datetime="2026-11-16">16 Nov 2026</time></a>
+      
+      <div class="lesson"><p>Now you will create, copy, move and delete files without touching the mouse. You will do the same things you do in a file manager, only faster.</p>
+<h2>Make a folder: mkdir</h2>
+<pre><code class="language-bash">mkdir projects
+cd projects
+mkdir my-site
+cd my-site
+</code></pre>
+<p><code>mkdir</code> means &quot;make directory&quot;. To make several levels at once, add <code>-p</code>:</p>
+<pre><code class="language-bash">mkdir -p a/b/c
+</code></pre>
+<h2>Make files: touch</h2>
+<pre><code class="language-bash">touch index.html style.css
+ls
+</code></pre>
+<pre><code class="language-plaintext">index.html
+style.css
+</code></pre>
+<p><code>touch</code> creates empty files. (On PowerShell, use <code>ni index.html</code> instead.)</p>
+<h2>Put text into a file: echo</h2>
+<pre><code class="language-bash">echo '&lt;h1&gt;Hello&lt;/h1&gt;' &gt; index.html
+</code></pre>
+<p>The <code>&gt;</code> sends the text <strong>into</strong> the file and replaces what was there. Use <code>&gt;&gt;</code> to add to the end instead of replacing.</p>
+<h2>Read a file: cat</h2>
+<pre><code class="language-bash">cat index.html
+</code></pre>
+<pre><code class="language-plaintext">&lt;h1&gt;Hello&lt;/h1&gt;
+</code></pre>
+<p><code>cat</code> prints the whole file on the screen.</p>
+<h2>More detail: ls options</h2>
+<pre><code class="language-bash">ls -l
+</code></pre>
+<pre><code class="language-plaintext">total 4
+-rw-r--r-- 1 dara dara 15 Nov 15 12:10 index.html
+-rw-r--r-- 1 dara dara  0 Nov 15 12:10 style.css
+</code></pre>
+<p>The <code>-l</code> option shows the size and the date of each file.</p>
+<pre><code class="language-bash">ls -a
+</code></pre>
+<pre><code class="language-plaintext">.
+..
+index.html
+style.css
+</code></pre>
+<p>The <code>-a</code> option also shows <strong>hidden</strong> files. Their names start with a dot, such as <code>.gitignore</code> and the <code>.git</code> folder.</p>
+<h2>Copy, move and rename: cp and mv</h2>
+<pre><code class="language-bash">cp index.html backup.html
+mv backup.html old.html
+ls
+</code></pre>
+<pre><code class="language-plaintext">index.html
+old.html
+style.css
+</code></pre>
+<ul>
+<li><code>cp from to</code> copies a file.</li>
+<li><code>mv from to</code> moves a file. If you stay in the same folder, it is how you <strong>rename</strong>.</li>
+</ul>
+<p>You can move a file into a folder too:</p>
+<pre><code class="language-bash">mv old.html ../
+</code></pre>
+<h2>Delete: rm</h2>
+<pre><code class="language-bash">rm old.html
+</code></pre>
+<p>To delete a whole folder with everything inside, add <code>-r</code> (recursive):</p>
+<pre><code class="language-bash">rm -r a
+</code></pre>
+<blockquote>
+<p><strong>Remember</strong>
+<strong>There is no recycle bin in the terminal.</strong> <code>rm</code> deletes forever. Before you delete, run <code>ls</code> to check what is there, and read your command twice. Be extra careful with <code>rm -r</code>.</p>
+</blockquote>
+<h2>Use * to match many files</h2>
+<p>The star <code>*</code> means &quot;anything&quot;.</p>
+<pre><code class="language-bash">ls *.html
+</code></pre>
+<pre><code class="language-plaintext">index.html
+</code></pre>
+<p><code>*.html</code> means &quot;every file whose name ends with .html&quot;.</p>
+<h2>When something goes wrong</h2>
+<pre><code class="language-bash">cd missing-folder
+</code></pre>
+<pre><code class="language-plaintext">bash: cd: missing-folder: No such file or directory
+</code></pre>
+<pre><code class="language-bash">foo
+</code></pre>
+<pre><code class="language-plaintext">bash: foo: command not found
+</code></pre>
+<p>These messages are not scary. They say what is wrong: the folder does not exist (check the spelling, use Tab), or the command does not exist (check the spelling, or the tool is not installed).</p>
+<h2>Cheat sheet</h2>
+<table>
+<thead>
+<tr>
+<th>I want to...</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Make a folder</td>
+<td><code>mkdir name</code></td>
+</tr>
+<tr>
+<td>Make an empty file</td>
+<td><code>touch name</code></td>
+</tr>
+<tr>
+<td>Show a file</td>
+<td><code>cat name</code></td>
+</tr>
+<tr>
+<td>Copy</td>
+<td><code>cp from to</code></td>
+</tr>
+<tr>
+<td>Move or rename</td>
+<td><code>mv from to</code></td>
+</tr>
+<tr>
+<td>Delete a file</td>
+<td><code>rm name</code></td>
+</tr>
+<tr>
+<td>Delete a folder</td>
+<td><code>rm -r name</code></td>
+</tr>
+<tr>
+<td>List files</td>
+<td><code>ls</code>, <code>ls -l</code>, <code>ls -a</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Try it</h2>
+<ol>
+<li>Make a folder <code>practice</code>, go into it, and create three files with <code>touch</code>.</li>
+<li>Rename one file with <code>mv</code>, copy another with <code>cp</code>, and delete the third with <code>rm</code>.</li>
+<li>Use <code>ls</code> after each step to check what happened.</li>
+</ol>
+</div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="term-files" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="term-files" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+    </article>
+    <div class="pn"><a href="term-what.html"><small>Previous lesson</small>What is the terminal?</a><a href="term-vscode.html" class="nx"><small>Next lesson</small>Set up VS Code and a local server</a></div>
+    <section class="toc"><h2>All lessons in Terminal &amp; Tools</h2><ol><li><a href="term-what.html">What is the terminal?</a></li><li class="now"><a href="term-files.html">Work with files and folders</a></li><li><a href="term-vscode.html">Set up VS Code and a local server</a></li><li><a href="term-errors.html">Read errors and find help</a></li></ol></section>
+    <p class="openlink"><a class="btn alt" href="../index.html#/post/term-files">Open this lesson in the course view (progress, practice, search)</a></p>
+    <aside class="credit"><span class="av md"><img src="../images/logo.svg" alt="">CT</span><div><h3>CHHOYED Team</h3><p>Site admin</p><p>Beginner courses, announcements and general information from the CHHOYED team.</p><p><a href="../index.html#/teacher/chhoyed-team">See all lessons by CHHOYED Team</a></p></div></aside>
+  </main>
+  <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
+    <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/tryit.js"></script>
+  <script src="../js/helpful.js"></script>
+  <script src="../js/page.js"></script>
+  <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+
+</html>

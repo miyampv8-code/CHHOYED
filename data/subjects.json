@@ -11,7 +11,18 @@
         "tagline": "The foundation guide for future web and mobile app developers",
         "icon": "BYC",
         "name_km": "មុនពេលសរសេរកូដ",
-        "tagline_km": "មគ្គុទ្ទេសក៍មូលដ្ឋានសម្រាប់អ្នកអភិវឌ្ឍគេហទំព័រ និងកម្មវិធីទូរសព្ទនាពេលអនាគត"
+        "tagline_km": "មគ្គុទ្ទេសក៍មូលដ្ឋានសម្រាប់អ្នកអភិវឌ្ឍគេហទំព័រ និងកម្មវិធីទូរសព្ទនាពេលអនាគត",
+        "exercises": "data/exercises/before-you-code.json"
+      },
+      {
+        "id": "terminal",
+        "name": "Terminal & Tools",
+        "color": "#475569",
+        "tagline": "Learn the terminal, VS Code and how to read errors",
+        "icon": ">_",
+        "exercises": "data/exercises/terminal.json",
+        "name_km": "Terminal និងឧបករណ៍",
+        "tagline_km": "រៀនប្រើ Terminal, VS Code និងអានសារកំហុស"
       },
       {
         "id": "html",
@@ -62,6 +73,16 @@
         "exercises": "data/exercises/git.json",
         "name_km": "Git និង GitHub",
         "tagline_km": "រៀន Git និង GitHub រក្សាទុកកូដ និងដាក់គេហទំព័ររបស់អ្នកលើអ៊ីនធឺណិត"
+      },
+      {
+        "id": "portfolio",
+        "name": "Build a Portfolio",
+        "color": "#db2777",
+        "tagline": "Build your own portfolio website and put it online",
+        "icon": "WWW",
+        "exercises": "data/exercises/portfolio.json",
+        "name_km": "បង្កើត Portfolio",
+        "tagline_km": "បង្កើតគេហទំព័រ Portfolio ផ្ទាល់ខ្លួន ហើយដាក់លើអ៊ីនធឺណិត"
       },
       {
         "id": "java",

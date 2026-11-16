@@ -1408,5 +1408,113 @@
     "order": 7,
     "part": "Publish and teamwork",
     "contentFile": "content/git-teamwork.md"
+  },
+  {
+    "id": "term-what",
+    "title": "What is the terminal?",
+    "summary": "Open a terminal, read the prompt, and move around with pwd, ls and cd.",
+    "subject": "coding",
+    "topic": "terminal",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 1,
+    "part": "Getting started",
+    "contentFile": "content/term-what.md"
+  },
+  {
+    "id": "term-files",
+    "title": "Work with files and folders",
+    "summary": "Make, copy, move and delete files with mkdir, touch, cp, mv and rm.",
+    "subject": "coding",
+    "topic": "terminal",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 2,
+    "part": "Getting started",
+    "contentFile": "content/term-files.md"
+  },
+  {
+    "id": "term-vscode",
+    "title": "Set up VS Code and a local server",
+    "summary": "Install VS Code, Live Server, Emmet shortcuts and a Python server.",
+    "subject": "coding",
+    "topic": "terminal",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 3,
+    "part": "Tools and habits",
+    "contentFile": "content/term-vscode.md"
+  },
+  {
+    "id": "term-errors",
+    "title": "Read errors and find help",
+    "summary": "Read error messages, use the browser console, and search and ask well.",
+    "subject": "coding",
+    "topic": "terminal",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 4,
+    "part": "Tools and habits",
+    "contentFile": "content/term-errors.md"
+  },
+  {
+    "id": "pf-plan",
+    "title": "Plan your portfolio",
+    "summary": "Decide the sections, write the words first and create the project folder.",
+    "subject": "coding",
+    "topic": "portfolio",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 1,
+    "part": "Plan and build",
+    "contentFile": "content/pf-plan.md"
+  },
+  {
+    "id": "pf-html",
+    "title": "Build the structure (HTML)",
+    "summary": "Write the complete index.html with semantic tags.",
+    "subject": "coding",
+    "topic": "portfolio",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 2,
+    "part": "Plan and build",
+    "contentFile": "content/pf-html.md"
+  },
+  {
+    "id": "pf-css",
+    "title": "Make it beautiful (CSS)",
+    "summary": "Variables, flexbox, grid, responsive rules and dark mode.",
+    "subject": "coding",
+    "topic": "portfolio",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 3,
+    "part": "Style and code",
+    "contentFile": "content/pf-css.md"
+  },
+  {
+    "id": "pf-js",
+    "title": "Make it interactive (JavaScript)",
+    "summary": "A mobile menu, a dark-mode button and a project filter.",
+    "subject": "coding",
+    "topic": "portfolio",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 4,
+    "part": "Style and code",
+    "contentFile": "content/pf-js.md"
+  },
+  {
+    "id": "pf-publish",
+    "title": "Publish and share it",
+    "summary": "Check quality with Lighthouse and put your site on GitHub Pages.",
+    "subject": "coding",
+    "topic": "portfolio",
+    "teacherId": "chhoyed-team",
+    "date": "2026-11-16",
+    "order": 5,
+    "part": "Publish",
+    "contentFile": "content/pf-publish.md"
   }
 ]
