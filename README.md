@@ -75,3 +75,15 @@ After the first push, open Google Search Console, choose **Sitemaps**, and submi
 
 `js/i18n.js` holds the Khmer words for the menu, buttons and messages. Course names and taglines are in
 `data/subjects.json` (`name_km`, `tagline_km`). Lesson titles and text stay in English.
+
+## Votes: "Was this lesson helpful?"
+
+Every vote is sent to GoatCounter as an event named `helpful/yes/<lesson id>` or `helpful/no/<lesson id>`.
+To get the total for every lesson in one table, run:
+
+```
+py helpful_report.py
+```
+
+It asks for a GoatCounter API key (GoatCounter, your user name in the top menu, then API; read statistics only),
+and writes `helpful-report.csv`. Never put the key in a file of this project and never push it to GitHub.
