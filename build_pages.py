@@ -8,6 +8,8 @@ with its own address, title, description and full text:
     lessons/html-text.html, lessons/css-grid.html, ...
     lessons/index.html      (a list of all lessons)
     about.html              (made from content/about.md)
+    roadmap.html            (made from data/roadmap.json)
+    playground.html         (the free code playground)
     404.html                (the "page not found" page)
     sitemap.xml             (tells Google about every page)
 
@@ -103,17 +105,17 @@ def short(text, n=158):
 
 
 # ---------------------------------------------------------------- page shell
-def shell(title, desc, path, prefix, body, jsonld=(), og_type="article", base_href="", scripts=True):
+def shell(title, desc, path, prefix, body, jsonld=(), og_type="article", base_href="", scripts=True, extra_js=""):
     canon = BASE + path
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>\n  ' for j in jsonld)
     nav = f'<a href="{prefix}index.html#/">All</a>' + "".join(
         f'<a href="{prefix}index.html#/subject/{esc(s["id"])}">{esc(s["name"])}</a>' for s in subjects
-    ) + f'<a href="{prefix}index.html#/contact">Contact</a><a href="{prefix}index.html#/search">Search</a>'
+    ) + f'<a href="{prefix}index.html#/roadmap">Roadmap</a><a href="{prefix}index.html#/contact">Contact</a><a href="{prefix}index.html#/search">Search</a>'
     gc = f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>' if GOATCOUNTER else ""
     js = (
-        '<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>\n'
-        f'  <script src="{prefix}js/tryit.js"></script>\n  <script src="{prefix}js/helpful.js"></script>\n  <script src="{prefix}js/page.js"></script>\n  {gc}'
-    ) if scripts else f'<script src="{prefix}js/page.js"></script>\n  {gc}'
+        f'<script src="{prefix}js/vendor/highlight.min.js"></script>\n'
+        f'  <script src="{prefix}js/tryit.js"></script>\n  <script src="{prefix}js/helpful.js"></script>\n  <script src="{prefix}js/reader.js"></script>\n  {extra_js}<script src="{prefix}js/page.js"></script>\n  {gc}'
+    ) if scripts else f'{extra_js}<script src="{prefix}js/page.js"></script>\n  {gc}'
     return f"""<!doctype html>
 <html lang="en">
 
@@ -139,10 +141,12 @@ def shell(title, desc, path, prefix, body, jsonld=(), og_type="article", base_hr
   {ld}<script>try{{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}}catch(e){{}}</script>
   <link rel="icon" type="image/svg+xml" href="{prefix}images/logo.svg">
   <link rel="apple-touch-icon" href="{prefix}images/apple-touch-icon.png">
+  <link rel="manifest" href="{prefix}manifest.webmanifest">
+  <meta name="theme-color" content="#5b3df5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="{prefix}js/vendor/atom-one-dark.min.css">
   <link rel="stylesheet" href="{prefix}css/style.css">
 </head>
 
@@ -160,7 +164,7 @@ def shell(title, desc, path, prefix, body, jsonld=(), og_type="article", base_hr
   </main>
   <footer class="wrap"><a class="logo" href="{prefix}index.html#/"><img src="{prefix}images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
     <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
-    <p class="flinks"><a href="{prefix}about.html">About</a> \u00b7 <a href="{prefix}lessons/index.html">All lessons</a></p>
+    <p class="flinks"><a href="{prefix}about.html">About</a> \u00b7 <a href="{prefix}lessons/index.html">All lessons</a> \u00b7 <a href="{prefix}roadmap.html">Roadmap</a> \u00b7 <a href="{prefix}playground.html">Playground</a></p>
   </footer>
   {js}
 </body>
@@ -226,9 +230,10 @@ def lesson_page(p):
     done = ('<div class="donebar"><span>Finished this lesson?</span>'
             f'<button type="button" class="btn donebtn" data-done="{esc(p["id"])}" aria-pressed="false">Mark as done</button></div>') if ordered else ""
     helpful = (
-        '<div class="helpful" data-helpful="%s" data-contact="%sindex.html#/contact"><span class="hq">Was this lesson helpful?</span>'
-        '<button type="button" data-vote="yes">\U0001F44D Yes</button><button type="button" data-vote="no">\U0001F44E Not really</button><span class="hm" role="status"></span></div>'
-    ) % (esc(p["id"]), prefix) if p.get("contentFile") else ""
+        '<div class="helpful" data-helpful="%s" data-contact="%sindex.html#/contact/%s"><span class="hq">Was this lesson helpful?</span>'
+        '<button type="button" data-vote="yes">\U0001F44D Yes</button><button type="button" data-vote="no">\U0001F44E Not really</button>'
+        '<a class="hrep" href="%sindex.html#/contact/%s">Found a mistake? Report it</a><span class="hm" role="status"></span></div>'
+    ) % (esc(p["id"]), prefix, esc(p["id"]), prefix, esc(p["id"])) if p.get("contentFile") else ""
 
     body = f"""    <div class="crumbs" role="navigation" aria-label="Breadcrumb">{crumb_html}</div>
     <article data-id="{esc(p['id'])}"{' data-ordered="1"' if ordered else ''}>
@@ -311,6 +316,38 @@ def about_page():
     return shell(f"About | {SITE}", "CHHOYED is a free place to learn coding, math and physics, from beginner to advanced.", "about.html", "", body, ld, "website", scripts=False)
 
 
+def roadmap_page():
+    road = load("data/roadmap.json")
+    tops = {t["id"]: (s, t) for s in subjects for t in s.get("topics", [])}
+    out = ['    <h1>Learning roadmap</h1>', '    <p class="blurb">Not sure where to start? Pick a path and follow the courses in order.</p>']
+    for pt in road["paths"]:
+        out.append(f'    <section class="rpath"><h2>{esc(pt["title"])}</h2><p class="blurb">{esc(pt["description"])}</p><ol class="rsteps">')
+        n = 0
+        for cid in pt["courses"]:
+            if cid not in tops:
+                continue
+            s_, t_ = tops[cid]
+            ps = seq([p for p in posts if p["subject"] == s_["id"] and p.get("topic") == cid])
+            if not ps:
+                continue
+            n += 1
+            out.append(f'<li class="rstep" style="--c:{esc(t_["color"])}"><a href="lessons/{esc(ps[0]["id"])}.html"><b>{n}</b><div><h3>{esc(t_["name"])}</h3>'
+                       f'<p>{esc(t_.get("tagline", ""))}</p><span class="pill">{len(ps)} lessons</span></div></a></li>')
+        out.append("    </ol></section>")
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Learning roadmap", "url": BASE + "roadmap.html", "isPartOf": {"@type": "WebSite", "name": SITE, "url": BASE}}]
+    return shell(f"Learning roadmap: how to learn web development, programming and math | {SITE}",
+                 "Pick a path and follow the free courses in order: web developer, data, programming and math.", "roadmap.html", "", "\n".join(out), ld, "website", scripts=False)
+
+
+def playground_page():
+    body = ('    <h1>Playground</h1>\n    <p class="blurb">Write HTML, CSS and JavaScript and see the result at once. Free, and nothing to install.</p>\n'
+            '    <div id="pg-root"></div>\n    <noscript><p>The playground needs JavaScript.</p></noscript>')
+    ld = [{"@context": "https://schema.org", "@type": "WebApplication", "name": "CHHOYED Playground", "url": BASE + "playground.html", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "isAccessibleForFree": True}]
+    return shell(f"Free online HTML, CSS and JavaScript playground | {SITE}",
+                 "Write HTML, CSS and JavaScript and see the result at once. Free, with a console, and nothing to install.", "playground.html", "", body, ld, "website",
+                 scripts=False, extra_js='<script src="js/playground.js"></script>\n  ')
+
+
 def not_found_page():
     body = ('    <article>\n      <h1>Page not found</h1>\n      <div class="lesson"><p>Sorry, this page does not exist. The link may be old or mistyped.</p>\n'
             '      <p><a class="btn" href="index.html#/">Go to the home page</a> <a class="btn alt" href="lessons/index.html">Browse all lessons</a></p></div>\n    </article>')
@@ -331,14 +368,16 @@ def main():
         count += 1
     (ROOT / "lessons" / "index.html").write_text(index_page(), encoding="utf-8")
     (ROOT / "about.html").write_text(about_page(), encoding="utf-8")
+    (ROOT / "roadmap.html").write_text(roadmap_page(), encoding="utf-8")
+    (ROOT / "playground.html").write_text(playground_page(), encoding="utf-8")
     (ROOT / "404.html").write_text(not_found_page(), encoding="utf-8")
 
     latest = max(p["date"] for p in posts)
-    urls = [(BASE, latest), (BASE + "lessons/", latest), (BASE + "about.html", latest)] + [(f"{BASE}lessons/{p['id']}.html", p["date"]) for p in posts]
+    urls = [(BASE, latest), (BASE + "lessons/", latest), (BASE + "about.html", latest), (BASE + "roadmap.html", latest), (BASE + "playground.html", latest)] + [(f"{BASE}lessons/{p['id']}.html", p["date"]) for p in posts]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"  <url><loc>{esc(u)}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n"
     (ROOT / "sitemap.xml").write_text(sm, encoding="utf-8")
-    print(f"Done: {count} lesson pages, lessons/index.html, about.html, 404.html and sitemap.xml with {len(urls)} addresses.")
+    print(f"Done: {count} lesson pages, lessons/index.html, about.html, roadmap.html, playground.html, 404.html and sitemap.xml with {len(urls)} addresses.")
 
 
 if __name__ == "__main__":

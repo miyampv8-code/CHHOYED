@@ -25,10 +25,12 @@
   <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#5b3df5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../js/vendor/atom-one-dark.min.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -36,7 +38,7 @@
   <header>
     <div class="wrap bar">
       <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
-      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/roadmap">Roadmap</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
       <a id="srch" class="tbtn sbtn" href="../index.html#/search" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
       <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
     </div>
@@ -116,7 +118,7 @@ Websites avoid this problem. They run inside a browser, and the browser exists o
 <li>Why do websites work on all operating systems?</li>
 </ol>
 </div>
-      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="byc-02-computer-os" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="byc-02-computer-os" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="byc-02-computer-os" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="byc-02-computer-os" data-contact="../index.html#/contact/byc-02-computer-os"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><a class="hrep" href="../index.html#/contact/byc-02-computer-os">Found a mistake? Report it</a><span class="hm" role="status"></span></div>
     </article>
     <div class="pn"><a href="byc-01-how-a-computer-works.html"><small>Previous lesson</small>1. How a computer works</a><a href="byc-03-mobile-os.html" class="nx"><small>Next lesson</small>3. Operating systems for mobile phones</a></div>
     <section class="toc"><h2>All lessons in Before You Code</h2><ol><li><a href="byc-about.html">About this book</a></li><li><a href="byc-01-how-a-computer-works.html">1. How a computer works</a></li><li class="now"><a href="byc-02-computer-os.html">2. Operating systems for computers</a></li><li><a href="byc-03-mobile-os.html">3. Operating systems for mobile phones</a></li><li><a href="byc-04-web-vs-mobile.html">4. Web vs. mobile</a></li><li><a href="byc-05-internet-and-apps.html">5. How the internet and apps talk</a></li><li><a href="byc-06-three-types-of-apps.html">6. The three types of mobile apps</a></li><li><a href="byc-07-programming-fundamentals.html">7. Programming fundamentals</a></li><li><a href="byc-08-languages-frameworks.html">8. Languages and frameworks overview</a></li><li><a href="byc-09-android-java-kotlin-flutter.html">9. Android development: Java, Kotlin and Flutter</a></li><li><a href="byc-10-essential-tools.html">10. Essential tools and skills beginners forget</a></li><li><a href="byc-11-roadmap.html">11. The complete roadmap</a></li><li><a href="byc-12-projects-career.html">12. Projects, practice and career</a></li><li><a href="byc-appendix-a-glossary.html">Appendix A: Glossary</a></li><li><a href="byc-appendix-b-self-check.html">Appendix B: Final self-check</a></li></ol></section>
@@ -125,11 +127,12 @@ Websites avoid this problem. They run inside a browser, and the browser exists o
   </main>
   <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
     <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
-    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a> · <a href="../roadmap.html">Roadmap</a> · <a href="../playground.html">Playground</a></p>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/vendor/highlight.min.js"></script>
   <script src="../js/tryit.js"></script>
   <script src="../js/helpful.js"></script>
+  <script src="../js/reader.js"></script>
   <script src="../js/page.js"></script>
   <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

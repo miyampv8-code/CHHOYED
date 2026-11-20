@@ -27,6 +27,7 @@
   // Try it editor and helpful buttons
   if (window.ChhoyedTry) ChhoyedTry.enhance(document);
   if (window.ChhoyedHelpful) ChhoyedHelpful.init(document);
+  if (window.ChhoyedReader) ChhoyedReader.enhance(document);
 
   // Progress (same storage as the course view)
   const PK = 'chhoyed-progress';
@@ -61,4 +62,9 @@
       });
     }, { passive: true });
   })();
+
+  // Offline support (same worker as the course view)
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    navigator.serviceWorker.register((location.pathname.indexOf('/lessons/') >= 0 ? '../' : '') + 'sw.js').catch(() => { });
+  }
 })();

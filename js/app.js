@@ -18,6 +18,7 @@ async function getJSON(p) {
 
 async function init() {
   const [teachers, subjects, posts] = await Promise.all(['teachers', 'subjects', 'posts'].map(n => getJSON(`data/${n}.json`)));
+  const roadmapData = await getJSON('data/roadmap.json').catch(() => ({ paths: [] }));
   const T = Object.fromEntries(teachers.map(t => [t.id, t]));
   const S = Object.fromEntries(subjects.map(s => [s.id, s]));
   posts.sort((a, b) => b.date.localeCompare(a.date));
@@ -27,11 +28,11 @@ async function init() {
     else if (S[p.subject].topics && !S[p.subject].topics.some(t => t.id === p.topic)) console.error(`Post "${p.id}" needs a topic from subject "${p.subject}" (got "${p.topic}")`);
     if (p.pages && (!p.book || p.pages.length !== 2)) console.error(`Post "${p.id}" needs "book" and "pages": [first, last]`);
   });
-  D = { teachers, subjects, posts, T, S };
+  D = { teachers, subjects, posts, T, S, roadmap: roadmapData };
   renderNav();
 }
 function renderNav() {
-  nav.innerHTML = `<a href="#/">${tr('All')}</a>` + D.subjects.map(s => `<a href="#/subject/${esc(s.id)}">${esc(nm(s))}</a>`).join('') + `<a href="#/contact">${tr('Contact')}</a><a href="#/search">${tr('Search')}</a>`;
+  nav.innerHTML = `<a href="#/">${tr('All')}</a>` + D.subjects.map(s => `<a href="#/subject/${esc(s.id)}">${esc(nm(s))}</a>`).join('') + `<a href="#/roadmap">${tr('Roadmap')}</a><a href="#/contact">${tr('Contact')}</a><a href="#/search">${tr('Search')}</a>`;
 }
 
 const tOf = p => D.T[p.teacherId] || { id: '', name: 'Unknown teacher', title: '' };
@@ -91,7 +92,7 @@ const home = () => {
   const more = D.posts.filter(p => !p.order);
   const stats = `<div class="stats">${[[D.posts.length, 'lessons'], [tracks.length, 'learning paths'], [D.subjects.length, 'categories'], [D.teachers.length, 'authors']].map(([n, l]) => `<div><b>${n}</b><span>${tr(l)}</span></div>`).join('')}</div>`;
   return `<section class="hero"><div><h1 lang="km">រៀនឱ្យចេះ <span class="hl">ហាត់ឱ្យពូកែ។</span></h1><p lang="km">មេរៀនឥតគិតថ្លៃ ផ្នែកកូដ គណិតវិទ្យា និងរូបវិទ្យា ពីមូលដ្ឋានដល់កម្រិតខ្ពស់។</p>` +
-    (first ? (() => { const a = D.posts.find(p => p.id === 'byc-01-how-a-computer-works') || first, b = D.posts.find(p => p.id === 'html-first-page'); return `<div class="btns"><a class="btn" href="#/post/${esc(a.id)}">${tr('Start learning')}</a>${b ? `<a class="btn alt" href="#/post/${esc(b.id)}">${tr('Build your first website')}</a>` : `<a class="btn alt" href="${trackUrl(first)}">See all lessons</a>`}</div>`; })() : '') +
+    (first ? (() => { const a = D.posts.find(p => p.id === 'byc-01-how-a-computer-works') || first, b = D.posts.find(p => p.id === 'html-first-page'); return `<div class="btns"><a class="btn" href="#/post/${esc(a.id)}">${tr('Start learning')}</a>${b ? `<a class="btn alt" href="#/post/${esc(b.id)}">${tr('Build your first website')}</a>` : `<a class="btn alt" href="${trackUrl(first)}">See all lessons</a>`}</div><p class="hero-links"><a href="#/roadmap">${tr('See the roadmap')} →</a><a href="#/playground">${tr('Try code in the playground')} →</a></p>`; })() : '') +
     `</div><div class="win" aria-hidden="true"><div class="top"><i></i><i></i><i></i><span>Main.java</span></div><pre><code class="language-java">${esc(HELLO)}</code></pre><div class="out">Hello, CHHOYED!</div></div></section>` +
     `${stats}${resume()}${paths}<h2>${tr('More lessons')}</h2>${grid(more)}<h2>${tr('Our teachers')}</h2><div class="grid">${D.teachers.map(tcard).join('')}</div>`;
 };
@@ -114,7 +115,7 @@ const subject = async (id, tid) => {
   const pr = t.exercises ? await getJSON(t.exercises).catch(() => null) : null;
   const back = tid ? `<a class="back" href="#/subject/${esc(id)}">${esc(tr('Back to {name}', { name: nm(s) }))}</a>` : '';
   const ord = seq(ps), dn = new Set(getP().done), nd = ord.filter(p => dn.has(p.id)).length;
-  const meter = ord.length ? `<div class="score" style="--c:${col(t.color)}"><span>${tr('{d} of {n} lessons done', { d: nd, n: ord.length })}</span>${bar(nd, ord.length)}</div>` : '';
+  const meter = (ord.length ? `<div class="score" style="--c:${col(t.color)}"><span>${tr('{d} of {n} lessons done', { d: nd, n: ord.length })}</span>${bar(nd, ord.length)}</div>` : '') + (ord.length && nd >= ord.length ? nextCard(t.id) : '');
   return `${back}<div class="th1">${ico(t, true)}<h1>${esc(nm(t))}</h1></div>${meter}${t.tagline ? `<p class="empty" style="border-style:solid">${esc(tg(t))}${KMODE() ? '។ ' : '. '}${tr('Follow the lessons in order.')}</p><br>` : ''}${ps.some(p => p.order) ? withPractice(path(ps), t, id, tid, pr, ps) : grid(ps)}`;
 };
 
@@ -224,6 +225,40 @@ function bindSearch() {
   go(); inp.focus();
 }
 
+// ---- Roadmap
+const courseInfo = id => {
+  for (const s of D.subjects) {
+    const t = (s.topics || []).find(x => x.id === id); if (!t) continue;
+    const ps = seq(D.posts.filter(p => p.subject === s.id && p.topic === id)), dn = new Set(getP().done);
+    return { s, t, ps, n: ps.length, d: ps.filter(p => dn.has(p.id)).length, first: ps[0], href: `#/subject/${s.id}/${id}` };
+  }
+  return null;
+};
+const nextCard = topicId => {
+  for (const pt of (D.roadmap && D.roadmap.paths) || []) {
+    const i = pt.courses.indexOf(topicId); if (i < 0) continue;
+    for (const id of pt.courses.slice(i + 1)) {
+      const c = courseInfo(id);
+      if (c && c.first) return `<div class="nextc" style="--c:${col(c.t.color)}"><small>${tr('Next in your roadmap')}</small><h3>${esc(nm(c.t))}</h3><p>${esc(tg(c.t) || '')}</p><a class="btn" href="#/post/${esc(c.first.id)}">${tr('Start this course')}</a></div>`;
+    }
+  }
+  return '';
+};
+const roadmap = () => {
+  const paths = (D.roadmap && D.roadmap.paths) || [];
+  const one = pt => {
+    const cs = pt.courses.map(courseInfo).filter(Boolean), nextIdx = cs.findIndex(c => c.d < c.n);
+    return `<section class="rpath"><h2>${esc((KMODE() && pt.title_km) || pt.title)}</h2><p class="blurb">${esc((KMODE() && pt.description_km) || pt.description)}</p><ol class="rsteps">` +
+      cs.map((c, i) => {
+        const done = c.d >= c.n, now = i === nextIdx;
+        return `<li class="rstep${done ? ' done' : ''}${now ? ' now' : ''}" style="--c:${col(c.t.color)}"><a href="${c.href}"><b>${done ? '✓' : i + 1}</b><div><h3>${esc(nm(c.t))}${now ? ` <em>${tr('Next up')}</em>` : ''}</h3><p>${esc(tg(c.t) || '')}</p><span class="pill">${tr(c.n === 1 ? '{n} lesson' : '{n} lessons', { n: c.n })}</span>${c.d ? bar(c.d, c.n, 'sm') : ''}</div></a></li>`;
+      }).join('') + '</ol></section>';
+  };
+  return `<h1>${tr('Learning roadmap')}</h1><p class="blurb">${tr('Not sure where to start? Pick a path and follow the courses in order.')}</p>${paths.map(one).join('')}`;
+};
+
+const playground = () => `<h1>${tr('Playground')}</h1><p class="blurb">Write HTML, CSS and JavaScript and see the result at once. Nothing to install.</p>${window.ChhoyedPlayground ? ChhoyedPlayground.markup() : ''}`;
+
 const teacher = id => {
   const t = D.T[id]; if (!t) return nf();
   return `<a class="back" href="#/">${tr('Back to lessons')}</a><div class="profile">${avatar(t, 'lg')}<div><h1>${esc(t.name)}</h1><p>${esc(t.title)}</p></div></div>` +
@@ -256,7 +291,7 @@ const post = async id => {
   return `<a class="back" href="#/">${tr('Back to lessons')}</a><article>${tag(s)}${prog}<h1>${esc(p.title)}</h1>` +
     `<a class="byline" href="#/teacher/${esc(t.id)}">${avatar(t, 'sm')}<span>${esc(t.name)}</span><time>${fmt(p.date)}</time></a>` +
     (p.file ? `<div class="btns fileb"><a class="btn" href="${esc(p.file)}" target="_blank" rel="noopener">Open the PDF</a><a class="btn alt" href="${esc(p.file)}" download>Download</a></div>` : '') +
-    `<div class="lesson">${body}</div>${k < 0 ? '' : `<div class="donebar"><span>${tr('Finished this lesson?')}</span>${doneBtn(id, getP().done.includes(id))}</div>`}${p.contentFile && window.ChhoyedHelpful ? ChhoyedHelpful.html(id, '#/contact') : ''}</article>${pn}` +
+    `<div class="lesson">${body}</div>${k < 0 ? '' : `<div class="donebar"><span>${tr('Finished this lesson?')}</span>${doneBtn(id, getP().done.includes(id))}</div>`}${p.contentFile && window.ChhoyedHelpful ? ChhoyedHelpful.html(id, '#/contact/' + id) : ''}</article>${pn}${k >= 0 && k === track.length - 1 && p.topic ? nextCard(p.topic) : ''}` +
     `<aside class="credit">${avatar(t, 'md')}<div><h3>${esc(t.name)}</h3><p>${esc(t.title)}</p><p>${esc(t.bio)}</p><p><a href="#/teacher/${esc(t.id)}">${esc(tr('See all lessons by {name}', { name: t.name }))}</a></p></div></aside>`;
 };
 
@@ -269,11 +304,12 @@ const hasLink = t => {
     /(?:^|\s)@\w{3,}/
   ].some(r => r.test(n));
 };
-const contact = () => `<h1>${tr('Contact us')}</h1><p class="blurb">${tr('Send us a message and we will reply to your email.')}</p>` +
+const prefill = id => { const lp = id && D.posts.find(p => p.id === id); return lp ? `Lesson: ${lp.title} (${lp.id})\n\n` : ''; };
+const contact = id => `<h1>${tr('Contact us')}</h1><p class="blurb">${tr('Send us a message and we will reply to your email.')}</p>` +
   `<form id="cf" class="cform" novalidate>` +
   `<label>${tr('Your name')}<input name="name" maxlength="80" required autocomplete="name"></label>` +
   `<label>${tr('Your email')}<input name="email" type="email" maxlength="120" required autocomplete="email"></label>` +
-  `<label>${tr('Message')}<textarea name="message" rows="6" maxlength="1000" required></textarea></label>` +
+  `<label>${tr('Message')}<textarea name="message" rows="6" maxlength="1000" required>${esc(prefill(id))}</textarea></label>` +
   `<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">` +
   `<p class="hint">${tr('Please do not include links. Your email is only used to reply to you.')}</p>` +
   `<button class="btn" type="submit">${tr('Send message')}</button><p id="cmsg" role="status"></p></form>`;
@@ -319,7 +355,7 @@ async function route() {
   const id = decodeURIComponent(raw || ''), sub = decodeURIComponent(raw2 || '');
   try {
     if (!D) await init();
-    const view = { post, teacher, subject, contact, practice, search }[page];
+    const view = { post, teacher, subject, contact, practice, search, roadmap, playground }[page];
     app.innerHTML = view ? await view(id, sub) : home();
   } catch (e) {
     app.innerHTML = `<p class="err">${esc(e.message)}<br>If you opened index.html straight from your computer, start a local server instead (see README.md).</p>`;
@@ -329,15 +365,17 @@ async function route() {
   app.querySelectorAll('.lesson pre').forEach(pre => { if (pre.querySelector('.copy')) return; const b = document.createElement('button'); b.type = 'button'; b.className = 'copy'; b.textContent = 'Copy'; b.setAttribute('aria-label', 'Copy code'); pre.appendChild(b); });
   if (window.ChhoyedTry) ChhoyedTry.enhance(app);
   if (window.ChhoyedHelpful) ChhoyedHelpful.init(app);
+  if (window.ChhoyedReader) ChhoyedReader.enhance(app);
+  if (page === 'playground' && window.ChhoyedPlayground) ChhoyedPlayground.init(app);
   app.querySelectorAll('.lesson blockquote').forEach(bq => { const f = bq.querySelector('strong')?.textContent || ''; bq.classList.add('co', /key idea/i.test(f) ? 'key' : /remember/i.test(f) ? 'rem' : 'note'); });
   if (document.getElementById('prc')) bindPractice();
   if (document.getElementById('sq')) bindSearch();
   const cf = document.getElementById('cf'); if (cf) cf.addEventListener('submit', sendContact);
   const h = app.querySelector('h1');
   document.title = page && h ? `${h.textContent} - CHHOYED` : 'CHHOYED';
-  const active = page === 'subject' ? `#/subject/${id}` : page === 'contact' ? '#/contact' : page === 'search' ? '#/search' : (!page ? '#/' : null);
+  const active = page === 'subject' ? `#/subject/${id}` : page === 'contact' ? '#/contact' : page === 'search' ? '#/search' : page === 'roadmap' ? '#/roadmap' : page === 'playground' ? '#/playground' : (!page ? '#/' : null);
   nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === active));
-  { const on = nav.querySelector('a.on'); if (on && nav.scrollWidth > nav.clientWidth) { const x = on.getBoundingClientRect().left - nav.getBoundingClientRect().left + nav.scrollLeft; nav.scrollTo({ left: Math.max(0, x - (nav.clientWidth - on.offsetWidth) / 2), behavior: 'smooth' }); } }
+  { const on = nav.querySelector('a.on'); if (on && matchMedia('(max-width:760px)').matches && nav.scrollWidth > nav.clientWidth) { const x = on.getBoundingClientRect().left - nav.getBoundingClientRect().left + nav.scrollLeft; nav.scrollTo({ left: Math.max(0, x - (nav.clientWidth - on.offsetWidth) / 2), behavior: 'smooth' }); } else if (!on && matchMedia('(max-width:760px)').matches) nav.scrollTo({ left: 0, behavior: 'smooth' }); }
   window.scrollTo(0, 0);
   track();
 }
@@ -347,7 +385,8 @@ function applyStatic() {
   if (lb) { lb.textContent = L ? 'EN' : 'ខ្មែរ'; lb.title = L ? 'Switch to English' : 'ប្តូរទៅភាសាខ្មែរ'; lb.setAttribute('aria-label', lb.title); }
   const fp = document.querySelectorAll('footer p');
   if (fp[0]) fp[0].textContent = tr('Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.');
-  if (fp[1]) fp[1].innerHTML = `<a href="about.html">${tr('About')}</a> · <a href="lessons/index.html">${tr('All lessons')}</a>`;
+  const ob = document.getElementById('offline-btn'); if (ob && !ob.dataset.busy) ob.textContent = tr('Save lessons for offline use');
+  if (fp[1]) fp[1].innerHTML = `<a href="about.html">${tr('About')}</a> · <a href="lessons/index.html">${tr('All lessons')}</a> · <a href="#/roadmap">${tr('Roadmap')}</a> · <a href="#/playground">${tr('Playground')}</a>`;
 }
 const langBtn = document.getElementById('lang');
 if (langBtn && window.I18N) langBtn.addEventListener('click', () => { I18N.set(KMODE() ? 'en' : 'km'); if (D) renderNav(); applyStatic(); route(); });
@@ -397,4 +436,29 @@ addEventListener('keydown', e => {
       last = y; busy = false;
     });
   }, { passive: true });
+})();
+
+// ---- Offline: register the service worker and the "Save lessons for offline use" button
+(function () {
+  if (!('serviceWorker' in navigator)) return;
+  const btn = document.getElementById('offline-btn');
+  const secure = location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!secure) return;
+  navigator.serviceWorker.register('sw.js').then(() => { if (btn) btn.hidden = false; }).catch(() => { });
+  if (!btn) return;
+  const idle = () => { delete btn.dataset.busy; btn.disabled = false; btn.textContent = tr('Save lessons for offline use'); };
+  navigator.serviceWorker.addEventListener('message', e => {
+    const m = e.data || {};
+    if (m.type === 'precache-progress') { btn.dataset.busy = '1'; btn.disabled = true; btn.textContent = tr('Saving lessons\u2026 {d} of {n}', { d: m.done, n: m.total }); }
+    if (m.type === 'precache-done') {
+      btn.dataset.busy = '1'; btn.disabled = false;
+      btn.textContent = m.failed === 0 ? tr('Saved. The lessons now work without internet.') : tr('Could not save all lessons. Check your internet and try again.');
+      setTimeout(idle, 5000);
+    }
+  });
+  btn.addEventListener('click', async () => {
+    const reg = await navigator.serviceWorker.ready;
+    const w = reg.active || navigator.serviceWorker.controller;
+    if (w) w.postMessage('precache-all');
+  });
 })();

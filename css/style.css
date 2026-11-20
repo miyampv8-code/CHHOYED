@@ -1964,3 +1964,532 @@ footer.wrap {
         padding: 0 9px
     }
 }
+
+/* ---- Roadmap ---- */
+.hero-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 14px 0 0;
+    font-weight: 600
+}
+
+.hero-links a {
+    color: var(--acc);
+    text-decoration: none
+}
+
+.hero-links a:hover {
+    text-decoration: underline
+}
+
+.rpath {
+    margin: 34px 0
+}
+
+.rpath h2 {
+    margin-bottom: 4px
+}
+
+.rsteps {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    position: relative
+}
+
+.rsteps::before {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 24px;
+    bottom: 24px;
+    width: 3px;
+    border-radius: 3px;
+    background: var(--line)
+}
+
+.rstep {
+    position: relative;
+    margin: 0 0 12px
+}
+
+.rstep a {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 20px 16px 16px;
+    border-radius: 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: var(--sh);
+    text-decoration: none;
+    color: inherit;
+    transition: transform .15s, border-color .15s
+}
+
+.rstep a:hover {
+    transform: translateX(4px);
+    border-color: var(--c)
+}
+
+.rstep b {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--c);
+    color: #fff;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1
+}
+
+.rstep.done b {
+    background: var(--ok)
+}
+
+.rstep.now a {
+    border-color: var(--c);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 22%, transparent)
+}
+
+.rstep h3 {
+    margin: 0 0 3px;
+    font-size: 1.1rem
+}
+
+.rstep h3 em {
+    margin-left: 6px;
+    padding: 2px 10px;
+    border-radius: 99px;
+    background: var(--c);
+    color: #fff;
+    font-size: .72rem;
+    font-style: normal;
+    font-weight: 700;
+    vertical-align: middle
+}
+
+.rstep p {
+    margin: 0 0 8px;
+    color: var(--mute);
+    font-size: .95rem
+}
+
+.rstep .pbar.sm {
+    margin-top: 10px;
+    max-width: 260px
+}
+
+.rstep .pbar i {
+    background: var(--c)
+}
+
+.nextc {
+    margin: 22px 0 0;
+    padding: 22px 24px;
+    border-radius: 20px;
+    background: linear-gradient(120deg, color-mix(in srgb, var(--c) 14%, var(--card)), var(--card));
+    border: 1px solid color-mix(in srgb, var(--c) 40%, var(--line))
+}
+
+.nextc small {
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: var(--c)
+}
+
+.nextc h3 {
+    margin: .3em 0 .1em;
+    font-size: 1.3rem
+}
+
+.nextc p {
+    margin: 0 0 14px;
+    color: var(--mute)
+}
+
+/* Desktop: eight menu items must fit without scrolling */
+@media(min-width:761px) {
+    header nav {
+        gap: 2px
+    }
+
+    header nav a {
+        padding: 9px 13px
+    }
+}
+
+@media(min-width:761px) and (max-width:1100px) {
+    header nav a {
+        padding: 9px 9px;
+        font-size: .95rem
+    }
+}
+
+/* ---- Playground ---- */
+.pg {
+    margin: 18px 0
+}
+
+.pg-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px
+}
+
+.pg-bar label {
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--mute)
+}
+
+.pg-bar select {
+    margin-left: 6px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    font: inherit
+}
+
+.pg-sp {
+    flex: 1
+}
+
+.pg-bar button,
+.pg-tabs button,
+.pg-con-h button {
+    padding: 7px 14px;
+    border-radius: 99px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    font: 600 .88rem/1.3 system-ui, sans-serif;
+    cursor: pointer
+}
+
+.pg-bar .pg-run {
+    background: var(--ok);
+    border-color: var(--ok);
+    color: #fff
+}
+
+.pg-g {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start
+}
+
+.pg-ed {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--code);
+    box-shadow: var(--sh)
+}
+
+.pg-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, .07)
+}
+
+.pg-tabs button {
+    background: transparent;
+    color: #cfd3ee;
+    border-color: transparent
+}
+
+.pg-tabs button.on {
+    background: var(--acc);
+    color: #fff
+}
+
+.pg-ed textarea {
+    min-height: 400px;
+    padding: 14px;
+    border: 0;
+    background: transparent;
+    color: #e8eaf6;
+    font: .9rem/1.55 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    resize: vertical;
+    white-space: pre;
+    tab-size: 2;
+    overflow: auto;
+    outline: none
+}
+
+.pg-out {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.pg-out iframe {
+    width: 100%;
+    height: 300px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: var(--sh)
+}
+
+.pg-con {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--card);
+    overflow: hidden
+}
+
+.pg-con-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--line);
+    font-size: .85rem
+}
+
+.pg-log {
+    height: 120px;
+    overflow: auto;
+    padding: 8px 12px;
+    font: .82rem/1.5 ui-monospace, Menlo, Consolas, monospace
+}
+
+.pg-line.error {
+    color: #d32f2f
+}
+
+.pg-line.warn {
+    color: #b26a00
+}
+
+.pg-line.hint {
+    color: var(--mute);
+    font-style: italic
+}
+
+.pg-hint {
+    color: var(--mute);
+    font-size: .9rem;
+    margin: 12px 4px 0
+}
+
+@media(max-width:860px) {
+    .pg-g {
+        grid-template-columns: 1fr
+    }
+
+    .pg-ed textarea {
+        min-height: 280px
+    }
+}
+
+/* ---- Reading helpers: reading time, print button, "On this page" ---- */
+.rt,
+.printbtn {
+    margin-right: 6px
+}
+
+.printbtn {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: .85rem
+}
+
+.printbtn:hover {
+    background: color-mix(in srgb, var(--acc) 18%, var(--card))
+}
+
+.otp-top {
+    margin: 0 0 22px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card)
+}
+
+.otp-top summary {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.otp button {
+    display: block;
+    width: 100%;
+    padding: 6px 8px;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: var(--mute);
+    font: inherit;
+    font-size: .93rem;
+    text-align: left;
+    cursor: pointer
+}
+
+.otp button:hover {
+    color: var(--acc)
+}
+
+.otp-side {
+    display: none
+}
+
+@media(min-width:1180px) {
+    .lesson {
+        position: relative
+    }
+
+    .otp-top {
+        display: none
+    }
+
+    .otp-side {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 28px);
+        width: 210px;
+        height: 100%
+    }
+
+    .otp-in {
+        position: sticky;
+        top: 96px;
+        max-height: calc(100vh - 120px);
+        overflow: auto;
+        padding-left: 10px;
+        border-left: 2px solid var(--line)
+    }
+
+    .otp-in b {
+        display: block;
+        margin: 0 0 6px;
+        color: var(--mute);
+        font: 700 .78rem/1.2 "Bricolage Grotesque", system-ui, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: .08em
+    }
+
+    .otp-side button.on {
+        background: color-mix(in srgb, var(--acc) 10%, transparent);
+        color: var(--acc);
+        font-weight: 700
+    }
+}
+
+.hrep {
+    margin-left: auto;
+    color: var(--mute);
+    font-size: .9rem
+}
+
+/* ---- Print: lessons print cleanly, without menus and buttons ---- */
+@page {
+    margin: 16mm
+}
+
+@media print {
+
+    header,
+    footer,
+    .donebar,
+    .helpful,
+    .pn,
+    .toc,
+    .credit,
+    .openlink,
+    .nextc,
+    .crumbs,
+    .tbtn,
+    .copy,
+    .tryb,
+    .try,
+    .otp,
+    .printbtn,
+    .hero-links,
+    .fileb,
+    #offline-btn {
+        display: none !important
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important
+    }
+
+    .wrap {
+        width: auto !important;
+        max-width: none !important;
+        padding: 0 !important
+    }
+
+    .lesson {
+        max-width: none !important;
+        font-size: 11pt
+    }
+
+    .lesson pre {
+        padding: 8px 10px !important;
+        border: 1px solid #999;
+        background: #fff !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        white-space: pre-wrap;
+        word-break: break-word
+    }
+
+    .lesson pre code,
+    .lesson pre code * {
+        color: #000 !important;
+        background: none !important
+    }
+
+    .lesson blockquote.co {
+        background: #fff !important;
+        border: 1px solid #999
+    }
+
+    h1,
+    h2,
+    h3 {
+        break-after: avoid
+    }
+
+    pre,
+    table,
+    blockquote,
+    img {
+        break-inside: avoid
+    }
+
+    a {
+        color: #000 !important
+    }
+}
+
+.offline {
+    margin: 6px 0 0;
+    font-size: .9rem
+}
+
+#offline-btn:disabled {
+    opacity: .8;
+    cursor: progress
+}

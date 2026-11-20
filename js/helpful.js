@@ -14,6 +14,7 @@
     '<span class="hq">' + esc(tr('Was this lesson helpful?')) + '</span>' +
     '<button type="button" data-vote="yes">\uD83D\uDC4D ' + esc(tr('Yes')) + '</button>' +
     '<button type="button" data-vote="no">\uD83D\uDC4E ' + esc(tr('Not really')) + '</button>' +
+    '<a class="hrep" href="' + esc(contactHref || '#/contact') + '">' + esc(tr('Found a mistake? Report it')) + '</a>' +
     '<span class="hm" role="status"></span></div>';
 
   const paint = el => {

@@ -6,6 +6,26 @@
    (fields name_km and tagline_km). */
 (function () {
   const KM = {
+
+    // Roadmap, playground, reading helpers, offline
+    'Roadmap': 'ផែនទីសិក្សា',
+    'Learning roadmap': 'ផែនទីសិក្សា',
+    'Not sure where to start? Pick a path and follow the courses in order.': 'មិនដឹងចាប់ផ្តើមពីណា? ជ្រើសរើសផ្លូវមួយ ហើយរៀនតាមលំដាប់វគ្គសិក្សា។',
+    'Next up': 'បន្ទាប់',
+    'Next in your roadmap': 'បន្ទាប់ក្នុងផែនទីសិក្សារបស់អ្នក',
+    'Start this course': 'ចាប់ផ្តើមវគ្គនេះ',
+    'See the roadmap': 'មើលផែនទីសិក្សា',
+    'Try code in the playground': 'សាកល្បងសរសេរកូដក្នុង Playground',
+    'Playground': 'កន្លែងសាកល្បងកូដ',
+    '{n} min read': 'អាន {n} នាទី',
+    'Print': 'បោះពុម្ព',
+    'On this page': 'ក្នុងទំព័រនេះ',
+    'Found a mistake? Report it': 'រកឃើញកំហុស? រាយការណ៍',
+    'Save lessons for offline use': 'រក្សាទុកមេរៀនសម្រាប់ប្រើដោយគ្មានអ៊ីនធឺណិត',
+    'Saving lessons\u2026 {d} of {n}': 'កំពុងរក្សាទុកមេរៀន\u2026 {d} ក្នុងចំណោម {n}',
+    'Saved. The lessons now work without internet.': 'បានរក្សាទុក។ ឥឡូវនេះមេរៀនអាចប្រើបានដោយគ្មានអ៊ីនធឺណិត។',
+    'Could not save all lessons. Check your internet and try again.': 'រក្សាទុកមេរៀនមិនអស់ទេ។ សូមពិនិត្យអ៊ីនធឺណិត ហើយសាកល្បងម្តងទៀត។',
+
     // Menu and general
     'All': 'ទាំងអស់',
     'Contact': 'ទំនាក់ទំនង',

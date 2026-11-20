@@ -1,0 +1,36 @@
+{
+  "paths": [
+    {
+      "id": "web",
+      "title": "Become a web developer",
+      "title_km": "ក្លាយជាអ្នកអភិវឌ្ឍគេហទំព័រ",
+      "description": "From zero to your own live website. Start here if you are new.",
+      "description_km": "ពីសូន្យ រហូតដល់គេហទំព័ររបស់អ្នកផ្ទាល់ដែលដំណើរការលើអ៊ីនធឺណិត។ ចាប់ផ្តើមនៅទីនេះប្រសិនបើអ្នកជាអ្នកថ្មី។",
+      "courses": ["before-you-code", "terminal", "html", "css", "javascript", "git", "portfolio"]
+    },
+    {
+      "id": "data",
+      "title": "Work with data",
+      "title_km": "ធ្វើការជាមួយទិន្នន័យ",
+      "description": "Learn to program, then store data and ask it questions with SQL.",
+      "description_km": "រៀនសរសេរកម្មវិធី ហើយបន្ទាប់មករក្សាទុកទិន្នន័យ និងសួរសំណួរដោយប្រើ SQL។",
+      "courses": ["before-you-code", "python", "sql"]
+    },
+    {
+      "id": "programming",
+      "title": "Programming and desktop apps",
+      "title_km": "ការសរសេរកម្មវិធី និងកម្មវិធីលើកុំព្យូទ័រ",
+      "description": "Learn the logic of programming with Python, Java and C++, then build windows and buttons.",
+      "description_km": "រៀនតក្កវិទ្យានៃការសរសេរកម្មវិធីជាមួយ Python, Java និង C++ រួចបង្កើតបង្អួច និងប៊ូតុង។",
+      "courses": ["before-you-code", "python", "java", "awt", "cpp"]
+    },
+    {
+      "id": "math",
+      "title": "Math for exams and university",
+      "title_km": "គណិតវិទ្យាសម្រាប់ការប្រឡង និងសាកលវិទ្យាល័យ",
+      "description": "From the basics to limits and integrals, with worked solutions.",
+      "description_km": "ពីមូលដ្ឋាន ទៅលីមីត និងអាំងតេក្រាល ជាមួយចម្លើយលម្អិត។",
+      "courses": ["general", "limit", "integral"]
+    }
+  ]
+}

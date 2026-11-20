@@ -44,6 +44,18 @@
     return body + '<div id="__log"></div>' + logger + '<script>' + safeScript(code) + '<\/script>';
   }
 
+  // Send the code of a block to the Playground page (HTML, CSS and JavaScript go to their own tabs)
+  function toPlayground(kind, code, htmlCtx) {
+    let html = '', css = '', js = '';
+    const frag = h => { const d = new DOMParser().parseFromString(h, 'text/html'); const st = [...d.querySelectorAll('style')].map(x => x.textContent).join('\n\n'), sc = [...d.querySelectorAll('script:not([src])')].map(x => x.textContent).join('\n\n'); d.querySelectorAll('script,style,link').forEach(x => x.remove()); return { html: d.body.innerHTML.trim(), css: st.trim(), js: sc.trim() }; };
+    if (kind === 'html') ({ html, css, js } = frag(code));
+    else if (kind === 'css') { css = code; html = htmlCtx ? frag(htmlCtx).html : SAMPLE; }
+    else { js = code; html = htmlCtx ? frag(htmlCtx).html : ''; }
+    try { sessionStorage.setItem('chhoyed-pg-import', JSON.stringify({ html, css, js })); } catch { }
+    const spa = !!document.getElementById('app');
+    location.href = (spa ? '' : (location.pathname.indexOf('/lessons/') >= 0 ? '../' : '') + 'index.html') + '#/playground';
+  }
+
   function open(pre, kind, original, htmlCtx) {
     let panel = pre.nextElementSibling;
     if (panel && panel.classList.contains('try')) { panel.querySelector('textarea').focus(); return; }
@@ -52,7 +64,7 @@
     panel.className = 'try';
     panel.innerHTML = '<div class="try-h"><b>Try it</b><span>' + (live ? 'Edit the code. The result updates as you type.' : 'Edit the code, then press Run (or Ctrl + Enter).') + '</span>' +
       '<span class="try-sp"></span>' + (live ? '' : '<button type="button" class="try-run">Run</button>') +
-      '<button type="button" class="try-reset">Reset</button><button type="button" class="try-close">Close</button></div>' +
+      '<button type="button" class="try-pg">Open in Playground</button><button type="button" class="try-reset">Reset</button><button type="button" class="try-close">Close</button></div>' +
       '<div class="try-g"><textarea class="try-code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Code editor"></textarea>' +
       '<iframe class="try-out" sandbox="allow-scripts allow-modals allow-forms" title="Result"></iframe></div>';
     pre.after(panel);
@@ -70,6 +82,7 @@
       if (b.classList.contains('try-run')) run();
       if (b.classList.contains('try-reset')) { ta.value = original; run(); }
       if (b.classList.contains('try-close')) panel.remove();
+      if (b.classList.contains('try-pg')) toPlayground(kind, ta.value, htmlCtx);
     });
     run();
   }

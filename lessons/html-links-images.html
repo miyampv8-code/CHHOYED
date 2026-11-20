@@ -25,10 +25,12 @@
   <script>try{var t=localStorage.getItem("chhoyed-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#5b3df5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&family=Noto+Sans+Khmer:wght@400;600&family=Noto+Serif+Khmer:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="../js/vendor/atom-one-dark.min.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -36,7 +38,7 @@
   <header>
     <div class="wrap bar">
       <a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="34" height="34" alt="">CHHOYED</a>
-      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
+      <nav id="nav" aria-label="Subjects"><a href="../index.html#/">All</a><a href="../index.html#/subject/coding">Coding</a><a href="../index.html#/subject/math">Math</a><a href="../index.html#/subject/physics">Physics</a><a href="../index.html#/subject/news">News</a><a href="../index.html#/roadmap">Roadmap</a><a href="../index.html#/contact">Contact</a><a href="../index.html#/search">Search</a></nav>
       <a id="srch" class="tbtn sbtn" href="../index.html#/search" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
       <button id="theme" class="tbtn" type="button" aria-label="Switch theme"></button>
     </div>
@@ -84,7 +86,7 @@
 <h2>Try it</h2>
 <p>Add a photo of your choice with a good <code>alt</code> text, and a link to your favourite website that opens in a new tab.</p>
 </div>
-      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="html-links-images" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="html-links-images" data-contact="../index.html#/contact"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><span class="hm" role="status"></span></div>
+      <div class="donebar"><span>Finished this lesson?</span><button type="button" class="btn donebtn" data-done="html-links-images" aria-pressed="false">Mark as done</button></div><div class="helpful" data-helpful="html-links-images" data-contact="../index.html#/contact/html-links-images"><span class="hq">Was this lesson helpful?</span><button type="button" data-vote="yes">👍 Yes</button><button type="button" data-vote="no">👎 Not really</button><a class="hrep" href="../index.html#/contact/html-links-images">Found a mistake? Report it</a><span class="hm" role="status"></span></div>
     </article>
     <div class="pn"><a href="html-text.html"><small>Previous lesson</small>Headings, paragraphs and text</a><a href="html-lists.html" class="nx"><small>Next lesson</small>Lists</a></div>
     <section class="toc"><h2>All lessons in HTML</h2><ol><li><a href="html-first-page.html">Your first web page</a></li><li><a href="html-text.html">Headings, paragraphs and text</a></li><li class="now"><a href="html-links-images.html">Links and images</a></li><li><a href="html-lists.html">Lists</a></li><li><a href="html-tables.html">Tables</a></li><li><a href="html-forms.html">Forms and inputs</a></li><li><a href="html-semantic.html">Page layout with semantic tags</a></li><li><a href="html-project.html">Project: a personal profile page</a></li></ol></section>
@@ -93,11 +95,12 @@
   </main>
   <footer class="wrap"><a class="logo" href="../index.html#/"><img src="../images/logo.svg" width="28" height="28" alt="">CHHOYED</a>
     <p>Free lessons in coding, math and physics. Every lesson is posted by the CHHOYED team.</p>
-    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a></p>
+    <p class="flinks"><a href="../about.html">About</a> · <a href="../lessons/index.html">All lessons</a> · <a href="../roadmap.html">Roadmap</a> · <a href="../playground.html">Playground</a></p>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="../js/vendor/highlight.min.js"></script>
   <script src="../js/tryit.js"></script>
   <script src="../js/helpful.js"></script>
+  <script src="../js/reader.js"></script>
   <script src="../js/page.js"></script>
   <script data-goatcounter="https://chhoyed.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
